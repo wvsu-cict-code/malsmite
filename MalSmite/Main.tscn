@@ -10,14 +10,14 @@
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 66.6021, 0.0385416, 65.4949 )
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 1, 14.6279, 70.3286 )
 
-[sub_resource type="ProceduralSky" id=3]
+[sub_resource type="ProceduralSky" id=4]
 
-[sub_resource type="Environment" id=4]
+[sub_resource type="Environment" id=5]
 background_mode = 2
-background_sky = SubResource( 3 )
+background_sky = SubResource( 4 )
 ambient_light_energy = 1.18
 adjustment_enabled = true
 adjustment_brightness = 1.1
@@ -42,22 +42,22 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -63.0185, 0, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.2264, 0, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.398621, 0, -58.1328 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.398621, 0, 62.3043 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
-environment = SubResource( 4 )
+environment = SubResource( 5 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Level"]
 transform = Transform( 1, 0, 0, 0, 0.156796, 0.987631, 0, -0.987631, 0.156796, 4.70974, 1.52417, 0 )
