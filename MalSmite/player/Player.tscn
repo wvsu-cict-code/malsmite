@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://player/Player.gd" type="Script" id=1]
+[ext_resource path="res://controller/Controller.tscn" type="PackedScene" id=2]
+
+[sub_resource type="SphereShape" id=1]
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 1 )
+controllerPath = NodePath("Controller")
+
+[node name="CSGSphere" type="CSGSphere" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="Target" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37222, 4.77074 )
+
+[node name="Camera" type="Camera" parent="Target"]
+transform = Transform( 1, 0, 0, 0, 0.679275, 0.733884, 0, -0.733884, 0.679275, 0, 0.90554, 0.698067 )
+
+[node name="Controller" parent="." instance=ExtResource( 2 )]
+margin_left = 1.6326
+margin_top = -301.403
+margin_right = 301.633
+margin_bottom = -1.40314
