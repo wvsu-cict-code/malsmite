@@ -1,27 +1,109 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://controller/Controller.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/Model.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera.gd" type="Script" id=4]
+[ext_resource path="res://player/booster.tres" type="Material" id=5]
+[ext_resource path="res://player/Particles1.tscn" type="PackedScene" id=6]
+
+[sub_resource type="QuadMesh" id=2]
+material = ExtResource( 5 )
+size = Vector2( 0.8, 0.8 )
+
+[sub_resource type="QuadMesh" id=4]
+material = ExtResource( 5 )
+size = Vector2( 0.8, 0.8 )
+
+[sub_resource type="QuadMesh" id=3]
+material = ExtResource( 5 )
+size = Vector2( 0.5, 0.5 )
 
 [sub_resource type="SphereShape" id=1]
+
+[sub_resource type="Animation" id=5]
+resource_name = "hover"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Root:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( -2, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.272, 0 ), Vector3( 0, 0, 0 ) ]
+}
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 controllerPath = NodePath("Controller")
 
-[node name="CSGSphere" type="CSGSphere" parent="."]
+[node name="Root" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271964, 0 )
+
+[node name="Model" parent="Root" instance=ExtResource( 3 )]
+transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 0, 2.17182, 0 )
+
+[node name="BoosterFast" parent="Root" instance=ExtResource( 6 )]
+transform = Transform( 0.0673029, -0.631047, -0.889285, 0.0429768, 0.822388, -0.56786, 0.997148, 0, 0.0754662, -1.63625, 2.60911, 0.019793 )
+amount = 24
+lifetime = 0.3
+mesh = SubResource( 2 )
+
+[node name="BoosterSlow" parent="Root" instance=ExtResource( 6 )]
+transform = Transform( 0.0647361, -0.677025, -0.85537, 0.0467537, 0.784971, -0.617766, 0.997148, 0, 0.0754662, -1.5549, 2.68692, 0.019793 )
+visible = false
+amount = 8
+lifetime = 0.05
+mesh = SubResource( 4 )
+
+[node name="Booster2" parent="Root" instance=ExtResource( 6 )]
+transform = Transform( 0.285806, -0.755984, -0.726203, -0.84174, 0.131624, -0.536356, 0.458771, 0.696927, -0.551308, 0.0358648, 1.16606, -0.492084 )
+amount = 4
+lifetime = 0.2
+mesh = SubResource( 3 )
+
+[node name="Booster3" parent="Root" instance=ExtResource( 6 )]
+transform = Transform( 0.773087, 0.128035, -0.650149, -0.591626, 0.523833, -0.614804, 0.23021, 0.885296, 0.56419, 0.0358648, 1.16606, 0.484166 )
+amount = 4
+lifetime = 0.2
+mesh = SubResource( 3 )
+
+[node name="Booster4" parent="Root" instance=ExtResource( 6 )]
+transform = Transform( 0.728384, 0.0848077, 0.717873, 0.509575, -0.762656, -0.547454, 0.458771, 0.696927, -0.551308, 1.2942, 1.16606, -0.492084 )
+amount = 4
+lifetime = 0.2
+mesh = SubResource( 3 )
+
+[node name="Booster5" parent="Root" instance=ExtResource( 6 )]
+transform = Transform( 0.511557, -0.533992, 0.676593, 0.828248, 0.0751416, -0.585577, 0.23021, 0.885296, 0.56419, 1.2942, 1.16606, 0.484166 )
+amount = 4
+lifetime = 0.2
+mesh = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1.55737, 0, 0, 0, 1.55737, 0, 1.58048, 0 )
 shape = SubResource( 1 )
-
-[node name="Target" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37222, 4.77074 )
-
-[node name="Camera" type="Camera" parent="Target"]
-transform = Transform( 1, 0, 0, 0, 0.679275, 0.733884, 0, -0.733884, 0.679275, 0, 0.90554, 0.698067 )
 
 [node name="Controller" parent="." instance=ExtResource( 2 )]
 margin_left = 1.6326
 margin_top = -301.403
 margin_right = 301.633
 margin_bottom = -1.40314
+
+[node name="Target" type="Spatial" parent="."]
+transform = Transform( 0.687024, 0, 0.726635, 0, 1, 0, -0.726635, 0, 0.687024, 7.0107, 9.31233, 3.91664 )
+
+[node name="Camera" type="Camera" parent="Target"]
+transform = Transform( 1, 2.98023e-08, 0, 0, 0.783628, 0.62123, 0, -0.62123, 0.783628, 1.00665, 0.90554, 0.698067 )
+script = ExtResource( 4 )
+min_distance = 0.1
+max_distance = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "hover"
+anims/hover = SubResource( 5 )

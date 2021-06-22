@@ -1,42 +1,65 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/Material_012.material" type="Material" id=2]
 [ext_resource path="res://controller/controller_circle.png" type="Texture" id=4]
 [ext_resource path="res://controller/controller_handle.png" type="Texture" id=5]
 
 [sub_resource type="PlaneMesh" id=1]
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 6.72338, 0.0385416, 5.84355 )
+extents = Vector3( 66.6021, 0.0385416, 65.4949 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 14.6279, 70.3286 )
 
 [sub_resource type="ProceduralSky" id=3]
 
 [sub_resource type="Environment" id=4]
 background_mode = 2
 background_sky = SubResource( 3 )
+ambient_light_energy = 1.18
+adjustment_enabled = true
+adjustment_brightness = 1.1
 
 [node name="Root" type="Node"]
 
-[node name="Spatial" type="Spatial" parent="."]
+[node name="Level" type="Spatial" parent="."]
 
-[node name="Player" parent="Spatial" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63828, 0 )
+[node name="Player" parent="Level" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.199887, 0 )
 
-[node name="StaticBody" type="StaticBody" parent="Spatial"]
+[node name="StaticBody" type="StaticBody" parent="Level"]
 
-[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody"]
-transform = Transform( 6.6, 0, 0, 0, 1, 0, 0, 0, 5.9, 0, 0, 0 )
+[node name="MeshInstance" type="MeshInstance" parent="Level/StaticBody"]
+transform = Transform( 237.191, 0, 0, 0, 1, 0, 0, 0, 416.88, 0, 0, 0 )
 mesh = SubResource( 1 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Spatial/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0470414, 0 )
 shape = SubResource( 2 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Spatial"]
+[node name="CollisionShape2" type="CollisionShape" parent="Level/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -63.0185, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Level/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.2264, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Level/StaticBody"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.398621, 0, -58.1328 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Level/StaticBody"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.398621, 0, 62.3043 )
+shape = SubResource( 5 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
 environment = SubResource( 4 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="Spatial"]
+[node name="DirectionalLight" type="DirectionalLight" parent="Level"]
 transform = Transform( 1, 0, 0, 0, 0.156796, 0.987631, 0, -0.987631, 0.156796, 4.70974, 1.52417, 0 )
 light_energy = 0.14
 shadow_enabled = true
@@ -44,65 +67,25 @@ shadow_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -167.863
-margin_top = -318.133
-margin_right = -39.8632
-margin_bottom = -190.133
-rect_scale = Vector2( 0.695482, 0.695482 )
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 4 )
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton2" type="TextureButton" parent="CanvasLayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -287.556
-margin_top = -242.538
-margin_right = -159.556
-margin_bottom = -114.538
-rect_scale = Vector2( 0.695482, 0.695482 )
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 4 )
+margin_left = -40.0
+margin_top = -40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton3" type="TextureButton" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -345.512
-margin_top = -119.065
-margin_right = -217.512
-margin_bottom = 8.93457
-rect_scale = Vector2( 0.695482, 0.695482 )
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureButton4" type="TextureButton" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -190.542
-margin_top = -190.881
-margin_right = -62.5417
-margin_bottom = -62.881
-rect_scale = Vector2( 1.30135, 1.30135 )
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer"]
+position = Vector2( -129.479, -124.14 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 4 )
+passby_press = true
