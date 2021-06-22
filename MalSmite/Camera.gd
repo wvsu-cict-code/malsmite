@@ -39,7 +39,7 @@ func _physics_process(_delta):
 
 	camera_pos = target_pos + delta_pos
 
-	look_at_from_position(camera_pos, target_pos, Vector3.UP)
+	# look_at_from_position(camera_pos, target_pos, Vector3.UP)
 
 	# Turn a little up or down
 	var t = transform
