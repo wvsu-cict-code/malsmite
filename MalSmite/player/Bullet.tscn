@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://player/Bullet.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=4]
+emission_enabled = true
+emission = Color( 0.968627, 1, 0, 1 )
+emission_energy = 3.39
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=1]
+material = SubResource( 4 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.94902, 0.745098, 0.0392157, 1 )
+emission_enabled = true
+emission = Color( 0.980392, 0.764706, 0.00392157, 1 )
+emission_energy = 7.87
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.0569755, 0.0555745, 0.0611786 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 1 )
+material = SubResource( 2 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 3 )

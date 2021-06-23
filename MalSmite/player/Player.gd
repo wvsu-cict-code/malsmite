@@ -28,3 +28,8 @@ func _physics_process(_delta):
 		get_node("Root/BoosterFast").visible = false
 		get_node("Root/BoosterSlow").visible = true
 	
+
+
+func _on_FireButton_pressed():
+	get_node("Root/Weapon1").fire_weapon()
+	get_node("Root/Weapon2").fire_weapon()

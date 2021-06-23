@@ -85,7 +85,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer"]
+[node name="FireButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer"]
 position = Vector2( -129.479, -124.14 )
 normal = ExtResource( 5 )
 pressed = ExtResource( 4 )
@@ -94,3 +94,5 @@ passby_press = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/FireButton" to="Level/Player" method="_on_FireButton_pressed"]
