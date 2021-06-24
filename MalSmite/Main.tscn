@@ -39,7 +39,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.199887, 0 )
 [node name="StaticBody" type="StaticBody" parent="Level"]
 
 [node name="MeshInstance" type="MeshInstance" parent="Level/StaticBody"]
-transform = Transform( 237.191, 0, 0, 0, 1, 0, 0, 0, 416.88, 0, -4.26758, 0 )
+transform = Transform( 237.191, 0, 0, 0, 1, 0, 0, 0, 416.88, -0.73822, -3.76387, -1.79747 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
 
