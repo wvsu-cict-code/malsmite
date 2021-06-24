@@ -86,12 +86,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, -28.762 ), Vector3( 0, 0, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Root/the-sphere:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -26.988, 90, -1.27543e-06 ), Vector3( 0, 90, 0 ) ]
+}
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 controllerPath = NodePath("Controller")
 
 [node name="Root" type="Spatial" parent="."]
+transform = Transform( 0.876626, 0.481172, 0, -0.481172, 0.876626, 0, 0, 0, 1, 0, 0.932948, 0 )
 
 [node name="Model" parent="Root" instance=ExtResource( 3 )]
 transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 0, 2.17182, 0 )
@@ -159,7 +172,7 @@ light_specular = 0.0
 transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.418601, 2.94795, 0 )
 
 [node name="the-sphere" parent="Root" instance=ExtResource( 10 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.668763, 1.59096, 0 )
+transform = Transform( -3.36095e-08, -0.453804, 0.891102, -1.98364e-08, 0.891102, 0.453804, -1, -2.42414e-09, -3.89513e-08, 0.668763, 1.59096, 0 )
 
 [node name="Booster2" parent="Root/the-sphere" instance=ExtResource( 6 )]
 transform = Transform( -0.458771, -0.696927, 0.551308, -0.84174, 0.131624, -0.536356, 0.285806, -0.755984, -0.726203, 0.492084, -0.789096, -0.811541 )

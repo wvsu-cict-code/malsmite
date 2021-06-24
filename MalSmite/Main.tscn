@@ -39,28 +39,32 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.199887, 0 )
 [node name="StaticBody" type="StaticBody" parent="Level"]
 
 [node name="MeshInstance" type="MeshInstance" parent="Level/StaticBody"]
-transform = Transform( 237.191, 0, 0, 0, 1, 0, 0, 0, 416.88, 0, 0, 0 )
+transform = Transform( 237.191, 0, 0, 0, 1, 0, 0, 0, 416.88, 0, -4.26758, 0 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Level/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0470414, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.478628, 0 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -63.0185, 0, 0 )
+visible = false
 shape = SubResource( 3 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.2264, 0, 0 )
+visible = false
 shape = SubResource( 3 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.398621, 0, -58.1328 )
+visible = false
 shape = SubResource( 3 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.398621, 0, 62.3043 )
+visible = false
 shape = SubResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
