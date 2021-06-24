@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Material_012.material" type="Material" id=2]
 [ext_resource path="res://audio/background.ogg" type="AudioStream" id=3]
 [ext_resource path="res://controller/controller_circle.png" type="Texture" id=4]
 [ext_resource path="res://controller/controller_handle.png" type="Texture" id=5]
+[ext_resource path="res://level/virus/virus1.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -32,6 +33,87 @@ adjustment_brightness = 1.1
 [node name="Root" type="Node"]
 
 [node name="Level" type="Spatial" parent="."]
+
+[node name="virus1" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 2.01737, -2.22041, 9.70571e-08, 0, -1.31134e-07, -3, 2.22041, 2.01737, -8.81821e-08, 8.15615, 1.48297, -12.3054 )
+
+[node name="virus2" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 2.01737, -2.22041, 9.70571e-08, 0, -1.31134e-07, -3, 2.22041, 2.01737, -8.81821e-08, 2.48219, 1.48297, -8.46788 )
+
+[node name="virus3" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 0.31971, -2.5664, -1.52032, -1.50921, 1.17971, -2.3088, 2.57295, 1.01088, -1.16536, 6.13427, 1.48297, 10.1902 )
+
+[node name="virus4" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 0.218983, 2.992, -1.30784e-07, 0, -1.31134e-07, -3, -2.992, 0.218983, -9.57206e-09, -2.57537, 1.48297, 9.40604 )
+
+[node name="virus5" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 1.65845, -0.38833, 2.46957, 2.46563, -0.235018, -1.69276, 0.412581, 2.96546, 0.189238, -13.9341, 1.48297, -4.48151 )
+
+[node name="virus6" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 2.49423, 1.66697, -7.28657e-08, 0, -1.31134e-07, -3, -1.66697, 2.49423, -1.09026e-07, -7.06115, 1.48297, -8.58469 )
+
+[node name="virus7" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 1.69555, -2.42742, -0.482438, -0.48008, 0.251097, -2.95067, 2.42789, 1.74488, -0.246536, 13.432, 1.48297, -4.48387 )
+
+[node name="virus8" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( -0.428353, -2.96926, 1.29791e-07, 0, -1.31134e-07, -3, 2.96926, -0.428353, 1.87239e-08, 14.6928, 1.48297, 6.46983 )
+
+[node name="virus9" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( -1.85803, 1.52607, 1.79411, -1.63819, 0.804614, -2.38095, -1.69235, -2.45433, 0.334995, -11.7874, 1.48296, 4.81842 )
+
+[node name="virus10" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 2.01737, -2.22041, 9.70571e-08, 0, -1.31134e-07, -3, 2.22041, 2.01737, -8.81821e-08, 30.5251, 1.48297, -36.4514 )
+
+[node name="virus11" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 2.01737, -2.22041, 9.70571e-08, 0, -1.31134e-07, -3, 2.22041, 2.01737, -8.81821e-08, 24.8511, 1.48297, -32.6138 )
+
+[node name="virus12" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 0.31971, -2.5664, -1.52032, -1.50921, 1.17971, -2.3088, 2.57295, 1.01088, -1.16536, 28.5032, 1.48297, -13.9557 )
+
+[node name="virus13" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 0.218983, 2.992, -1.30784e-07, 0, -1.31134e-07, -3, -2.992, 0.218983, -9.57206e-09, 19.7936, 1.48297, -14.7399 )
+
+[node name="virus14" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 1.65845, -0.38833, 2.46957, 2.46563, -0.235018, -1.69276, 0.412581, 2.96546, 0.189238, 8.43488, 1.48297, -28.6274 )
+
+[node name="virus15" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 2.49423, 1.66697, -7.28657e-08, 0, -1.31134e-07, -3, -1.66697, 2.49423, -1.09026e-07, 15.3078, 1.48297, -32.7306 )
+
+[node name="virus16" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 1.69555, -2.42742, -0.482438, -0.48008, 0.251097, -2.95067, 2.42789, 1.74488, -0.246536, 35.801, 1.48297, -28.6298 )
+
+[node name="virus17" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( -0.428353, -2.96926, 1.29791e-07, 0, -1.31134e-07, -3, 2.96926, -0.428353, 1.87239e-08, 37.0617, 1.48297, -17.6761 )
+
+[node name="virus18" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( -1.85803, 1.52607, 1.79411, -1.63819, 0.804614, -2.38095, -1.69235, -2.45433, 0.334995, 10.5815, 1.48296, -19.3275 )
+
+[node name="virus19" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 2.01737, -2.22041, 9.70571e-08, 0, -1.31134e-07, -3, 2.22041, 2.01737, -8.81821e-08, -10.0044, 1.48297, -41.5709 )
+
+[node name="virus20" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 2.01737, -2.22041, 9.70571e-08, 0, -1.31134e-07, -3, 2.22041, 2.01737, -8.81821e-08, -15.6784, 1.48297, -37.7333 )
+
+[node name="virus21" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 0.31971, -2.5664, -1.52032, -1.50921, 1.17971, -2.3088, 2.57295, 1.01088, -1.16536, -12.0263, 1.48297, -19.0752 )
+
+[node name="virus22" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 0.218983, 2.992, -1.30784e-07, 0, -1.31134e-07, -3, -2.992, 0.218983, -9.57206e-09, -20.736, 1.48297, -19.8594 )
+
+[node name="virus23" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 1.65845, -0.38833, 2.46957, 2.46563, -0.235018, -1.69276, 0.412581, 2.96546, 0.189238, -32.0947, 1.48297, -33.7469 )
+
+[node name="virus24" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 2.49423, 1.66697, -7.28657e-08, 0, -1.31134e-07, -3, -1.66697, 2.49423, -1.09026e-07, -25.2217, 1.48297, -37.8501 )
+
+[node name="virus25" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 1.69555, -2.42742, -0.482438, -0.48008, 0.251097, -2.95067, 2.42789, 1.74488, -0.246536, -4.72858, 1.48297, -33.7493 )
+
+[node name="virus26" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( -0.428353, -2.96926, 1.29791e-07, 0, -1.31134e-07, -3, 2.96926, -0.428353, 1.87239e-08, -3.46785, 1.48297, -22.7956 )
+
+[node name="virus27" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( -1.85803, 1.52607, 1.79411, -1.63819, 0.804614, -2.38095, -1.69235, -2.45433, 0.334995, -29.948, 1.48296, -24.447 )
 
 [node name="Player" parent="Level" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.199887, 0 )
