@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://controller/Controller.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://MotionTrail/MotionTrail.tscn" type="PackedScene" id=7]
 [ext_resource path="res://player/Weapon1.gd" type="Script" id=8]
 [ext_resource path="res://player/Model-Rigged.tscn" type="PackedScene" id=9]
+[ext_resource path="res://player/TheSphere.tscn" type="PackedScene" id=10]
 
 [sub_resource type="QuadMesh" id=1]
 material = ExtResource( 5 )
@@ -56,6 +57,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -28.762 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Root/the-sphere:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( -26.988, 90, -1.27543e-06 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -116,30 +129,6 @@ mesh = SubResource( 1 )
 scale_amount_curve = SubResource( 2 )
 hue_variation = -0.67
 
-[node name="Booster2" parent="Root" instance=ExtResource( 6 )]
-transform = Transform( 0.285806, -0.755984, -0.726203, -0.84174, 0.131624, -0.536356, 0.458771, 0.696927, -0.551308, 0.0358648, 1.16606, -0.492084 )
-amount = 4
-lifetime = 0.2
-mesh = SubResource( 4 )
-
-[node name="Booster3" parent="Root" instance=ExtResource( 6 )]
-transform = Transform( 0.773087, 0.128035, -0.650149, -0.591626, 0.523833, -0.614804, 0.23021, 0.885296, 0.56419, 0.0358648, 1.16606, 0.484166 )
-amount = 4
-lifetime = 0.2
-mesh = SubResource( 4 )
-
-[node name="Booster4" parent="Root" instance=ExtResource( 6 )]
-transform = Transform( 0.728384, 0.0848077, 0.717873, 0.509575, -0.762656, -0.547454, 0.458771, 0.696927, -0.551308, 1.2942, 1.16606, -0.492084 )
-amount = 4
-lifetime = 0.2
-mesh = SubResource( 4 )
-
-[node name="Booster5" parent="Root" instance=ExtResource( 6 )]
-transform = Transform( 0.511557, -0.533992, 0.676593, 0.828248, 0.0751416, -0.585577, 0.23021, 0.885296, 0.56419, 1.2942, 1.16606, 0.484166 )
-amount = 4
-lifetime = 0.2
-mesh = SubResource( 4 )
-
 [node name="MotionTrail" parent="Root" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4855, 2.23885, -0.602347 )
 fromWidth = 0.1
@@ -168,6 +157,33 @@ light_specular = 0.0
 
 [node name="mascot-rigged" parent="Root" instance=ExtResource( 9 )]
 transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.418601, 2.94795, 0 )
+
+[node name="the-sphere" parent="Root" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.668763, 1.59096, 0 )
+
+[node name="Booster2" parent="Root/the-sphere" instance=ExtResource( 6 )]
+transform = Transform( -0.458771, -0.696927, 0.551308, -0.84174, 0.131624, -0.536356, 0.285806, -0.755984, -0.726203, 0.492084, -0.789096, -0.811541 )
+amount = 4
+lifetime = 0.2
+mesh = SubResource( 4 )
+
+[node name="Booster3" parent="Root/the-sphere" instance=ExtResource( 6 )]
+transform = Transform( -0.23021, -0.885296, -0.56419, -0.591626, 0.523833, -0.614804, 0.773087, 0.128035, -0.650149, -0.484166, -0.776004, -0.785357 )
+amount = 4
+lifetime = 0.2
+mesh = SubResource( 4 )
+
+[node name="Booster4" parent="Root/the-sphere" instance=ExtResource( 6 )]
+transform = Transform( -0.458771, -0.696927, 0.551308, 0.509575, -0.762656, -0.547454, 0.728384, 0.0848077, 0.717873, 0.492084, -0.81528, 0.71518 )
+amount = 4
+lifetime = 0.2
+mesh = SubResource( 4 )
+
+[node name="Booster5" parent="Root/the-sphere" instance=ExtResource( 6 )]
+transform = Transform( -0.23021, -0.885296, -0.56419, 0.828248, 0.0751416, -0.585577, 0.511557, -0.533992, 0.676593, -0.484166, -0.802188, 0.669358 )
+amount = 4
+lifetime = 0.2
+mesh = SubResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1.55737, 0, 0, 0, 1.55737, 0, 1.58048, 0 )
