@@ -30,6 +30,8 @@ func _physics_process(_delta):
 		get_node("Root/BoosterFast2").visible = true
 		get_node("Root/BoosterSlow").visible = false
 		get_node("Root/BoosterSlow2").visible = false
+		get_node("Root/MotionTrail").visible = true
+		get_node("Root/MotionTrail2").visible = true
 	else:
 		if not isMoving:
 			get_node("AnimationPlayer2").play("NotMoving")
@@ -39,6 +41,8 @@ func _physics_process(_delta):
 		get_node("Root/BoosterFast2").visible = false
 		get_node("Root/BoosterSlow").visible = true
 		get_node("Root/BoosterSlow2").visible = true
+		get_node("Root/MotionTrail").visible = false
+		get_node("Root/MotionTrail2").visible = false
 	
 
 
