@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://controller/Controller.tscn" type="PackedScene" id=2]
@@ -11,27 +11,28 @@
 [ext_resource path="res://player/Model-Rigged.tscn" type="PackedScene" id=9]
 [ext_resource path="res://player/TheSphere.tscn" type="PackedScene" id=10]
 [ext_resource path="res://player/weapon1.dae" type="PackedScene" id=11]
+[ext_resource path="res://audio/thrusterFire.ogg" type="AudioStream" id=12]
 
 [sub_resource type="QuadMesh" id=1]
 material = ExtResource( 5 )
 size = Vector2( 0.8, 0.8 )
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0.646591 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.164773 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0.519318 ), 0.0, 0.0, 0, 0, Vector2( 0.574932, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="QuadMesh" id=4]
 material = ExtResource( 5 )
 size = Vector2( 0.5, 0.5 )
 
-[sub_resource type="Curve" id=11]
+[sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0.897727 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="SphereShape" id=5]
+[sub_resource type="SphereShape" id=6]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -47,8 +48,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.272, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Moving"
+[sub_resource type="Animation" id=8]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("MainController/Root:rotation_degrees")
@@ -75,8 +75,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 90, 0 ), Vector3( -26.988, 90, -1.27543e-06 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "NotMoving"
+[sub_resource type="Animation" id=9]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("MainController/Root:rotation_degrees")
@@ -139,7 +138,7 @@ transform = Transform( 0.0129334, -0.644309, -0.882069, 0.0432077, 0.811333, -0.
 amount = 24
 lifetime = 0.3
 mesh = SubResource( 1 )
-scale_amount_curve = SubResource( 9 )
+scale_amount_curve = SubResource( 2 )
 hue_variation = -0.67
 
 [node name="BoosterFast2" parent="MainController/Root" instance=ExtResource( 6 )]
@@ -147,7 +146,7 @@ transform = Transform( 0.0129334, -0.644309, -0.882069, 0.0432077, 0.811333, -0.
 amount = 24
 lifetime = 0.3
 mesh = SubResource( 1 )
-scale_amount_curve = SubResource( 9 )
+scale_amount_curve = SubResource( 2 )
 hue_variation = -0.67
 
 [node name="BoosterSlow" parent="MainController/Root" instance=ExtResource( 6 )]
@@ -155,7 +154,7 @@ transform = Transform( 0.0129334, -0.644309, -0.882069, 0.0432077, 0.811333, -0.
 amount = 24
 lifetime = 0.3
 mesh = SubResource( 1 )
-scale_amount_curve = SubResource( 2 )
+scale_amount_curve = SubResource( 3 )
 hue_variation = -0.67
 
 [node name="BoosterSlow2" parent="MainController/Root" instance=ExtResource( 6 )]
@@ -163,7 +162,7 @@ transform = Transform( 0.0129334, -0.644309, -0.882069, 0.0432077, 0.811333, -0.
 amount = 24
 lifetime = 0.3
 mesh = SubResource( 1 )
-scale_amount_curve = SubResource( 2 )
+scale_amount_curve = SubResource( 3 )
 hue_variation = -0.67
 
 [node name="MotionTrail" parent="MainController/Root" instance=ExtResource( 7 )]
@@ -215,17 +214,17 @@ transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -
 transform = Transform( -3.36095e-08, -0.453804, 0.891102, -1.98364e-08, 0.891102, 0.453804, -1, -2.42414e-09, -3.89513e-08, 0.668763, 1.59096, 0 )
 
 [node name="Weapon1" parent="MainController/Root/the-sphere" instance=ExtResource( 8 )]
-transform = Transform( 6.36987e-10, -6.88238e-08, -1, -0.99895, 0.0458162, -3.21951e-08, 0.0458163, 0.99895, -3.75859e-08, 1.56649, -0.0628476, 3.35295 )
+transform = Transform( 6.36987e-10, -6.88238e-08, -1, -0.99895, 0.0458162, -3.21951e-08, 0.0458163, 0.99895, -3.75859e-08, 1.56649, 0.123575, 9.37202 )
 
 [node name="Weapon2" parent="MainController/Root/the-sphere" instance=ExtResource( 8 )]
-transform = Transform( 6.36987e-10, -6.88238e-08, -1, -0.99895, 0.0458162, -3.21951e-08, 0.0458163, 0.99895, -3.75859e-08, -1.56679, -0.0628476, 3.35295 )
+transform = Transform( 6.36987e-10, -6.88238e-08, -1, -0.99895, 0.0458162, -3.21951e-08, 0.0458163, 0.99895, -3.75859e-08, -1.56679, 0.123575, 9.37202 )
 
 [node name="Booster2" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
 transform = Transform( -0.458771, -0.696927, 0.551308, -0.84174, 0.131624, -0.536356, 0.285806, -0.755984, -0.726203, 0.492084, -0.789096, -0.811541 )
 amount = 4
 lifetime = 0.2
 mesh = SubResource( 4 )
-scale_amount_curve = SubResource( 11 )
+scale_amount_curve = SubResource( 5 )
 hue_variation = 1.0
 
 [node name="Booster3" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
@@ -233,28 +232,28 @@ transform = Transform( -0.23021, -0.885296, -0.56419, -0.591626, 0.523833, -0.61
 amount = 4
 lifetime = 0.2
 mesh = SubResource( 4 )
-scale_amount_curve = SubResource( 11 )
+scale_amount_curve = SubResource( 5 )
 
 [node name="Booster4" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
 transform = Transform( -0.458771, -0.696927, 0.551308, 0.509575, -0.762656, -0.547454, 0.728384, 0.0848077, 0.717873, 0.492084, -0.81528, 0.71518 )
 amount = 4
 lifetime = 0.2
 mesh = SubResource( 4 )
-scale_amount_curve = SubResource( 11 )
+scale_amount_curve = SubResource( 5 )
 
 [node name="Booster5" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
 transform = Transform( -0.23021, -0.885296, -0.56419, 0.828248, 0.0751416, -0.585577, 0.511557, -0.533992, 0.676593, -0.484166, -0.802188, 0.669358 )
 amount = 4
 lifetime = 0.2
 mesh = SubResource( 4 )
-scale_amount_curve = SubResource( 11 )
+scale_amount_curve = SubResource( 5 )
 
 [node name="weapon1" parent="MainController/Root/the-sphere" instance=ExtResource( 11 )]
 transform = Transform( 0.999521, -0.0309572, 0, 0.0309572, 0.999521, 9.44232e-17, -8.30624e-12, -1.0519e-08, 1, -0.0002661, 0.38478, 0.272017 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1.55737, 0, 0, 0, 1.55737, 0, 1.58048, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Controller" parent="." instance=ExtResource( 2 )]
 margin_left = 1.6326
@@ -264,11 +263,11 @@ margin_bottom = -1.40314
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "hover"
-anims/hover = SubResource( 6 )
+anims/hover = SubResource( 7 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/Moving = SubResource( 7 )
-anims/NotMoving = SubResource( 8 )
+anims/Moving = SubResource( 8 )
+anims/NotMoving = SubResource( 9 )
 
 [node name="Target" type="Spatial" parent="."]
 transform = Transform( 0.68123, -0.0947375, 0.725914, 0.0909074, 0.994863, 0.0445261, -0.726404, 0.0356584, 0.686343, 8.7295, 11.0065, 3.91664 )
@@ -280,3 +279,8 @@ max_distance = 8.0
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
 "anims/Full Rotate" = SubResource( 10 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 12 )
+unit_size = 4.6
+autoplay = true
