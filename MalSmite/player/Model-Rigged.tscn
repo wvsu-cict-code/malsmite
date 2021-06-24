@@ -10,7 +10,7 @@
 material/0 = ExtResource( 2 )
 
 [node name="Jigglebone" type="Spatial" parent="Armature/Skeleton" index="1"]
-transform = Transform( 1, -2.38419e-07, 2.27374e-13, 1.33592e-07, 0.560324, 0.828273, -1.97476e-07, -0.828273, 0.560324, -3.03081e-12, -6.3568, -7.07352 )
+transform = Transform( 1, -2.38419e-07, 2.27374e-13, 1.33592e-07, 0.560324, 0.828273, -1.97476e-07, -0.828273, 0.560324, -3.0308e-12, -6.3568, -7.07352 )
 script = ExtResource( 3 )
 bone_name = "Bone.002"
 stiffness = 0.2

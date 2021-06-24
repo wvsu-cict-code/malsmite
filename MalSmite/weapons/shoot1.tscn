@@ -1,18 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player/Weapon1.gd" type="Script" id=1]
+[ext_resource path="res://audio/shoot.ogg" type="AudioStream" id=2]
 
 [sub_resource type="SphereMesh" id=1]
-radial_segments = 16
-rings = 16
+radial_segments = 4
+rings = 2
 
 [sub_resource type="SpatialMaterial" id=2]
 flags_unshaded = true
 albedo_color = Color( 0.960784, 0.862745, 0.219608, 1 )
 
 [sub_resource type="SphereMesh" id=4]
-radial_segments = 8
-rings = 8
+radial_segments = 4
+rings = 2
 
 [sub_resource type="SpatialMaterial" id=5]
 flags_unshaded = true
@@ -32,6 +33,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [node name="Weapon1" type="Spatial"]
@@ -56,3 +69,6 @@ light_color = Color( 1, 0.992157, 0.501961, 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
 anims/Flash = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )

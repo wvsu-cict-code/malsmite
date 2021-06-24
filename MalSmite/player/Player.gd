@@ -49,5 +49,5 @@ func _physics_process(_delta):
 
 
 func _on_FireButton_pressed():
-	get_node("MainController/Root/Weapon1").fire_weapon()
-	get_node("MainController/Root/Weapon2").fire_weapon()
+	get_node("MainController/Root/the-sphere/Weapon1").fire_weapon()
+	get_node("MainController/Root/the-sphere/Weapon2").fire_weapon()

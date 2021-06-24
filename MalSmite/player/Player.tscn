@@ -202,12 +202,6 @@ fromWidth = 0.1
 lifespan = 0.2
 startColor = Color( 1, 0.94902, 0.54902, 1 )
 
-[node name="Weapon1" parent="MainController/Root" instance=ExtResource( 8 )]
-transform = Transform( 0, 1, 8.88178e-16, -1, -1.19209e-07, -2.98023e-08, 0, 2.98023e-08, 1, 3.90309, 1.50858, -1.56649 )
-
-[node name="Weapon2" parent="MainController/Root" instance=ExtResource( 8 )]
-transform = Transform( 0, 1, 8.88178e-16, -1, -1.19209e-07, -2.98023e-08, 0, 2.98023e-08, 1, 3.90309, 1.50858, 1.56679 )
-
 [node name="OmniLight" type="OmniLight" parent="MainController/Root"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64839, 5.39025, 1.4341 )
 light_energy = 1.25
@@ -219,6 +213,12 @@ transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -
 
 [node name="the-sphere" parent="MainController/Root" instance=ExtResource( 10 )]
 transform = Transform( -3.36095e-08, -0.453804, 0.891102, -1.98364e-08, 0.891102, 0.453804, -1, -2.42414e-09, -3.89513e-08, 0.668763, 1.59096, 0 )
+
+[node name="Weapon1" parent="MainController/Root/the-sphere" instance=ExtResource( 8 )]
+transform = Transform( 6.36987e-10, -6.88238e-08, -1, -0.99895, 0.0458162, -3.21951e-08, 0.0458163, 0.99895, -3.75859e-08, 1.56649, -0.0628476, 3.35295 )
+
+[node name="Weapon2" parent="MainController/Root/the-sphere" instance=ExtResource( 8 )]
+transform = Transform( 6.36987e-10, -6.88238e-08, -1, -0.99895, 0.0458162, -3.21951e-08, 0.0458163, 0.99895, -3.75859e-08, -1.56679, -0.0628476, 3.35295 )
 
 [node name="Booster2" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
 transform = Transform( -0.458771, -0.696927, 0.551308, -0.84174, 0.131624, -0.536356, 0.285806, -0.755984, -0.726203, 0.492084, -0.789096, -0.811541 )
