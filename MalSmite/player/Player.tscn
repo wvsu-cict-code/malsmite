@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://controller/Controller.tscn" type="PackedScene" id=2]
@@ -8,23 +8,25 @@
 [ext_resource path="res://player/Particles1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://MotionTrail/MotionTrail.tscn" type="PackedScene" id=7]
 [ext_resource path="res://player/Weapon1.gd" type="Script" id=8]
+[ext_resource path="res://player/Model-Rigged.tscn" type="PackedScene" id=9]
 
 [sub_resource type="QuadMesh" id=1]
 material = ExtResource( 5 )
 size = Vector2( 0.8, 0.8 )
 
-[sub_resource type="QuadMesh" id=2]
-material = ExtResource( 5 )
-size = Vector2( 0.8, 0.8 )
+[sub_resource type="Curve" id=9]
+_data = [ Vector2( 0, 0.646591 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.164773 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="QuadMesh" id=3]
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.519318 ), 0.0, 0.0, 0, 0, Vector2( 0.574932, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="QuadMesh" id=4]
 material = ExtResource( 5 )
 size = Vector2( 0.5, 0.5 )
 
-[sub_resource type="SphereShape" id=4]
+[sub_resource type="SphereShape" id=5]
 
-[sub_resource type="Animation" id=5]
-resource_name = "hover"
+[sub_resource type="Animation" id=6]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -40,62 +42,115 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.272, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "Moving"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Root:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -28.762 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "NotMoving"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Root:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -28.762 ), Vector3( 0, 0, 0 ) ]
+}
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 controllerPath = NodePath("Controller")
 
 [node name="Root" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271964, 0 )
 
 [node name="Model" parent="Root" instance=ExtResource( 3 )]
 transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 0, 2.17182, 0 )
+visible = false
 
 [node name="BoosterFast" parent="Root" instance=ExtResource( 6 )]
-transform = Transform( 0.0673029, -0.631047, -0.889285, 0.0429768, 0.822388, -0.56786, 0.997148, 0, 0.0754662, -1.63625, 2.60911, 0.019793 )
+transform = Transform( 0.0129334, -0.644309, -0.882069, 0.0432077, 0.811333, -0.58325, 0.999323, -0.0338733, 0.0276224, -1.75059, 2.72439, 0.604274 )
 amount = 24
 lifetime = 0.3
 mesh = SubResource( 1 )
+scale_amount_curve = SubResource( 9 )
+hue_variation = -0.67
+
+[node name="BoosterFast2" parent="Root" instance=ExtResource( 6 )]
+transform = Transform( 0.0129334, -0.644309, -0.882069, 0.0432077, 0.811333, -0.58325, 0.999323, -0.0338733, 0.0276224, -1.75059, 2.72439, -0.602333 )
+amount = 24
+lifetime = 0.3
+mesh = SubResource( 1 )
+scale_amount_curve = SubResource( 9 )
+hue_variation = -0.67
 
 [node name="BoosterSlow" parent="Root" instance=ExtResource( 6 )]
-transform = Transform( 0.0647361, -0.677025, -0.85537, 0.0467537, 0.784971, -0.617766, 0.997148, 0, 0.0754662, -1.5549, 2.68692, 0.019793 )
-visible = false
-amount = 8
-lifetime = 0.05
-mesh = SubResource( 2 )
+transform = Transform( 0.0129334, -0.644309, -0.882069, 0.0432077, 0.811333, -0.58325, 0.999323, -0.0338733, 0.0276224, -1.75059, 2.72439, -0.602333 )
+amount = 24
+lifetime = 0.3
+mesh = SubResource( 1 )
+scale_amount_curve = SubResource( 2 )
+hue_variation = -0.67
+
+[node name="BoosterSlow2" parent="Root" instance=ExtResource( 6 )]
+transform = Transform( 0.0129334, -0.644309, -0.882069, 0.0432077, 0.811333, -0.58325, 0.999323, -0.0338733, 0.0276224, -1.75059, 2.72439, 0.604245 )
+amount = 24
+lifetime = 0.3
+mesh = SubResource( 1 )
+scale_amount_curve = SubResource( 2 )
+hue_variation = -0.67
 
 [node name="Booster2" parent="Root" instance=ExtResource( 6 )]
 transform = Transform( 0.285806, -0.755984, -0.726203, -0.84174, 0.131624, -0.536356, 0.458771, 0.696927, -0.551308, 0.0358648, 1.16606, -0.492084 )
 amount = 4
 lifetime = 0.2
-mesh = SubResource( 3 )
+mesh = SubResource( 4 )
 
 [node name="Booster3" parent="Root" instance=ExtResource( 6 )]
 transform = Transform( 0.773087, 0.128035, -0.650149, -0.591626, 0.523833, -0.614804, 0.23021, 0.885296, 0.56419, 0.0358648, 1.16606, 0.484166 )
 amount = 4
 lifetime = 0.2
-mesh = SubResource( 3 )
+mesh = SubResource( 4 )
 
 [node name="Booster4" parent="Root" instance=ExtResource( 6 )]
 transform = Transform( 0.728384, 0.0848077, 0.717873, 0.509575, -0.762656, -0.547454, 0.458771, 0.696927, -0.551308, 1.2942, 1.16606, -0.492084 )
 amount = 4
 lifetime = 0.2
-mesh = SubResource( 3 )
+mesh = SubResource( 4 )
 
 [node name="Booster5" parent="Root" instance=ExtResource( 6 )]
 transform = Transform( 0.511557, -0.533992, 0.676593, 0.828248, 0.0751416, -0.585577, 0.23021, 0.885296, 0.56419, 1.2942, 1.16606, 0.484166 )
 amount = 4
 lifetime = 0.2
-mesh = SubResource( 3 )
+mesh = SubResource( 4 )
 
 [node name="MotionTrail" parent="Root" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87911, 2.78749, -0.929529 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4855, 2.23885, -0.602347 )
 fromWidth = 0.1
 lifespan = 0.5
+startColor = Color( 1, 0.94902, 0.54902, 1 )
 
 [node name="MotionTrail2" parent="Root" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87911, 2.78749, 0.936074 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44837, 2.25948, 0.613704 )
 fromWidth = 0.1
 lifespan = 0.5
+startColor = Color( 1, 0.94902, 0.54902, 1 )
 
 [node name="Weapon1" type="Spatial" parent="Root"]
 transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2.53244, 1.67438, -1.24032 )
@@ -105,9 +160,18 @@ script = ExtResource( 8 )
 transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2.53244, 1.67438, 1.23905 )
 script = ExtResource( 8 )
 
+[node name="mascot-rigged" parent="Root" instance=ExtResource( 9 )]
+transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.420536, 2.94208, 0 )
+
+[node name="OmniLight" type="OmniLight" parent="Root"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64839, 5.39025, 1.4341 )
+light_energy = 1.25
+light_indirect_energy = 1.37
+light_specular = 0.0
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1.55737, 0, 0, 0, 1.55737, 0, 1.58048, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Controller" parent="." instance=ExtResource( 2 )]
 margin_left = 1.6326
@@ -126,4 +190,8 @@ max_distance = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "hover"
-anims/hover = SubResource( 5 )
+anims/hover = SubResource( 6 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/Moving = SubResource( 7 )
+anims/NotMoving = SubResource( 8 )

@@ -19,7 +19,12 @@ extents = Vector3( 1, 14.6279, 70.3286 )
 [sub_resource type="Environment" id=5]
 background_mode = 2
 background_sky = SubResource( 4 )
-ambient_light_energy = 1.18
+background_energy = 0.57
+fog_color = Color( 0.701961, 0.694118, 0.501961, 1 )
+fog_depth_begin = 266.7
+glow_enabled = true
+glow_intensity = 0.59
+glow_bloom = 1.0
 adjustment_enabled = true
 adjustment_brightness = 1.1
 
@@ -93,6 +98,5 @@ passby_press = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/FireButton" to="Level/Player" method="_on_FireButton_pressed"]
