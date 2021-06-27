@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://level/CamBase.gd" type="Script" id=1]
+
+[node name="CamBase" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 0.795435, 0.606039, 0, -0.606039, 0.795435, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.974582, 0.224032, 0, -0.224032, 0.974582, 0, 11.3164, 26.0962 )
+current = true
+fov = 45.0

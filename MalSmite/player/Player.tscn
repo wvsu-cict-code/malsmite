@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://controller/Controller.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Model.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Camera.gd" type="Script" id=4]
 [ext_resource path="res://player/booster.tres" type="Material" id=5]
 [ext_resource path="res://player/Particles1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://MotionTrail/MotionTrail.tscn" type="PackedScene" id=7]
@@ -30,7 +29,8 @@ size = Vector2( 0.5, 0.5 )
 [sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0.897727 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="SphereShape" id=6]
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1.56389, 3.48339, 1 )
 
 [sub_resource type="Animation" id=7]
 length = 3.0
@@ -113,10 +113,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 6, 8.1, 20 ),
-"transitions": PoolRealArray( 1, 2, 0.5, 1 ),
+"times": PoolRealArray( 0, 3.6, 6, 8.1, 10, 20 ),
+"transitions": PoolRealArray( 1, 1, 2, 0.5, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( -360, 0, 0 ), Vector3( -360, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( -360, 0, 0 ), Vector3( -360, 0, 0 ), Vector3( -360, 0, 0 ) ]
 }
 
 [node name="Player" type="KinematicBody"]
@@ -124,7 +124,7 @@ script = ExtResource( 1 )
 controllerPath = NodePath("Controller")
 
 [node name="MainController" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36322, 2.41485, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 1.74846e-07, 0, -1.74846e-07, 1, 1.36322, 2.41485, 0 )
 
 [node name="Root" type="Spatial" parent="MainController"]
 transform = Transform( 0.876626, 0.481172, 0, -0.481172, 0.876626, 0, 0, 0, 1, 0, 0, 0 )
@@ -201,12 +201,6 @@ fromWidth = 0.1
 lifespan = 0.2
 startColor = Color( 1, 0.94902, 0.54902, 1 )
 
-[node name="OmniLight" type="OmniLight" parent="MainController/Root"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64839, 5.39025, 1.4341 )
-light_energy = 1.25
-light_indirect_energy = 1.37
-light_specular = 0.0
-
 [node name="mascot-rigged" parent="MainController/Root" instance=ExtResource( 9 )]
 transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.418601, 2.94795, 0 )
 
@@ -252,7 +246,7 @@ scale_amount_curve = SubResource( 5 )
 transform = Transform( 0.999521, -0.0309572, 0, 0.0309572, 0.999521, 9.44232e-17, -8.30624e-12, -1.0519e-08, 1, -0.0002661, 0.38478, 0.272017 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1.55737, 0, 0, 0, 1.55737, 0, 1.58048, 0 )
+transform = Transform( 1, 0, 0, 0, 1.55737, 0, 0, 0, 1.55737, 3.87476, 1.58048, 0 )
 shape = SubResource( 6 )
 
 [node name="Controller" parent="." instance=ExtResource( 2 )]
@@ -268,14 +262,6 @@ anims/hover = SubResource( 7 )
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 anims/Moving = SubResource( 8 )
 anims/NotMoving = SubResource( 9 )
-
-[node name="Target" type="Spatial" parent="."]
-transform = Transform( 0.68123, -0.0947375, 0.725914, 0.0909074, 0.994863, 0.0445261, -0.726404, 0.0356584, 0.686343, 8.7295, 11.0065, 3.91664 )
-
-[node name="Camera" type="Camera" parent="Target"]
-transform = Transform( 0.991032, 0.132085, -0.0202119, -0.0833788, 0.729478, 0.678903, 0.104417, -0.67113, 0.733949, 2.03998, 2.52613, 1.7076 )
-script = ExtResource( 4 )
-max_distance = 8.0
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
 "anims/Full Rotate" = SubResource( 10 )

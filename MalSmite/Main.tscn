@@ -1,25 +1,30 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://player/Material_012.material" type="Material" id=2]
+[ext_resource path="res://GameUI.gd" type="Script" id=2]
 [ext_resource path="res://audio/background.ogg" type="AudioStream" id=3]
-[ext_resource path="res://controller/controller_circle.png" type="Texture" id=4]
-[ext_resource path="res://controller/controller_handle.png" type="Texture" id=5]
-[ext_resource path="res://level/virus/virus1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/rocket.png" type="Texture" id=4]
+[ext_resource path="res://gui/shoot1.png" type="Texture" id=5]
+[ext_resource path="res://level/CamBase.tscn" type="PackedScene" id=6]
+[ext_resource path="res://level/rock_crystalsLargeA.tscn" type="PackedScene" id=7]
+[ext_resource path="res://level/rock_crystalsLargeB.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gui/AbilityButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://models/craterLarge.dae" type="PackedScene" id=10]
+[ext_resource path="res://gui/rocket-pressed.png" type="Texture" id=11]
+[ext_resource path="res://gui/shield1_pressed.png" type="Texture" id=12]
+[ext_resource path="res://gui/vortex.png" type="Texture" id=13]
+[ext_resource path="res://gui/vortex_pressed.png" type="Texture" id=14]
+[ext_resource path="res://gui/shield1.png" type="Texture" id=15]
+[ext_resource path="res://gui/shoot1_pressed.png" type="Texture" id=16]
+[ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://models/rock.dae" type="PackedScene" id=18]
+[ext_resource path="res://level/cict-core.tscn" type="PackedScene" id=19]
 
-[sub_resource type="PlaneMesh" id=1]
+[sub_resource type="ProceduralSky" id=1]
 
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 66.6021, 0.0385416, 65.4949 )
-
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 1, 14.6279, 70.3286 )
-
-[sub_resource type="ProceduralSky" id=4]
-
-[sub_resource type="Environment" id=5]
+[sub_resource type="Environment" id=2]
 background_mode = 2
-background_sky = SubResource( 4 )
+background_sky = SubResource( 1 )
 background_energy = 0.57
 fog_color = Color( 0.701961, 0.694118, 0.501961, 1 )
 fog_depth_begin = 266.7
@@ -30,105 +35,195 @@ glow_bloom = 0.87
 adjustment_enabled = true
 adjustment_brightness = 1.1
 
+[sub_resource type="PlaneMesh" id=3]
+size = Vector2( 200, 200 )
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_name = "rock"
+params_cull_mode = 2
+albedo_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+metallic = 0.5
+roughness = 0.0960784
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 100, 1, 100 )
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_unshaded = true
+albedo_color = Color( 0.890196, 0.501961, 0.0901961, 1 )
+
+[sub_resource type="PrismMesh" id=7]
+material = SubResource( 8 )
+size = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
+font_data = ExtResource( 17 )
+
 [node name="Root" type="Node"]
 
 [node name="Level" type="Spatial" parent="."]
 
-[node name="virus1" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 2.01737, -2.22041, 9.70571e-08, 0, -1.31134e-07, -3, 2.22041, 2.01737, -8.81821e-08, 8.15615, 1.48297, -12.3054 )
-
-[node name="virus2" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 2.01737, -2.22041, 9.70571e-08, 0, -1.31134e-07, -3, 2.22041, 2.01737, -8.81821e-08, 2.48219, 1.48297, -8.46788 )
-
-[node name="virus6" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 2.49423, 1.66697, -7.28657e-08, 0, -1.31134e-07, -3, -1.66697, 2.49423, -1.09026e-07, -7.06115, 1.48297, -8.58469 )
-
-[node name="virus7" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 1.69555, -2.42742, -0.482438, -0.48008, 0.251097, -2.95067, 2.42789, 1.74488, -0.246536, 13.432, 1.48297, -4.48387 )
-
-[node name="virus8" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( -0.428353, -2.96926, 1.29791e-07, 0, -1.31134e-07, -3, 2.96926, -0.428353, 1.87239e-08, 14.6928, 1.48297, 6.46983 )
-
-[node name="virus9" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( -1.85803, 1.52607, 1.79411, -1.63819, 0.804614, -2.38095, -1.69235, -2.45433, 0.334995, -11.7874, 1.48296, 4.81842 )
-
-[node name="virus10" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 2.01737, -2.22041, 9.70571e-08, 0, -1.31134e-07, -3, 2.22041, 2.01737, -8.81821e-08, 30.5251, 1.48297, -36.4514 )
-
-[node name="virus11" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 2.01737, -2.22041, 9.70571e-08, 0, -1.31134e-07, -3, 2.22041, 2.01737, -8.81821e-08, 24.8511, 1.48297, -32.6138 )
-
-[node name="virus12" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 0.31971, -2.5664, -1.52032, -1.50921, 1.17971, -2.3088, 2.57295, 1.01088, -1.16536, 28.5032, 1.48297, -13.9557 )
-
-[node name="virus13" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 0.218983, 2.992, -1.30784e-07, 0, -1.31134e-07, -3, -2.992, 0.218983, -9.57206e-09, 19.7936, 1.48297, -14.7399 )
-
-[node name="virus14" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 1.65845, -0.38833, 2.46957, 2.46563, -0.235018, -1.69276, 0.412581, 2.96546, 0.189238, 8.43488, 1.48297, -28.6274 )
-
-[node name="virus15" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 2.49423, 1.66697, -7.28657e-08, 0, -1.31134e-07, -3, -1.66697, 2.49423, -1.09026e-07, 15.3078, 1.48297, -32.7306 )
-
-[node name="virus16" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 1.69555, -2.42742, -0.482438, -0.48008, 0.251097, -2.95067, 2.42789, 1.74488, -0.246536, 35.801, 1.48297, -28.6298 )
-
-[node name="virus21" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 0.31971, -2.5664, -1.52032, -1.50921, 1.17971, -2.3088, 2.57295, 1.01088, -1.16536, -12.0263, 1.48297, -19.0752 )
-
-[node name="virus22" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 0.218983, 2.992, -1.30784e-07, 0, -1.31134e-07, -3, -2.992, 0.218983, -9.57206e-09, -20.736, 1.48297, -19.8594 )
-
-[node name="virus23" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 1.65845, -0.38833, 2.46957, 2.46563, -0.235018, -1.69276, 0.412581, 2.96546, 0.189238, -32.0947, 1.48297, -33.7469 )
-
 [node name="Player" parent="Level" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.199887, 0 )
-
-[node name="StaticBody" type="StaticBody" parent="Level"]
-
-[node name="MeshInstance" type="MeshInstance" parent="Level/StaticBody"]
-transform = Transform( 237.191, 0, 0, 0, 1, 0, 0, 0, 416.88, -0.73822, -3.76387, -1.79747 )
-mesh = SubResource( 1 )
-material/0 = ExtResource( 2 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Level/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.478628, 0 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="Level/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -63.0185, 0, 0 )
-visible = false
-shape = SubResource( 3 )
-
-[node name="CollisionShape5" type="CollisionShape" parent="Level/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.2264, 0, 0 )
-visible = false
-shape = SubResource( 3 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="Level/StaticBody"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.398621, 0, -58.1328 )
-visible = false
-shape = SubResource( 3 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="Level/StaticBody"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.398621, 0, 62.3043 )
-visible = false
-shape = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07397, -0.199887, -16.1576 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
-environment = SubResource( 5 )
+environment = SubResource( 2 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Level"]
 transform = Transform( 1, 0, 0, 0, 0.156796, 0.987631, 0, -0.987631, 0.156796, 4.70974, 1.52417, 0 )
 light_energy = 0.14
-shadow_enabled = true
+
+[node name="CamBase" parent="Level" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 0.795435, 0.606039, 0, -0.606039, 0.795435, -5.94505, 16.2548, 7.52538 )
+playerPath = NodePath("../Player")
+
+[node name="Map" type="CSGMesh" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.26473, 0 )
+mesh = SubResource( 3 )
+material = SubResource( 4 )
+
+[node name="craterLarge" parent="Level/Map" instance=ExtResource( 10 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 18.1516, 0.12236, -41.5971 )
+
+[node name="craterLarge2" parent="Level/Map" instance=ExtResource( 10 )]
+transform = Transform( 7.95237, 0, 0, 0, 10, 0, 0, 0, 7.95237, -20.9584, 0.12236, -23.5778 )
+
+[node name="craterLarge3" parent="Level/Map" instance=ExtResource( 10 )]
+transform = Transform( 6.9285, 0, 0, 0, 10, 0, 0, 0, 6.9285, 12.4182, 0.12236, -6.68477 )
+
+[node name="craterLarge4" parent="Level/Map" instance=ExtResource( 10 )]
+transform = Transform( 3.85708, 0, 0, 0, 10, 0, 0, 0, 3.85708, -10.0035, 0.12236, -2.17995 )
+
+[node name="craterLarge5" parent="Level/Map" instance=ExtResource( 10 )]
+transform = Transform( 5.90473, 0, 0, 0, 10, 0, 0, 0, 5.90473, -8.16063, 0.12236, -39.959 )
+
+[node name="StaticBody" type="StaticBody" parent="Level/Map"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Level/Map/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="rock_crystalsLargeA" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 35.2418, 0.580488, -4.64597 )
+
+[node name="rock_crystalsLargeA2" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( 6.31927, 0, 18.9754, 0, 20, 0, -18.9754, 0, 6.31927, 24.1043, 0.580488, 9.4265 )
+
+[node name="rock_crystalsLargeA3" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( 11.8054, 0, -16.1442, 0, 20, 0, 16.1442, 0, 11.8054, 9.02303, 0.580488, -55.1042 )
+
+[node name="rock_crystalsLargeA4" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( 10.705, 0, -16.8938, 0, 20, 0, 16.8938, 0, 10.705, -26.7373, 0.580488, -50.3024 )
+
+[node name="rock_crystalsLargeA7" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( -10.8368, 0, -16.8096, 0, 20, 0, 16.8096, 0, -10.8368, -41.3594, 0.580488, -39.4171 )
+
+[node name="rock_crystalsLargeA5" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( 18.543, 0, 7.49375, 0, 20, 0, -7.49375, 0, 18.543, -44.932, 0.580488, -7.50172 )
+
+[node name="rock_crystalsLargeA6" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( 7.1253, 0, 18.6877, 0, 20, 0, -18.6877, 0, 7.1253, -22.6907, 0.580488, 12.929 )
+
+[node name="rock_crystalsLargeB" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( 9.34934, 0, -17.6802, 0, 20, 0, 17.6802, 0, 9.34934, 34.0892, 0, -39.202 )
+
+[node name="rock_crystalsLargeB2" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 26.7782, 0, -56.586 )
+
+[node name="rock_crystalsLargeB3" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( 8.80568, 0, -17.9572, 0, 20, 0, 17.9572, 0, 8.80568, -11.5642, 0, -55.6542 )
+
+[node name="rock_crystalsLargeB4" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( 15.3384, 0, 12.8349, 0, 20, 0, -12.8349, 0, 15.3384, -45.3574, 0, -24.1355 )
+
+[node name="rock_crystalsLargeA9" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( 20.5315, 0, -32.4012, 0, 20, 0, 32.4012, 0, 20.5315, -41.2813, 0.580488, -62.5439 )
+
+[node name="rock_crystalsLargeA10" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( -20.7842, 0, -32.2397, 0, 20, 0, 32.2397, 0, -20.7842, -67.0734, 0.580488, -44.9594 )
+
+[node name="rock_crystalsLargeB10" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( 16.8887, 0, -34.4406, 0, 20, 0, 34.4406, 0, 16.8887, -14.5265, 0, -71.9507 )
+
+[node name="rock_crystalsLargeB11" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( 29.4179, 0, 24.6164, 0, 20, 0, -24.6164, 0, 29.4179, -63.3609, 0, -23.6623 )
+
+[node name="rock_crystalsLargeA11" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( -35.8913, 0, -13.535, 0, 20, 0, 13.535, 0, -35.8913, 43.2534, 0.580488, -53.0394 )
+
+[node name="rock_crystalsLargeA12" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( -27.3555, 0, 26.8897, 0, 20, 0, -26.8897, 0, -27.3555, 26.2042, 0.580488, -73.9838 )
+
+[node name="rock_crystalsLargeB12" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( -37.1497, 0, -9.55431, 0, 20, 0, 9.55431, 0, -37.1497, 55.6519, 0, -26.6495 )
+
+[node name="rock_crystalsLargeB13" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( 18.14, 0, -33.7983, 0, 20, 0, 33.7983, 0, 18.14, 8.94001, 0, -95.8732 )
+
+[node name="rock_crystalsLargeB5" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( 10.0317, 0, -17.3022, 0, 20, 0, 17.3022, 0, 10.0317, -31.92, 0, 2.15378 )
+
+[node name="rock_crystalsLargeA8" parent="Level/Map" instance=ExtResource( 7 )]
+transform = Transform( 18.543, 0, 7.49375, 0, 20, 0, -7.49375, 0, 18.543, 48.3244, 0.580488, -10.2637 )
+
+[node name="rock_crystalsLargeB8" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( 15.3384, 0, 12.8349, 0, 20, 0, -12.8349, 0, 15.3384, 40.4254, 0, -24.7424 )
+
+[node name="rock_crystalsLargeB9" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( 10.0317, 0, -17.3022, 0, 20, 0, 17.3022, 0, 10.0317, 1.22337, 0, -69.9818 )
+
+[node name="rock_crystalsLargeB6" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( 19.0138, 0, 6.20291, 0, 20, 0, -6.20291, 0, 19.0138, -6.36665, 0, 13.6751 )
+
+[node name="rock_crystalsLargeB7" parent="Level/Map" instance=ExtResource( 8 )]
+transform = Transform( -4.12408, 0, -19.5702, 0, 20, 0, 19.5702, 0, -4.12408, 8.41375, 0, 13.75 )
+
+[node name="rock" parent="Level/Map" instance=ExtResource( 18 )]
+transform = Transform( 5.37469, 0, 2.66697, 0, 6, 0, -2.66697, 0, 5.37469, 25.3606, 0, -24.6081 )
+
+[node name="rock2" parent="Level/Map" instance=ExtResource( 18 )]
+transform = Transform( 1.21056, 0, -1.59203, 0, 2, 0, 1.59203, 0, 1.21056, 1.58034, 0, -29.6501 )
+
+[node name="rock3" parent="Level/Map" instance=ExtResource( 18 )]
+transform = Transform( 1.91888, 0, -2.30606, 0, 3, 0, 2.30606, 0, 1.91888, -22.14, 0, -11.7786 )
+
+[node name="rock4" parent="Level/Map" instance=ExtResource( 18 )]
+transform = Transform( 2.34267, 0, -1.87401, 0, 3, 0, 1.87401, 0, 2.34267, 19.7767, 0, -1.86808 )
+
+[node name="rock5" parent="Level/Map" instance=ExtResource( 18 )]
+transform = Transform( 1.0931, 0, 2.24836, 0, 2.5, 0, -2.24836, 0, 1.0931, -25.0644, 0, -34.1992 )
+
+[node name="core" parent="Level/Map" instance=ExtResource( 19 )]
+transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, -9.34874, 5.22378, -16.0128 )
+
+[node name="CPUParticles" type="CPUParticles" parent="Level/Map/core"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0331845, 0.0320931, -0.00262831 )
+mesh = SubResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 4.12
+spread = 66.95
+gravity = Vector3( 0, 5, 0 )
+angular_velocity = 70.24
+angular_velocity_random = 1.0
+linear_accel = 3.25
+linear_accel_random = 1.0
+radial_accel = 6.5
+radial_accel_random = 1.0
+scale_amount_random = 1.0
+
+[node name="OmniLight" type="OmniLight" parent="Level/Map/core"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0328594, -0.0123977, -0.00312704 )
+light_color = Color( 1, 0.698039, 0.054902, 1 )
+light_energy = 8.43
+light_specular = 0.0
+omni_range = 8.2
+omni_attenuation = 1.93187
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 2 )
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="DefaultWeaponButton" type="TextureButton" parent="CanvasLayer"]
+margin_bottom = 150.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -145,14 +240,82 @@ __meta__ = {
 }
 
 [node name="FireButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer"]
-position = Vector2( -129.479, -124.14 )
+position = Vector2( -181.069, -168.587 )
+scale = Vector2( 0.8, 0.8 )
 normal = ExtResource( 5 )
-pressed = ExtResource( 4 )
+pressed = ExtResource( 16 )
 passby_press = true
+
+[node name="LabelFPS" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -108.0
+margin_top = 13.0
+margin_right = -13.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 6 )
+text = "fps"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Objective" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -179.978
+margin_top = -52.6582
+margin_right = 241.022
+margin_bottom = -19.6582
+custom_fonts/font = SubResource( 6 )
+text = "Objective: Protect the core from infection"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbilityButton" parent="CanvasLayer" instance=ExtResource( 9 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -196.742
+margin_top = -384.805
+margin_right = -66.7421
+margin_bottom = -254.805
+cooldown = 5.0
+icon_texture_normal = ExtResource( 4 )
+icon_texture_disabled = ExtResource( 11 )
+
+[node name="AbilityButton2" parent="CanvasLayer" instance=ExtResource( 9 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -339.375
+margin_top = -310.872
+margin_right = -209.375
+margin_bottom = -180.872
+cooldown = 8.0
+icon_texture_normal = ExtResource( 13 )
+icon_texture_disabled = ExtResource( 14 )
+
+[node name="AbilityButton3" parent="CanvasLayer" instance=ExtResource( 9 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -406.611
+margin_top = -166.177
+margin_right = -276.611
+margin_bottom = -36.1769
+cooldown = 3.0
+icon_texture_normal = ExtResource( 15 )
+icon_texture_disabled = ExtResource( 12 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -22.395
-autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/FireButton" to="Level/Player" method="_on_FireButton_pressed"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gui/icon-border.png" type="Texture" id=1]
+[ext_resource path="res://gui/AbilityButton.gd" type="Script" id=2]
+[ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 3 )
+
+[node name="AbilityButton" type="TextureButton"]
+margin_right = 130.0
+margin_bottom = 130.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture_normal = ExtResource( 1 )
+expand = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+cooldown = 1.5
+
+[node name="Sweep" type="TextureProgress" parent="."]
+modulate = Color( 0.145098, 0.145098, 0.145098, 0.87451 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+value = 100.0
+fill_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Counter" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -130.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="Counter"]
+margin_top = 24.0
+margin_right = 130.0
+margin_bottom = 105.0
+custom_fonts/font = SubResource( 1 )
+text = "0.0"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="gui_input" from="." to="." method="_on_AbilityButton_gui_input"]
+[connection signal="pressed" from="." to="." method="_on_AbilityButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

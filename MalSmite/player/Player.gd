@@ -2,12 +2,11 @@ extends KinematicBody
 
 class_name Player
 
-const MAX_SPEED = 20
+const MAX_SPEED = 15
 const JUMP_SPEED = 5
 const ACCELERATION = 3
 const DECELERATION = 4
 var velocity: Vector3
-onready var camera = $Target/Camera
 onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
 onready var start_position = translation
 var isMoving:bool = false
@@ -25,7 +24,7 @@ func _physics_process(_delta):
 			isMoving = false
 		velocity.x = playerController.output.x
 		velocity.z = playerController.output.y
-		velocity = move_and_slide(velocity * MAX_SPEED)
+		velocity = move_and_slide(velocity * MAX_SPEED).normalized()
 		rotation = Vector3(0, playerController.output.angle()*-1, 0)
 		get_node("MainController/Root/BoosterFast").visible = true
 		get_node("MainController/Root/BoosterFast2").visible = true
