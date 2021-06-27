@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameUI.gd" type="Script" id=2]
@@ -20,43 +20,45 @@
 [ext_resource path="res://models/rock.dae" type="PackedScene" id=18]
 [ext_resource path="res://level/cict-core.tscn" type="PackedScene" id=19]
 
-[sub_resource type="ProceduralSky" id=1]
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.0126839, 0.223239, 0.324707, 1, 0.9375, 0.98407, 1, 0 )
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Environment" id=3]
 background_mode = 2
-background_sky = SubResource( 1 )
 background_energy = 0.57
+ambient_light_color = Color( 0.298039, 0.298039, 0.298039, 1 )
 fog_color = Color( 0.701961, 0.694118, 0.501961, 1 )
 fog_depth_begin = 266.7
-glow_enabled = true
 glow_intensity = 4.92
 glow_strength = 0.87
 glow_bloom = 0.87
-adjustment_enabled = true
 adjustment_brightness = 1.1
+adjustment_color_correction = SubResource( 2 )
 
-[sub_resource type="PlaneMesh" id=3]
+[sub_resource type="PlaneMesh" id=4]
 size = Vector2( 200, 200 )
 
-[sub_resource type="SpatialMaterial" id=4]
-resource_name = "rock"
+[sub_resource type="SpatialMaterial" id=5]
 params_cull_mode = 2
 albedo_color = Color( 0.25098, 0.25098, 0.25098, 1 )
 metallic = 0.5
 roughness = 0.0960784
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=6]
 extents = Vector3( 100, 1, 100 )
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=7]
 flags_unshaded = true
 albedo_color = Color( 0.890196, 0.501961, 0.0901961, 1 )
 
-[sub_resource type="PrismMesh" id=7]
-material = SubResource( 8 )
+[sub_resource type="PrismMesh" id=8]
+material = SubResource( 7 )
 size = Vector3( 0.2, 0.2, 0.2 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=9]
 size = 26
 font_data = ExtResource( 17 )
 
@@ -68,7 +70,7 @@ font_data = ExtResource( 17 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07397, -0.199887, -16.1576 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
-environment = SubResource( 2 )
+environment = SubResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Level"]
 transform = Transform( 1, 0, 0, 0, 0.156796, 0.987631, 0, -0.987631, 0.156796, 4.70974, 1.52417, 0 )
@@ -80,8 +82,8 @@ playerPath = NodePath("../Player")
 
 [node name="Map" type="CSGMesh" parent="Level"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.26473, 0 )
-mesh = SubResource( 3 )
-material = SubResource( 4 )
+mesh = SubResource( 4 )
+material = SubResource( 5 )
 
 [node name="craterLarge" parent="Level/Map" instance=ExtResource( 10 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 18.1516, 0.12236, -41.5971 )
@@ -101,7 +103,7 @@ transform = Transform( 5.90473, 0, 0, 0, 10, 0, 0, 0, 5.90473, -8.16063, 0.12236
 [node name="StaticBody" type="StaticBody" parent="Level/Map"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Level/Map/StaticBody"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="rock_crystalsLargeA" parent="Level/Map" instance=ExtResource( 7 )]
 transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 35.2418, 0.580488, -4.64597 )
@@ -198,7 +200,7 @@ transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, -9.34874, 5.22378, -16.0
 
 [node name="CPUParticles" type="CPUParticles" parent="Level/Map/core"]
 transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0331845, 0.0320931, -0.00262831 )
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 emission_shape = 1
 emission_sphere_radius = 4.12
 spread = 66.95
@@ -253,7 +255,7 @@ margin_left = -108.0
 margin_top = 13.0
 margin_right = -13.0
 margin_bottom = 38.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 text = "fps"
 align = 1
 __meta__ = {
@@ -269,7 +271,7 @@ margin_left = -179.978
 margin_top = -52.6582
 margin_right = 241.022
 margin_bottom = -19.6582
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 text = "Objective: Protect the core from infection"
 align = 1
 __meta__ = {
