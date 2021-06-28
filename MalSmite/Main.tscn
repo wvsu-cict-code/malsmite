@@ -5,11 +5,10 @@
 [ext_resource path="res://audio/background.ogg" type="AudioStream" id=3]
 [ext_resource path="res://gui/rocket.png" type="Texture" id=4]
 [ext_resource path="res://gui/shoot1.png" type="Texture" id=5]
-[ext_resource path="res://level/CamBase.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level/rock_crystalsLargeA.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/rock_crystalsLargeB.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/AbilityButton.tscn" type="PackedScene" id=9]
-[ext_resource path="res://models/craterLarge.dae" type="PackedScene" id=10]
+[ext_resource path="res://level/craterLarge.dae" type="PackedScene" id=10]
 [ext_resource path="res://gui/rocket-pressed.png" type="Texture" id=11]
 [ext_resource path="res://gui/shield1_pressed.png" type="Texture" id=12]
 [ext_resource path="res://gui/vortex.png" type="Texture" id=13]
@@ -17,7 +16,7 @@
 [ext_resource path="res://gui/shield1.png" type="Texture" id=15]
 [ext_resource path="res://gui/shoot1_pressed.png" type="Texture" id=16]
 [ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://models/rock.dae" type="PackedScene" id=18]
+[ext_resource path="res://level/rock.dae" type="PackedScene" id=18]
 [ext_resource path="res://level/cict-core.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Gradient" id=1]
@@ -29,7 +28,8 @@ gradient = SubResource( 1 )
 [sub_resource type="Environment" id=3]
 background_mode = 2
 background_energy = 0.57
-ambient_light_color = Color( 0.298039, 0.298039, 0.298039, 1 )
+ambient_light_color = Color( 0.121569, 0.223529, 0.384314, 1 )
+ambient_light_energy = 1.83
 fog_color = Color( 0.701961, 0.694118, 0.501961, 1 )
 fog_depth_begin = 266.7
 glow_intensity = 4.92
@@ -41,11 +41,25 @@ adjustment_color_correction = SubResource( 2 )
 [sub_resource type="PlaneMesh" id=4]
 size = Vector2( 200, 200 )
 
-[sub_resource type="SpatialMaterial" id=5]
-params_cull_mode = 2
-albedo_color = Color( 0.25098, 0.25098, 0.25098, 1 )
-metallic = 0.5
-roughness = 0.0960784
+[sub_resource type="Shader" id=10]
+code = "shader_type spatial;
+
+uniform vec3 scale = vec3(1.0);
+uniform vec4 color1: hint_color = vec4(0.4, 0.4, 0.4, 1.0);
+uniform vec4 color2: hint_color = vec4(0.6, 0.6, 0.6, 1.0);
+
+void fragment() {
+  vec3 worldCoords = (CAMERA_MATRIX * vec4(VERTEX, 1.0)).xyz / scale;
+  vec3 blockIndex = floor(mod(worldCoords, 2.0));
+  float colorIndex = mod(blockIndex.x + blockIndex.y + blockIndex.z, 2.0);
+  ALBEDO = colorIndex == 0.0 ? color1.rgb : color2.rgb;
+}"
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = SubResource( 10 )
+shader_param/scale = Vector3( 1, 1, 1 )
+shader_param/color1 = Color( 0.180392, 0.180392, 0.180392, 1 )
+shader_param/color2 = Color( 0.145098, 0.145098, 0.145098, 1 )
 
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 100, 1, 100 )
@@ -76,14 +90,10 @@ environment = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 0.156796, 0.987631, 0, -0.987631, 0.156796, 4.70974, 1.52417, 0 )
 light_energy = 0.14
 
-[node name="CamBase" parent="Level" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 0.795435, 0.606039, 0, -0.606039, 0.795435, -5.94505, 16.2548, 7.52538 )
-playerPath = NodePath("../Player")
-
 [node name="Map" type="CSGMesh" parent="Level"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.26473, 0 )
 mesh = SubResource( 4 )
-material = SubResource( 5 )
+material = SubResource( 11 )
 
 [node name="craterLarge" parent="Level/Map" instance=ExtResource( 10 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 18.1516, 0.12236, -41.5971 )
@@ -217,7 +227,7 @@ scale_amount_random = 1.0
 transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0328594, -0.0123977, -0.00312704 )
 light_color = Color( 1, 0.698039, 0.054902, 1 )
 light_energy = 8.43
-light_specular = 0.0
+light_specular = 0.12
 omni_range = 8.2
 omni_attenuation = 1.93187
 
@@ -287,6 +297,7 @@ margin_left = -196.742
 margin_top = -384.805
 margin_right = -66.7421
 margin_bottom = -254.805
+rect_scale = Vector2( 0.72, 0.72 )
 cooldown = 5.0
 icon_texture_normal = ExtResource( 4 )
 icon_texture_disabled = ExtResource( 11 )
@@ -300,6 +311,7 @@ margin_left = -339.375
 margin_top = -310.872
 margin_right = -209.375
 margin_bottom = -180.872
+rect_scale = Vector2( 0.76, 0.76 )
 cooldown = 8.0
 icon_texture_normal = ExtResource( 13 )
 icon_texture_disabled = ExtResource( 14 )
@@ -313,6 +325,7 @@ margin_left = -406.611
 margin_top = -166.177
 margin_right = -276.611
 margin_bottom = -36.1769
+rect_scale = Vector2( 0.76, 0.76 )
 cooldown = 3.0
 icon_texture_normal = ExtResource( 15 )
 icon_texture_disabled = ExtResource( 12 )

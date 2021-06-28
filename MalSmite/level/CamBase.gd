@@ -19,14 +19,14 @@ func calc_move(player_pos, delta):
 	var margin_y = 130
 	var move_vec = Vector3()
 
-	if player_pos.x-margin_x < MOVE_MARGIN:
-		move_vec.x -= 1
-	if player_pos.y-margin_y*2 < MOVE_MARGIN:
-		move_vec.z -= 1
-	if player_pos.x+margin_x*2 > v_size.x - MOVE_MARGIN:
-		move_vec.x += 1
-	if player_pos.y+margin_y > v_size.y - MOVE_MARGIN:
-		move_vec.z += 1
+#	if player_pos.x-margin_x < MOVE_MARGIN:
+#		move_vec.x -= 1
+#	if player_pos.y-margin_y*2 < MOVE_MARGIN:
+#		move_vec.z -= 1
+#	if player_pos.x+margin_x*2 > v_size.x - MOVE_MARGIN:
+#		move_vec.x += 1
+#	if player_pos.y+margin_y > v_size.y - MOVE_MARGIN:
+#		move_vec.z += 1
 
 	move_vec = move_vec.rotated(Vector3(0, 1, 0), rotation_degrees.y)
 
@@ -38,7 +38,7 @@ func calc_move(player_pos, delta):
 		global_transform = global_transform
 		set_as_toplevel(false)
 	
-	#global_translate(move_vec * delta * MOVE_SPEED)
+	global_translate(move_vec * delta * MOVE_SPEED)
 	
 	
 	

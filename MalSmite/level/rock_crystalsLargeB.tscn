@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://models/rock_crystalsLargeB.dae" type="PackedScene" id=1]
+[ext_resource path="res://level/rock_crystalsLargeB.dae" type="PackedScene" id=1]
 
 [sub_resource type="SpatialMaterial" id=3]
 resource_name = "crystal"
