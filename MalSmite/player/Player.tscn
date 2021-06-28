@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://controller/Controller.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Model.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level/CamBase.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player/booster.tres" type="Material" id=5]
 [ext_resource path="res://player/Particles1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://MotionTrail/MotionTrail.tscn" type="PackedScene" id=7]
@@ -270,3 +271,7 @@ anims/NotMoving = SubResource( 9 )
 stream = ExtResource( 12 )
 unit_size = 4.6
 autoplay = true
+
+[node name="CamBase" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.795435, 0.606039, 0, -0.606039, 0.795435, -4.87108, 16.4547, 23.683 )
+playerPath = NodePath("..")
