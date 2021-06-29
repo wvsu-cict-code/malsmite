@@ -34,7 +34,7 @@ _global_script_class_icons={
 
 config/name="MalSmite"
 config/description="Rougue-like RPG. Developed by BSEMC 2021"
-run/main_scene="res://main.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]

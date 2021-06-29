@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://audio/background.ogg" type="AudioStream" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://gui/shoot1_pressed.png" type="Texture" id=17]
 [ext_resource path="res://gui/shield1.png" type="Texture" id=18]
 [ext_resource path="res://vfx/baked_light_maps/level1.lmbake" type="BakedLightmapData" id=19]
+[ext_resource path="res://vfx/shaders/barier.shader" type="Shader" id=20]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.0126839, 0.223239, 0.324707, 1, 0.9375, 0.98407, 1, 0 )
@@ -72,6 +73,15 @@ albedo_color = Color( 0.890196, 0.501961, 0.0901961, 1 )
 [sub_resource type="PrismMesh" id=9]
 material = SubResource( 8 )
 size = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="SphereMesh" id=12]
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = ExtResource( 20 )
+shader_param/barrier_color = Color( 1, 0.74902, 0, 1 )
+shader_param/barrier_force = 1.0
+shader_param/barrier_interval = 5.0
+shader_param/barrier_speed = 5.0
 
 [sub_resource type="PanoramaSky" id=10]
 
@@ -234,6 +244,11 @@ light_energy = 8.43
 light_specular = 0.12
 omni_range = 8.2
 omni_attenuation = 1.93187
+
+[node name="CSGMesh" type="CSGMesh" parent="Level/Map/core"]
+transform = Transform( 0.0431864, 0, 0, 0, 0.0431864, 0, 0, 0, 0.0431864, 0.0339864, 0.0329904, -0.0040886 )
+mesh = SubResource( 12 )
+material = SubResource( 13 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="Level"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.0357 )

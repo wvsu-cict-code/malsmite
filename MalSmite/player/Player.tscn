@@ -3,7 +3,7 @@
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://gui/controller/Controller.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Model.tscn" type="PackedScene" id=3]
-[ext_resource path="res://level/CamBase.tscn" type="PackedScene" id=4]
+[ext_resource path="res://player/CameraTarget.gd" type="Script" id=4]
 [ext_resource path="res://player/booster.tres" type="Material" id=5]
 [ext_resource path="res://player/Particles1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://vfx/motion_trail/MotionTrail.tscn" type="PackedScene" id=7]
@@ -250,6 +250,7 @@ transform = Transform( 0.999521, -0.0309572, 0, 0.0309572, 0.999521, 9.44232e-17
 
 [node name="Shield" type="CSGMesh" parent="MainController/Root"]
 transform = Transform( 1.99235, 3.60473, 7.54323e-07, -3.69833, 1.94192, -2.74219e-08, -3.81058e-07, -6.33208e-07, 4.21011, 0.263536, 2.2893, 0.0410637 )
+visible = false
 mesh = SubResource( 6 )
 material = ExtResource( 13 )
 
@@ -279,6 +280,7 @@ stream = ExtResource( 12 )
 unit_size = 4.6
 autoplay = true
 
-[node name="CamBase" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 0.795435, 0.606039, 0, -0.606039, 0.795435, -4.87108, 16.4547, 23.683 )
-playerPath = NodePath("..")
+[node name="Target" type="Spatial" parent="."]
+script = ExtResource( 4 )
+
+[node name="Camera" type="Camera" parent="Target"]

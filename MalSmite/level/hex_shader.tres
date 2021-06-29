@@ -1,7 +1,14 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
 [sub_resource type="Shader" id=1]
-code = "shader_type spatial;
+code = "/*
+	六角形縁 by あるる（きのもと 結衣）
+	Hex Line Shader by Yui Kinomoto @arlez80
+
+	MIT License
+*/
+
+shader_type spatial;
 render_mode unshaded;
 
 const float PI = 3.1415926535;

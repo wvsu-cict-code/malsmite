@@ -38,7 +38,7 @@ func calc_move(player_pos, delta):
 		global_transform = global_transform
 		set_as_toplevel(false)
 	
-	global_translate(move_vec * delta * MOVE_SPEED)
+	# global_translate(move_vec * delta * MOVE_SPEED)
 	
 	
 	
