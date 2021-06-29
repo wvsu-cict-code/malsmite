@@ -77,6 +77,7 @@ threads/thread_model=2
 vram_compression/import_etc=true
 quality/shadows/filter_mode=0
 quality/reflections/texture_array_reflections=false
+quality/reflections/high_quality_ggx.mobile=true
 gles2/compatibility/disable_half_float=true
 quality/lightmapping/use_bicubic_sampling.mobile=true
 environment/default_clear_color=Color( 0.129412, 0.133333, 0.192157, 1 )
