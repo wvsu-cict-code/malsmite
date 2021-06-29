@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://vfx/motion_trail/MotionTrail.gd" type="Script" id=1]
+[ext_resource path="res://vfx/motion_trail/trailmaterial.tres" type="Material" id=2]
+
+[node name="MotionTrail" type="ImmediateGeometry"]
+material_override = ExtResource( 2 )
+script = ExtResource( 1 )

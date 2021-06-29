@@ -1,17 +1,18 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
-[ext_resource path="res://controller/Controller.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/controller/Controller.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Model.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/CamBase.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player/booster.tres" type="Material" id=5]
 [ext_resource path="res://player/Particles1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://MotionTrail/MotionTrail.tscn" type="PackedScene" id=7]
+[ext_resource path="res://vfx/motion_trail/MotionTrail.tscn" type="PackedScene" id=7]
 [ext_resource path="res://weapons/shoot1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player/Model-Rigged.tscn" type="PackedScene" id=9]
 [ext_resource path="res://player/TheSphere.tscn" type="PackedScene" id=10]
 [ext_resource path="res://player/weapon1.dae" type="PackedScene" id=11]
 [ext_resource path="res://audio/thrusterFire.ogg" type="AudioStream" id=12]
+[ext_resource path="res://level/hex_shader.tres" type="Material" id=13]
 
 [sub_resource type="QuadMesh" id=1]
 material = ExtResource( 5 )
@@ -30,10 +31,12 @@ size = Vector2( 0.5, 0.5 )
 [sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0.897727 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="SphereMesh" id=6]
+
+[sub_resource type="BoxShape" id=7]
 extents = Vector3( 1.56389, 3.48339, 1 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -49,7 +52,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.272, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("MainController/Root:rotation_degrees")
@@ -76,7 +79,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 90, 0 ), Vector3( -26.988, 90, -1.27543e-06 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("MainController/Root:rotation_degrees")
@@ -103,8 +106,7 @@ tracks/1/keys = {
 "values": [ Vector3( -26.988, 90, -1.27543e-06 ), Vector3( 0, 90, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "Full Rotate"
+[sub_resource type="Animation" id=11]
 length = 20.0
 loop = true
 tracks/0/type = "value"
@@ -246,9 +248,14 @@ scale_amount_curve = SubResource( 5 )
 [node name="weapon1" parent="MainController/Root/the-sphere" instance=ExtResource( 11 )]
 transform = Transform( 0.999521, -0.0309572, 0, 0.0309572, 0.999521, 9.44232e-17, -8.30624e-12, -1.0519e-08, 1, -0.0002661, 0.38478, 0.272017 )
 
+[node name="Shield" type="CSGMesh" parent="MainController/Root"]
+transform = Transform( 1.99235, 3.60473, 7.54323e-07, -3.69833, 1.94192, -2.74219e-08, -3.81058e-07, -6.33208e-07, 4.21011, 0.263536, 2.2893, 0.0410637 )
+mesh = SubResource( 6 )
+material = ExtResource( 13 )
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1.55737, 0, 0, 0, 1.55737, 3.87476, 1.58048, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Controller" parent="." instance=ExtResource( 2 )]
 margin_left = 1.6326
@@ -258,14 +265,14 @@ margin_bottom = -1.40314
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "hover"
-anims/hover = SubResource( 7 )
+anims/hover = SubResource( 8 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/Moving = SubResource( 8 )
-anims/NotMoving = SubResource( 9 )
+anims/Moving = SubResource( 9 )
+anims/NotMoving = SubResource( 10 )
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
-"anims/Full Rotate" = SubResource( 10 )
+"anims/Full Rotate" = SubResource( 11 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 12 )

@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Camera",
 "class": "CameraController",
 "language": "GDScript",
-"path": "res://CameraController.gd"
+"path": "res://scripts/CameraController.gd"
 }, {
 "base": "Control",
 "class": "Controller",
 "language": "GDScript",
-"path": "res://controller/Controller.gd"
+"path": "res://gui/controller/Controller.gd"
 }, {
 "base": "KinematicBody",
 "class": "Player",
@@ -34,8 +34,12 @@ _global_script_class_icons={
 
 config/name="MalSmite"
 config/description="Rougue-like RPG. Developed by BSEMC 2021"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.tscn"
 
 [debug]
 
@@ -73,4 +77,4 @@ quality/reflections/texture_array_reflections=false
 gles2/compatibility/disable_half_float=true
 quality/lightmapping/use_bicubic_sampling.mobile=true
 quality/depth/hdr.mobile=true
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://level/default_env.tres"
