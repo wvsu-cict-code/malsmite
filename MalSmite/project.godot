@@ -35,11 +35,12 @@ _global_script_class_icons={
 config/name="MalSmite"
 config/description="Rougue-like RPG. Developed by BSEMC 2021"
 run/main_scene="res://Main.tscn"
+boot_splash/bg_color=Color( 0.0745098, 0.0784314, 0.0901961, 1 )
 config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Global.tscn"
+Global="*res://scripts/Global.gd"
 
 [debug]
 
@@ -47,6 +48,8 @@ settings/stdout/print_fps=true
 
 [display]
 
+window/size/width=1280
+window/size/height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
@@ -76,5 +79,7 @@ quality/shadows/filter_mode=0
 quality/reflections/texture_array_reflections=false
 gles2/compatibility/disable_half_float=true
 quality/lightmapping/use_bicubic_sampling.mobile=true
+environment/default_clear_color=Color( 0.129412, 0.133333, 0.192157, 1 )
 quality/depth/hdr.mobile=true
 environment/default_environment="res://level/default_env.tres"
+quality/dynamic_fonts/use_oversampling=false
