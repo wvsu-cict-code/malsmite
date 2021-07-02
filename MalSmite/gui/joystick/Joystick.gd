@@ -1,6 +1,6 @@
 extends Control
 
-class_name Controller
+class_name MovementController
 
 # If the joystick is receiving inputs.
 var is_working := false
@@ -84,7 +84,7 @@ func _center_control(control: Control, new_global_position: Vector2) -> void:
 	#control.rect_global_position = new_global_position - control.rect_pivot_offset
 
 func _reset_handle():
-	_center_control(_handle, _background.rect_global_position + (_background.rect_size / 2.28))
+	_center_control(_handle, _background.rect_global_position + (_background.rect_size / 2))
 
 func _reset():
 	_touch_index = -1

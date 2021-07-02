@@ -15,9 +15,9 @@ _global_script_classes=[ {
 "path": "res://scripts/CameraController.gd"
 }, {
 "base": "Control",
-"class": "Controller",
+"class": "MovementController",
 "language": "GDScript",
-"path": "res://gui/controller/Controller.gd"
+"path": "res://gui/joystick/Joystick.gd"
 }, {
 "base": "KinematicBody",
 "class": "Player",
@@ -26,7 +26,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "CameraController": "",
-"Controller": "",
+"MovementController": "",
 "Player": ""
 }
 
@@ -34,7 +34,7 @@ _global_script_class_icons={
 
 config/name="MalSmite"
 config/description="Rougue-like RPG. Developed by BSEMC 2021"
-run/main_scene="res://Splash.tscn"
+run/main_scene="res://Main.tscn"
 boot_splash/bg_color=Color( 0.0745098, 0.0784314, 0.0901961, 1 )
 config/icon="res://icon.png"
 

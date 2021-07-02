@@ -12,7 +12,7 @@ onready var start_position = translation
 var isMoving:bool = false
 
 export (NodePath) var controllerPath
-onready var playerController : Controller = get_node(controllerPath)
+onready var playerController : MovementController = $Joystick
 
 
 func _physics_process(_delta):

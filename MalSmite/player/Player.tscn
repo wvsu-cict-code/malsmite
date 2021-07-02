@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
-[ext_resource path="res://gui/controller/Controller.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/joystick/Joystick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Model.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/health.png" type="Texture" id=4]
 [ext_resource path="res://player/booster.tres" type="Material" id=5]
@@ -127,7 +127,6 @@ viewport_path = NodePath("Sprite3D/Viewport")
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
-controllerPath = NodePath("Controller")
 
 [node name="MainController" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 1.74846e-07, 0, -1.74846e-07, 1, 1.36322, 2.41485, 0 )
@@ -261,12 +260,6 @@ material = ExtResource( 13 )
 transform = Transform( 1, 0, 0, 0, 1.55737, 0, 0, 0, 1.55737, 2.31761, 1.58048, 0 )
 shape = SubResource( 7 )
 
-[node name="Controller" parent="." instance=ExtResource( 2 )]
-margin_left = 73.1527
-margin_top = -373.665
-margin_right = 373.153
-margin_bottom = -73.6647
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "hover"
 anims/hover = SubResource( 8 )
@@ -280,6 +273,7 @@ anims/NotMoving = SubResource( 10 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 12 )
+unit_db = 10.0
 unit_size = 4.6
 autoplay = true
 
@@ -304,3 +298,10 @@ texture_progress = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Joystick" parent="." instance=ExtResource( 2 )]
+margin_left = 58.2704
+margin_top = -356.152
+margin_right = 358.27
+margin_bottom = -56.1516
+clamp_zone = 0.5
