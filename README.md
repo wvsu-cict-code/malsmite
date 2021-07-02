@@ -1,8 +1,10 @@
-# MalSmite
+![image](https://user-images.githubusercontent.com/7346165/124222895-355d7900-db35-11eb-861f-a1bbfd4cbb14.png)
 
 MalSmite, short for Malware Smite is a short mobile RPG shooter game that features our college mascot developed by the EMC students batch 2021.
 
 ![proposed-ui](https://user-images.githubusercontent.com/7346165/118435483-a4137e00-b711-11eb-9e4f-1220a720ec4d.png)
+
+![image](https://user-images.githubusercontent.com/7346165/123878597-ee735600-d971-11eb-80af-b769f0c5c616.png)
 
 Their class is composed of the following:
 * Character designers - design enemies (viruses) composed of primitive geometry shapes and give them abilities.
