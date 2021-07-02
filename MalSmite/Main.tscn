@@ -724,7 +724,6 @@ icon_texture_normal = ExtResource( 18 )
 icon_texture_disabled = ExtResource( 15 )
 
 [node name="PauseTextureButton" type="TextureButton" parent="CanvasLayer"]
-visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -101.78
