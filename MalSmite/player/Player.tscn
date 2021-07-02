@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://gui/controller/Controller.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Model.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/health.png" type="Texture" id=4]
 [ext_resource path="res://player/booster.tres" type="Material" id=5]
 [ext_resource path="res://player/Particles1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://vfx/motion_trail/MotionTrail.tscn" type="PackedScene" id=7]
@@ -120,6 +121,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( -360, 0, 0 ), Vector3( -360, 0, 0 ), Vector3( -360, 0, 0 ) ]
 }
+
+[sub_resource type="ViewportTexture" id=12]
+viewport_path = NodePath("Sprite3D/Viewport")
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -254,14 +258,14 @@ mesh = SubResource( 6 )
 material = ExtResource( 13 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1.55737, 0, 0, 0, 1.55737, 3.87476, 1.58048, 0 )
+transform = Transform( 1, 0, 0, 0, 1.55737, 0, 0, 0, 1.55737, 2.31761, 1.58048, 0 )
 shape = SubResource( 7 )
 
 [node name="Controller" parent="." instance=ExtResource( 2 )]
-margin_left = 1.6326
-margin_top = -301.403
-margin_right = 301.633
-margin_bottom = -1.40314
+margin_left = 73.1527
+margin_top = -373.665
+margin_right = 373.153
+margin_bottom = -73.6647
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "hover"
@@ -278,3 +282,25 @@ anims/NotMoving = SubResource( 10 )
 stream = ExtResource( 12 )
 unit_size = 4.6
 autoplay = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 5.25361, 0, 0, 0, 5.25361, 0, 0, 0, 5.25361, 2.49347, -0.424691, -0.742232 )
+offset = Vector2( 455, -350 )
+billboard = 1
+texture = SubResource( 12 )
+
+[node name="Viewport" type="Viewport" parent="Sprite3D"]
+size = Vector2( 1000, 1000 )
+transparent_bg = true
+usage = 0
+render_target_v_flip = true
+
+[node name="TextureProgress" type="TextureProgress" parent="Sprite3D/Viewport"]
+margin_right = 451.0
+margin_bottom = 67.0
+rect_scale = Vector2( 0.2, 0.2 )
+value = 100.0
+texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
