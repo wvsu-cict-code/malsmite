@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player/Bullet.gd" type="Script" id=1]
 
@@ -14,15 +14,50 @@ material = SubResource( 1 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.94902, 0.745098, 0.0392157, 1 )
+albedo_color = Color( 1, 0.937255, 0, 1 )
 emission_enabled = true
 emission = Color( 1, 0.796078, 0.0745098, 1 )
 emission_energy = 7.87
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="SpatialMaterial" id=4]
+emission_enabled = true
+emission = Color( 1, 0.796078, 0.0745098, 1 )
+emission_energy = 7.87
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.0569755, 0.0555745, 0.0611786 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hit:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CSGMesh:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
@@ -32,7 +67,18 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = SubResource( 2 )
 material = SubResource( 3 )
 
+[node name="Hit" type="CSGMesh" parent="."]
+transform = Transform( 0.232689, 0, 0, 0, 0.232689, 0, 0, 0, 0.232689, 0, 0, 0 )
+visible = false
+mesh = SubResource( 2 )
+material = SubResource( 4 )
+
 [node name="Area" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hit = SubResource( 6 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

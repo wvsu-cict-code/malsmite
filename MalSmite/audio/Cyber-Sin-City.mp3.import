@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Cyber-Sin-City.mp3-890c39a5ed027bd0d3796e960ca4d136.mp3str"
+
+[deps]
+
+source_file="res://audio/Cyber-Sin-City.mp3"
+dest_files=[ "res://.import/Cyber-Sin-City.mp3-890c39a5ed027bd0d3796e960ca4d136.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

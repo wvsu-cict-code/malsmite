@@ -26,6 +26,9 @@ func collided(body):
 	if hit_something == false:
 		if body.has_method("bullet_hit"):
 			body.bullet_hit(BULLET_DAMAGE, global_transform)
-
+	get_node("AnimationPlayer").play("Hit")
 	hit_something = true
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
 	queue_free()
