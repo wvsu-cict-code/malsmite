@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/preview_2.png-b40735c78ba8ecf1c85ff9f1d7bc0f56.stex"
+path="res://.import/bool.svg-ef43c1b7b42e78c61a6104d32e3559c1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://preview_2.png"
-dest_files=[ "res://.import/preview_2.png-b40735c78ba8ecf1c85ff9f1d7bc0f56.stex" ]
+source_file="res://addons/GGS/assets/icons/types/bool.svg"
+dest_files=[ "res://.import/bool.svg-ef43c1b7b42e78c61a6104d32e3559c1.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

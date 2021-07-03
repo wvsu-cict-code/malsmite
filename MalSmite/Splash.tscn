@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://gui/full-logo.png" type="Texture" id=2]
 [ext_resource path="res://Splash.gd" type="Script" id=3]
+[ext_resource path="res://gui/wvsu-logo.png" type="Texture" id=4]
+[ext_resource path="res://gui/cict-logo.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -42,7 +44,6 @@ script = ExtResource( 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -387.756
@@ -57,7 +58,6 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -105.437
@@ -68,6 +68,38 @@ custom_fonts/font = SubResource( 1 )
 text = "BSEMC 1A Presents"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -184.04
+margin_top = -151.018
+margin_right = -5.03955
+margin_bottom = -34.0178
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -334.843
+margin_top = -151.018
+margin_right = -155.843
+margin_bottom = -34.0178
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
