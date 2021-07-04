@@ -74,6 +74,7 @@ mesh = SubResource( 2 )
 material = SubResource( 4 )
 
 [node name="Area" type="Area" parent="."]
+transform = Transform( 10.8638, 0, 0, 0, 1, 0, 0, 0, 4.09745, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 5 )

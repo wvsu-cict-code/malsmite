@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://audio/Cyber-Sin-City.mp3" type="AudioStream" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://gui/pause.png" type="Texture" id=29]
 [ext_resource path="res://level/machine_barrelLarge.dae" type="PackedScene" id=30]
 [ext_resource path="res://Seeker.tscn" type="PackedScene" id=31]
+[ext_resource path="res://level/Core.gd" type="Script" id=32]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.0126839, 0.223239, 0.324707, 1, 0.9375, 0.98407, 1, 0 )
@@ -44,7 +45,6 @@ ambient_light_color = Color( 0.12549, 0.184314, 0.27451, 1 )
 ambient_light_energy = 1.83
 fog_color = Color( 0.701961, 0.694118, 0.501961, 1 )
 fog_depth_begin = 266.7
-glow_enabled = true
 glow_levels/5 = false
 glow_intensity = 2.1
 glow_strength = 0.87
@@ -58,7 +58,7 @@ size = Vector2( 300, 300 )
 
 [sub_resource type="SpatialMaterial" id=5]
 flags_unshaded = true
-albedo_color = Color( 0.116937, 0.10488, 0.0846887, 1 )
+albedo_color = Color( 0.0705882, 0.0627451, 0.0509804, 1 )
 albedo_texture = ExtResource( 26 )
 uv1_scale = Vector3( 4, 4, 4 )
 uv1_offset = Vector3( -0.135, 0.004, 0 )
@@ -118,6 +118,29 @@ shader_param/barrier_speed = 5.0
 [sub_resource type="PlaneMesh" id=21]
 size = Vector2( 0.05, 0.05 )
 
+[sub_resource type="SphereShape" id=32]
+radius = 0.218784
+
+[sub_resource type="SpatialMaterial" id=34]
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="Animation" id=33]
+resource_name = "Hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("CSGMesh:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 20 ), SubResource( 34 ), SubResource( 20 ) ]
+}
+
 [sub_resource type="Animation" id=22]
 length = 3.0
 loop = true
@@ -132,6 +155,23 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0.0705882, 0.0627451, 0.0509804, 1 ), Color( 0.380392, 0.321569, 0.223529, 1 ), Color( 0.0705882, 0.0627451, 0.0509804, 1 ), Color( 0.156863, 0.141176, 0.113725, 1 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "SpawnPointMove"
+length = 15.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpawnPoint:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 6.1, 9, 12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -38.4639, 5.97364, -49.8629 ), Vector3( 24.463, 5.97364, -55.6819 ), Vector3( 34.3761, 5.97364, -8.21738 ), Vector3( -35.3552, 5.97364, -5.6457 ), Vector3( -54.8338, 5.97364, -27.2493 ) ]
 }
 
 [sub_resource type="CylinderMesh" id=23]
@@ -194,11 +234,11 @@ height = 5.0
 radial_segments = 8
 rings = 2
 
-[sub_resource type="DynamicFont" id=31]
+[sub_resource type="DynamicFont" id=29]
 size = 26
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=32]
+[sub_resource type="DynamicFont" id=30]
 size = 70
 font_data = ExtResource( 1 )
 
@@ -281,6 +321,7 @@ shape = SubResource( 16 )
 
 [node name="core" parent="Level/Map" instance=ExtResource( 9 )]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, -9.34874, 5.22378, -16.0128 )
+script = ExtResource( 32 )
 
 [node name="CPUParticles" type="CPUParticles" parent="Level/Map/core"]
 transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0331845, 0.0320931, -0.00262831 )
@@ -314,6 +355,15 @@ material = SubResource( 20 )
 transform = Transform( 1.39703, 0, 5.96046e-08, 0, 1.39703, 0, -5.96046e-08, 0, 1.39703, 0.0329376, -0.0517972, -0.00300343 )
 mesh = SubResource( 21 )
 material = ExtResource( 27 )
+
+[node name="Area" type="Area" parent="Level/Map/core"]
+transform = Transform( 0.3, 0, -7.45058e-09, 0, 0.3, 0, 7.45058e-09, 0, 0.3, 0.0323232, 0.0367907, -0.0016889 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level/Map/core/Area"]
+shape = SubResource( 32 )
+
+[node name="CoreAnimation" type="AnimationPlayer" parent="Level/Map/core"]
+anims/Hit = SubResource( 33 )
 
 [node name="rocket_baseA" parent="Level/Map" instance=ExtResource( 25 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -6.05978, 0, -16.3523 )
@@ -505,9 +555,10 @@ transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 29.
 transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 10.7649, -3.50994, 0.251359 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Map"]
-autoplay = "Loop"
+autoplay = "SpawnPointMove"
 playback_speed = 0.5
 anims/Loop = SubResource( 22 )
+anims/SpawnPointMove = SubResource( 31 )
 
 [node name="Lines" type="Spatial" parent="Level/Map"]
 
@@ -677,7 +728,7 @@ mesh = SubResource( 26 )
 material = SubResource( 25 )
 
 [node name="SpawnPoint" type="Position3D" parent="Level/Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4639, 5.97364, -49.8629 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.571, 5.97364, -36.0126 )
 script = ExtResource( 28 )
 spawn_scene = ExtResource( 31 )
 
@@ -685,31 +736,14 @@ spawn_scene = ExtResource( 31 )
 wait_time = 5.0
 autostart = true
 
-[node name="SpawnPoint2" type="Position3D" parent="Level/Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.559, 5.97364, -43.5294 )
+[node name="SpawnPointStart" type="Position3D" parent="Level/Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4639, 5.97364, -49.8629 )
 script = ExtResource( 28 )
 spawn_scene = ExtResource( 31 )
+wait_time = 1
 
-[node name="Timer" type="Timer" parent="Level/Map/SpawnPoint2"]
-wait_time = 5.0
-autostart = true
-
-[node name="SpawnPoint3" type="Position3D" parent="Level/Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7315, 5.97364, -12.6848 )
-script = ExtResource( 28 )
-spawn_scene = ExtResource( 31 )
-
-[node name="Timer" type="Timer" parent="Level/Map/SpawnPoint3"]
-wait_time = 5.0
-autostart = true
-
-[node name="SpawnPoint4" type="Position3D" parent="Level/Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5413, 5.97364, -15.7745 )
-script = ExtResource( 28 )
-spawn_scene = ExtResource( 31 )
-
-[node name="Timer" type="Timer" parent="Level/Map/SpawnPoint4"]
-wait_time = 5.0
+[node name="Timer" type="Timer" parent="Level/Map/SpawnPointStart"]
+one_shot = true
 autostart = true
 
 [node name="Target" type="Spatial" parent="Level"]
@@ -752,7 +786,7 @@ margin_left = 43.4509
 margin_top = 146.0
 margin_right = 138.451
 margin_bottom = 179.0
-custom_fonts/font = SubResource( 31 )
+custom_fonts/font = SubResource( 29 )
 text = "fps"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -763,7 +797,7 @@ margin_left = 43.4509
 margin_top = 106.657
 margin_right = 138.451
 margin_bottom = 139.657
-custom_fonts/font = SubResource( 31 )
+custom_fonts/font = SubResource( 29 )
 text = "BSEMC 1A"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -774,7 +808,7 @@ margin_left = 39.773
 margin_top = 18.0
 margin_right = 225.773
 margin_bottom = 106.0
-custom_fonts/font = SubResource( 32 )
+custom_fonts/font = SubResource( 30 )
 text = "00"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -789,7 +823,7 @@ margin_left = -210.5
 margin_top = -41.387
 margin_right = 210.5
 margin_bottom = -8.38696
-custom_fonts/font = SubResource( 31 )
+custom_fonts/font = SubResource( 29 )
 text = "Objective: Protect the core from infection"
 align = 1
 __meta__ = {
@@ -856,7 +890,5 @@ stream = ExtResource( 2 )
 autoplay = true
 
 [connection signal="timeout" from="Level/Map/SpawnPoint/Timer" to="Level/Map/SpawnPoint" method="_on_Timer_timeout"]
-[connection signal="timeout" from="Level/Map/SpawnPoint2/Timer" to="Level/Map/SpawnPoint2" method="_on_Timer_timeout"]
-[connection signal="timeout" from="Level/Map/SpawnPoint3/Timer" to="Level/Map/SpawnPoint3" method="_on_Timer_timeout"]
-[connection signal="timeout" from="Level/Map/SpawnPoint4/Timer" to="Level/Map/SpawnPoint4" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Level/Map/SpawnPointStart/Timer" to="Level/Map/SpawnPointStart" method="_on_Timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/FireButton" to="Level/Player" method="_on_FireButton_pressed"]

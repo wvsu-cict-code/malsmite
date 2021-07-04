@@ -11,12 +11,21 @@ onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
 onready var start_position = translation
 var isMoving:bool = false
 
+export var health_max := 200
+
+onready var current_health := health_max
+
+
 export (NodePath) var controllerPath
 onready var playerController : MovementController = $Joystick
+
+func _ready():
+	$Area.connect("body_entered", self, "collided")
 
 
 func _physics_process(_delta):
 	velocity.y += _delta * gravity
+	get_node("Health/Viewport/TextureProgress").value = current_health
 	if playerController and playerController.is_working:
 		if isMoving:
 			get_node("AnimationPlayer2").play("Moving")
@@ -45,6 +54,11 @@ func _physics_process(_delta):
 		get_node("MainController/Root/MotionTrail").visible = false
 		get_node("MainController/Root/MotionTrail2").visible = false
 	
+func collided(body):
+	if body.has_method("damage"):
+		body.damage(100)
+		current_health -= 20
+		get_node("AnimationPlayer").play("Hit")
 
 
 func _on_FireButton_pressed():

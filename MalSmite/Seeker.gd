@@ -18,6 +18,10 @@ export (int, 0, 2048, 10) var angular_accel_max := 45 setget set_angular_accel_m
 export (int, 0, 178, 2) var align_tolerance := 5 setget set_align_tolerance
 export (int, 0, 180, 2) var angular_deceleration_radius := 45 setget set_angular_deceleration_radius
 
+export var health_max := 100
+
+onready var current_health := health_max
+
 func _ready() -> void:
 	setup(
 		deg2rad(align_tolerance),
@@ -30,14 +34,19 @@ func _ready() -> void:
 		linear_speed_max,
 		target_node
 	)
+	$Area.connect("body_entered", self, "collided")
+	
+
 
 func _physics_process(delta: float) -> void:
 	target.position = target_node.transform.origin
 	target.position.y = delta * gravity
+	look_at(target.position, Vector3.UP)
 	blend.calculate_steering(accel)
 	agent._apply_steering(accel, delta)
-
-
+	get_node("Health/Viewport/TextureProgress").value = current_health
+	get_node("Health/Viewport/Label").text = str(round($Timer.time_left))+"s"
+	
 func setup(
 	align_tolerance: float,
 	angular_deceleration_radius: float,
@@ -129,3 +138,21 @@ func set_linear_acceleration_max(value: float) -> void:
 		return
 
 	self.agent.linear_acceleration_max = value
+
+
+
+func damage(amount: int) -> void:
+	current_health -= amount
+	$AnimationPlayer.play("hit")
+	if current_health <= 0:
+		$AnimationPlayer.play("Death")
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Death":
+		queue_free()
+
+
+func _on_Timer_timeout():
+	# Kill virus after timout
+	$AnimationPlayer.play("Death")

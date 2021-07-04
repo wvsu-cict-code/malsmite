@@ -4,6 +4,10 @@ extends Spatial
 const DAMAGE = 15
 
 var bullet_scene = preload("Bullet.tscn")
+var hit_something = false
+
+func _ready():
+	$Area.connect("body_entered", self, "collided")
 
 func fire_weapon():
 	var clone = bullet_scene.instance()
@@ -14,4 +18,11 @@ func fire_weapon():
 	clone.global_transform = self.global_transform
 	clone.scale = Vector3(4, 4, 4)
 	clone.BULLET_DAMAGE = DAMAGE
+
+func collided(body):
+	if hit_something == false:
+		if body.has_method("damage"):
+			body.damage(DAMAGE)
+	get_node("AnimationPlayer").play("Hit")
+	hit_something = true
 	

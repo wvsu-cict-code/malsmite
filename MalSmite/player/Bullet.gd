@@ -24,8 +24,8 @@ func _physics_process(delta):
 
 func collided(body):
 	if hit_something == false:
-		if body.has_method("bullet_hit"):
-			body.bullet_hit(BULLET_DAMAGE, global_transform)
+		if body.has_method("damage"):
+			body.damage(BULLET_DAMAGE)
 	get_node("AnimationPlayer").play("Hit")
 	hit_something = true
 
