@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://audio/Cyber-Sin-City.mp3" type="AudioStream" id=2]
@@ -27,9 +27,10 @@
 [ext_resource path="res://level/rocket_baseA.dae" type="PackedScene" id=25]
 [ext_resource path="res://level/TexturesCom_Electronics_CircuitBoard_1K_albedo.jpg" type="Texture" id=26]
 [ext_resource path="res://level/crystal.material" type="Material" id=27]
-[ext_resource path="res://Seeker.gd" type="Script" id=28]
+[ext_resource path="res://SpawnPoint.gd" type="Script" id=28]
 [ext_resource path="res://gui/pause.png" type="Texture" id=29]
 [ext_resource path="res://level/machine_barrelLarge.dae" type="PackedScene" id=30]
+[ext_resource path="res://Seeker.tscn" type="PackedScene" id=31]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.0126839, 0.223239, 0.324707, 1, 0.9375, 0.98407, 1, 0 )
@@ -43,7 +44,8 @@ ambient_light_color = Color( 0.12549, 0.184314, 0.27451, 1 )
 ambient_light_energy = 1.83
 fog_color = Color( 0.701961, 0.694118, 0.501961, 1 )
 fog_depth_begin = 266.7
-glow_levels/7 = true
+glow_enabled = true
+glow_levels/5 = false
 glow_intensity = 2.1
 glow_strength = 0.87
 glow_bloom = 0.65
@@ -191,11 +193,6 @@ bottom_radius = 0.1
 height = 5.0
 radial_segments = 8
 rings = 2
-
-[sub_resource type="CapsuleMesh" id=29]
-
-[sub_resource type="CapsuleShape" id=30]
-height = 10.0021
 
 [sub_resource type="DynamicFont" id=31]
 size = 26
@@ -453,64 +450,64 @@ transform = Transform( 1.2941, 0, -4.82963, 0, 5, 0, 4.82963, 0, 1.2941, -84.493
 [node name="machine_barrel7" parent="Level/Map/Hangars" instance=ExtResource( 22 )]
 transform = Transform( 1.2941, 0, -4.82963, 0, 5, 0, 4.82963, 0, 1.2941, 49.453, -3.13089, -16.5413 )
 
+[node name="machine_barrelLarge" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 5.22916, -3.50994, -8.32881 )
+
+[node name="machine_barrelLarge2" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 16.5197, -3.50994, -18.3744 )
+
+[node name="machine_barrelLarge3" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 27.9092, -3.50994, -43.5597 )
+
+[node name="machine_barrelLarge16" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 33.7278, -3.50994, -56.0535 )
+
+[node name="machine_barrelLarge4" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -7.67811, -3.50994, -43.1576 )
+
+[node name="machine_barrelLarge5" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -44.2626, -3.50994, -54.4208 )
+
+[node name="machine_barrelLarge17" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -47.0466, -3.50994, -43.6317 )
+
+[node name="machine_barrelLarge6" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -58.2794, -3.50994, -18.3088 )
+
+[node name="machine_barrelLarge7" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -44.9297, -3.50994, -5.31903 )
+
+[node name="machine_barrelLarge8" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -45.1629, -3.50994, -80.0153 )
+
+[node name="machine_barrelLarge9" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -82.9325, -3.50994, -42.8906 )
+
+[node name="machine_barrelLarge10" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 5.46693, -3.50994, -83.2266 )
+
+[node name="machine_barrelLarge11" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 28.9655, -3.50994, -70.2686 )
+
+[node name="machine_barrelLarge12" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 67.2316, -3.50994, -43.0321 )
+
+[node name="machine_barrelLarge13" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -46.8986, -3.50994, 4.75232 )
+
+[node name="machine_barrelLarge14" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 28.9246, -3.50994, 4.53935 )
+
+[node name="machine_barrelLarge15" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 29.8427, -3.50994, -5.07321 )
+
+[node name="machine_barrelLarge18" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
+transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 10.7649, -3.50994, 0.251359 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Map"]
 autoplay = "Loop"
 playback_speed = 0.5
 anims/Loop = SubResource( 22 )
-
-[node name="machine_barrelLarge" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 5.22916, -0.245211, -8.32881 )
-
-[node name="machine_barrelLarge2" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 16.5197, -0.245211, -18.3744 )
-
-[node name="machine_barrelLarge3" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 27.9092, -0.245211, -43.5597 )
-
-[node name="machine_barrelLarge16" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 33.7278, -0.245211, -56.0535 )
-
-[node name="machine_barrelLarge4" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -7.67811, -0.245211, -43.1576 )
-
-[node name="machine_barrelLarge5" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -44.2626, -0.245211, -54.4208 )
-
-[node name="machine_barrelLarge17" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -47.0466, -0.245211, -43.6317 )
-
-[node name="machine_barrelLarge6" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -58.2794, -0.245211, -18.3088 )
-
-[node name="machine_barrelLarge7" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -44.9297, -0.245211, -5.31903 )
-
-[node name="machine_barrelLarge8" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -45.1629, -0.245211, -80.0153 )
-
-[node name="machine_barrelLarge9" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -82.9325, -0.245211, -42.8906 )
-
-[node name="machine_barrelLarge10" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 5.46693, -0.245211, -83.2266 )
-
-[node name="machine_barrelLarge11" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 28.9655, -0.245211, -70.2686 )
-
-[node name="machine_barrelLarge12" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 67.2316, -0.245211, -43.0321 )
-
-[node name="machine_barrelLarge13" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -46.8986, -0.245211, 4.75232 )
-
-[node name="machine_barrelLarge14" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 28.9246, -0.245211, 4.53935 )
-
-[node name="machine_barrelLarge15" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 29.8427, -0.245211, -5.07321 )
-
-[node name="machine_barrelLarge18" parent="Level/Map" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 10.7649, -0.245211, 0.251359 )
 
 [node name="Lines" type="Spatial" parent="Level/Map"]
 
@@ -679,6 +676,42 @@ transform = Transform( 0, -1.19209e-07, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1,
 mesh = SubResource( 26 )
 material = SubResource( 25 )
 
+[node name="SpawnPoint" type="Position3D" parent="Level/Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4639, 5.97364, -49.8629 )
+script = ExtResource( 28 )
+spawn_scene = ExtResource( 31 )
+
+[node name="Timer" type="Timer" parent="Level/Map/SpawnPoint"]
+wait_time = 5.0
+autostart = true
+
+[node name="SpawnPoint2" type="Position3D" parent="Level/Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.559, 5.97364, -43.5294 )
+script = ExtResource( 28 )
+spawn_scene = ExtResource( 31 )
+
+[node name="Timer" type="Timer" parent="Level/Map/SpawnPoint2"]
+wait_time = 5.0
+autostart = true
+
+[node name="SpawnPoint3" type="Position3D" parent="Level/Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7315, 5.97364, -12.6848 )
+script = ExtResource( 28 )
+spawn_scene = ExtResource( 31 )
+
+[node name="Timer" type="Timer" parent="Level/Map/SpawnPoint3"]
+wait_time = 5.0
+autostart = true
+
+[node name="SpawnPoint4" type="Position3D" parent="Level/Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5413, 5.97364, -15.7745 )
+script = ExtResource( 28 )
+spawn_scene = ExtResource( 31 )
+
+[node name="Timer" type="Timer" parent="Level/Map/SpawnPoint4"]
+wait_time = 5.0
+autostart = true
+
 [node name="Target" type="Spatial" parent="Level"]
 transform = Transform( 0.582719, 0.812674, 0, -0.812674, 0.582719, 0, 0, 0, 1, 2.16083, 5.71677, 0 )
 
@@ -686,19 +719,6 @@ transform = Transform( 0.582719, 0.812674, 0, -0.812674, 0.582719, 0, 0, 0, 1, 2
 transform = Transform( 0.535889, -0.485964, -0.690406, 0.80898, 0.529563, 0.255176, 0.241607, -0.695271, 0.676923, -41.3598, 8.45737, 25.8656 )
 fov = 45.0
 far = 200.0
-
-[node name="Seeker" type="KinematicBody" parent="Level"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38264, 0 )
-script = ExtResource( 28 )
-linear_acceleration_max = 10.0
-
-[node name="CSGMesh" type="CSGMesh" parent="Level/Seeker"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.22461, 0 )
-mesh = SubResource( 29 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Level/Seeker"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 30 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 5 )
@@ -835,4 +855,8 @@ __meta__ = {
 stream = ExtResource( 2 )
 autoplay = true
 
+[connection signal="timeout" from="Level/Map/SpawnPoint/Timer" to="Level/Map/SpawnPoint" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Level/Map/SpawnPoint2/Timer" to="Level/Map/SpawnPoint2" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Level/Map/SpawnPoint3/Timer" to="Level/Map/SpawnPoint3" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Level/Map/SpawnPoint4/Timer" to="Level/Map/SpawnPoint4" method="_on_Timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/FireButton" to="Level/Player" method="_on_FireButton_pressed"]

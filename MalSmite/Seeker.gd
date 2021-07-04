@@ -6,7 +6,8 @@ onready var accel := GSAITargetAcceleration.new()
 onready var blend := GSAIBlend.new(agent)
 onready var face := GSAIFace.new(agent, target, true)
 onready var arrive := GSAIArrive.new(agent, target)
-onready var target_node = get_node("../Player")
+onready var target_node = get_parent().get_parent().get_parent().get_node("Player")
+onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
 
 export (float, 0, 100, 5) var linear_speed_max := 10.0 setget set_linear_speed_max
 export (float, 0, 100, 0.1) var linear_acceleration_max := 1.0 setget set_linear_acceleration_max
@@ -32,8 +33,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	target.position = target_node.transform.origin
-	print(target.position)
-	target.position.y = transform.origin.y
+	target.position.y = delta * gravity
 	blend.calculate_steering(accel)
 	agent._apply_steering(accel, delta)
 
