@@ -12,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	get_node("LabelFPS").text = str(Engine.get_frames_per_second())+" fps"
-
+	$CoreTextureProgress.value = $"/root/Global".core_health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

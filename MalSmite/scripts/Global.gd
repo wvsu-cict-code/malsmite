@@ -1,6 +1,7 @@
 extends Node
 
 var current_scene = null
+onready var core_health:int = 100
 
 func _ready():
 	var root = get_tree().get_root()

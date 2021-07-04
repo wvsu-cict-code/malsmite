@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://audio/Cyber-Sin-City.mp3" type="AudioStream" id=2]
@@ -32,6 +32,9 @@
 [ext_resource path="res://level/machine_barrelLarge.dae" type="PackedScene" id=30]
 [ext_resource path="res://Seeker.tscn" type="PackedScene" id=31]
 [ext_resource path="res://level/Core.gd" type="Script" id=32]
+[ext_resource path="res://gui/core-health.png" type="Texture" id=33]
+[ext_resource path="res://gui/health-bg.png" type="Texture" id=34]
+[ext_resource path="res://gui/shieldcomb.png" type="Texture" id=35]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.0126839, 0.223239, 0.324707, 1, 0.9375, 0.98407, 1, 0 )
@@ -121,15 +124,11 @@ size = Vector2( 0.05, 0.05 )
 [sub_resource type="SphereShape" id=32]
 radius = 0.218784
 
-[sub_resource type="SpatialMaterial" id=34]
-flags_unshaded = true
-albedo_color = Color( 1, 0, 0, 1 )
-
 [sub_resource type="Animation" id=33]
 resource_name = "Hit"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("CSGMesh:material")
+tracks/0/path = NodePath("Barrier:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -138,7 +137,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ SubResource( 20 ), SubResource( 34 ), SubResource( 20 ) ]
+"values": [ true, false, true ]
 }
 
 [sub_resource type="Animation" id=22]
@@ -168,10 +167,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3, 6.1, 9, 12 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 3, 6.1, 7.3, 9, 9.9, 12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -38.4639, 5.97364, -49.8629 ), Vector3( 24.463, 5.97364, -55.6819 ), Vector3( 34.3761, 5.97364, -8.21738 ), Vector3( -35.3552, 5.97364, -5.6457 ), Vector3( -54.8338, 5.97364, -27.2493 ) ]
+"values": [ Vector3( -38.4639, 5.97364, -49.8629 ), Vector3( 24.463, 5.97364, -55.6819 ), Vector3( 34.3761, 5.97364, -8.21738 ), Vector3( 5.24547, 5.97364, 0.412327 ), Vector3( -35.3552, 5.97364, -5.6457 ), Vector3( -31.347, 5.97364, -16.9741 ), Vector3( -45.9874, 5.97364, -32.5198 ) ]
 }
 
 [sub_resource type="CylinderMesh" id=23]
@@ -346,7 +345,7 @@ light_specular = 0.12
 omni_range = 8.2
 omni_attenuation = 1.93187
 
-[node name="CSGMesh" type="CSGMesh" parent="Level/Map/core"]
+[node name="Barrier" type="CSGMesh" parent="Level/Map/core"]
 transform = Transform( 0.0571916, 0, 0, 0, 0.0548574, 0, 0, 0, 0.0571916, 0.0339864, 0.0319094, -0.0040886 )
 mesh = SubResource( 19 )
 material = SubResource( 20 )
@@ -728,7 +727,7 @@ mesh = SubResource( 26 )
 material = SubResource( 25 )
 
 [node name="SpawnPoint" type="Position3D" parent="Level/Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.571, 5.97364, -36.0126 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1712, 5.97364, -50.4448 )
 script = ExtResource( 28 )
 spawn_scene = ExtResource( 31 )
 
@@ -804,28 +803,26 @@ __meta__ = {
 }
 
 [node name="LabelScore" type="Label" parent="CanvasLayer"]
-margin_left = 39.773
-margin_top = 18.0
-margin_right = 225.773
-margin_bottom = 106.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -93.0
+margin_top = 13.4848
+margin_right = 93.0
+margin_bottom = 101.485
 custom_fonts/font = SubResource( 30 )
 text = "00"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Objective" type="Label" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -210.5
-margin_top = -41.387
-margin_right = 210.5
-margin_bottom = -8.38696
-custom_fonts/font = SubResource( 29 )
-text = "Objective: Protect the core from infection"
-align = 1
+[node name="LabelScore2" type="Label" parent="CanvasLayer"]
+margin_left = 43.4509
+margin_top = 13.4848
+margin_right = 229.451
+margin_bottom = 101.485
+custom_fonts/font = SubResource( 30 )
+text = "Core"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -881,6 +878,35 @@ margin_right = -3.77979
 margin_bottom = 114.639
 rect_scale = Vector2( 0.799998, 0.799998 )
 texture_normal = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoreTextureProgress" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 181.854
+margin_top = 29.4414
+margin_right = 632.854
+margin_bottom = 96.4414
+rect_scale = Vector2( 0.603516, 0.760275 )
+value = 100.0
+texture_under = ExtResource( 34 )
+texture_progress = ExtResource( 33 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0.329412, 0.654902, 1, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -34.8461
+margin_top = -118.831
+margin_right = 477.154
+margin_bottom = 393.17
+rect_scale = Vector2( 0.144152, 0.144152 )
+texture = ExtResource( 35 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

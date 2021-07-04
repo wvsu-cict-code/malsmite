@@ -1,7 +1,7 @@
 extends Spatial
 
 
-export var health_max := 3
+onready var health_max:int = $"/root/Global".core_health
 
 onready var current_health := health_max
 
@@ -13,5 +13,6 @@ func _ready():
 func collided(body):
 	if body.has_method("damage"):
 		body.damage(100)
-		current_health -= 1
+		current_health -= 10
+		$"/root/Global".core_health = current_health
 		$CoreAnimation.play("Hit")
