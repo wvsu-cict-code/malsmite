@@ -144,6 +144,7 @@ func set_linear_acceleration_max(value: float) -> void:
 func damage(amount: int) -> void:
 	current_health -= amount
 	$AnimationPlayer.play("hit")
+	$"/root/Global".player_score += 1
 	if current_health <= 0:
 		$AnimationPlayer.play("Death")
 

@@ -10,11 +10,5 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_Timer_timeout():
 	 Global.goto_scene("res://Main.tscn")

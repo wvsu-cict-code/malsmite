@@ -59,6 +59,8 @@ func collided(body):
 		body.damage(100)
 		current_health -= 20
 		get_node("AnimationPlayer").play("Hit")
+		if current_health == 0:
+			$"/root/Global".goto_scene("res://GameOver.tscn")
 
 
 func _on_FireButton_pressed():
