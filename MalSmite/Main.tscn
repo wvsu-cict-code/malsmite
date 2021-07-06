@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://audio/Cyber-Sin-City.mp3" type="AudioStream" id=2]
@@ -121,10 +121,10 @@ shader_param/barrier_speed = 5.0
 [sub_resource type="PlaneMesh" id=21]
 size = Vector2( 0.05, 0.05 )
 
-[sub_resource type="SphereShape" id=32]
+[sub_resource type="SphereShape" id=22]
 radius = 0.218784
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=23]
 resource_name = "Hit"
 length = 0.3
 tracks/0/type = "value"
@@ -140,7 +140,7 @@ tracks/0/keys = {
 "values": [ true, false, true ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=24]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -156,7 +156,7 @@ tracks/0/keys = {
 "values": [ Color( 0.0705882, 0.0627451, 0.0509804, 1 ), Color( 0.380392, 0.321569, 0.223529, 1 ), Color( 0.0705882, 0.0627451, 0.0509804, 1 ), Color( 0.156863, 0.141176, 0.113725, 1 ) ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=25]
 resource_name = "SpawnPointMove"
 length = 15.0
 loop = true
@@ -173,14 +173,14 @@ tracks/0/keys = {
 "values": [ Vector3( -38.4639, 5.97364, -49.8629 ), Vector3( 24.463, 5.97364, -55.6819 ), Vector3( 34.3761, 5.97364, -8.21738 ), Vector3( 5.24547, 5.97364, 0.412327 ), Vector3( -35.3552, 5.97364, -5.6457 ), Vector3( -31.347, 5.97364, -16.9741 ), Vector3( -45.9874, 5.97364, -32.5198 ) ]
 }
 
-[sub_resource type="CylinderMesh" id=23]
+[sub_resource type="CylinderMesh" id=26]
 top_radius = 0.1
 bottom_radius = 0.1
 height = 50.0
 radial_segments = 8
 rings = 2
 
-[sub_resource type="Shader" id=24]
+[sub_resource type="Shader" id=27]
 code = "/*
 	魔法防御シェーダー 2 by あるる（きのもと 結衣）
 	Magical Shield Shader 2 by Yui Kinomoto @arlez80
@@ -205,39 +205,32 @@ void fragment( )
 }
 "
 
-[sub_resource type="ShaderMaterial" id=25]
-shader = SubResource( 24 )
+[sub_resource type="ShaderMaterial" id=28]
+shader = SubResource( 27 )
 shader_param/barrier_color = Color( 1, 0.72549, 0, 1 )
 shader_param/barrier_force = 1.0
 shader_param/barrier_interval = 0.1
 shader_param/barrier_speed = 4.0
 
-[sub_resource type="CylinderMesh" id=26]
+[sub_resource type="CylinderMesh" id=29]
 top_radius = 0.1
 bottom_radius = 0.1
 height = 10.0
 radial_segments = 8
 rings = 2
 
-[sub_resource type="CylinderMesh" id=27]
-top_radius = 0.1
-bottom_radius = 0.1
-height = 25.0
-radial_segments = 8
-rings = 2
-
-[sub_resource type="CylinderMesh" id=28]
+[sub_resource type="CylinderMesh" id=30]
 top_radius = 0.1
 bottom_radius = 0.1
 height = 5.0
 radial_segments = 8
 rings = 2
 
-[sub_resource type="DynamicFont" id=29]
+[sub_resource type="DynamicFont" id=31]
 size = 26
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=30]
+[sub_resource type="DynamicFont" id=32]
 size = 70
 font_data = ExtResource( 1 )
 
@@ -359,10 +352,10 @@ material = ExtResource( 27 )
 transform = Transform( 0.3, 0, -7.45058e-09, 0, 0.3, 0, 7.45058e-09, 0, 0.3, 0.0323232, 0.0367907, -0.0016889 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Level/Map/core/Area"]
-shape = SubResource( 32 )
+shape = SubResource( 22 )
 
 [node name="CoreAnimation" type="AnimationPlayer" parent="Level/Map/core"]
-anims/Hit = SubResource( 33 )
+anims/Hit = SubResource( 23 )
 
 [node name="rocket_baseA" parent="Level/Map" instance=ExtResource( 25 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -6.05978, 0, -16.3523 )
@@ -556,175 +549,95 @@ transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 10.
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Map"]
 autoplay = "SpawnPointMove"
 playback_speed = 0.5
-anims/Loop = SubResource( 22 )
-anims/SpawnPointMove = SubResource( 31 )
+anims/Loop = SubResource( 24 )
+anims/SpawnPointMove = SubResource( 25 )
 
 [node name="Lines" type="Spatial" parent="Level/Map"]
 
 [node name="CSGMesh" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( 4.37114e-08, -1, -2.08616e-07, -1, -4.37114e-08, 0, -1.59872e-14, 2.08616e-07, -1, -34.6258, 1.08745, -15.6871 )
-mesh = SubResource( 23 )
-material = SubResource( 25 )
+mesh = SubResource( 26 )
+material = SubResource( 28 )
 
 [node name="CSGMesh25" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( -4.37114e-08, 1, 1.78814e-07, -1, -4.37114e-08, 0, 1.42109e-14, -1.78814e-07, 1, 23.79, 1.08745, -16.2296 )
-mesh = SubResource( 23 )
-material = SubResource( 25 )
+mesh = SubResource( 26 )
+material = SubResource( 28 )
 
 [node name="CSGMesh2" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( 3.55271e-15, -2.98023e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -2.98023e-08, -6.085, 0.158, 37.618 )
-mesh = SubResource( 23 )
-material = SubResource( 25 )
+mesh = SubResource( 26 )
+material = SubResource( 28 )
 
 [node name="CSGMesh7" type="CSGMesh" parent="Level/Map/Lines/CSGMesh2"]
 transform = Transform( 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.053e-07, 1, 4.37114e-08, -1, -1.053e-07, -0.000231981, 99.9365, -0.014358 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
+mesh = SubResource( 29 )
+material = SubResource( 28 )
 
 [node name="CSGMesh10" type="CSGMesh" parent="Level/Map/Lines/CSGMesh2/CSGMesh7"]
 transform = Transform( 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 4.37114e-08, -1, -4.37114e-08, -2.38419e-07, 4.91078, 5.0435 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
+mesh = SubResource( 29 )
+material = SubResource( 28 )
 
 [node name="CSGMesh11" type="CSGMesh" parent="Level/Map/Lines/CSGMesh2/CSGMesh7"]
 transform = Transform( 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 4.37114e-08, -1, -4.37114e-08, 2.38419e-07, -4.94395, 5.0435 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
+mesh = SubResource( 29 )
+material = SubResource( 28 )
 
 [node name="CSGMesh3" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( 0, 2.98023e-08, 1, -1, -4.37114e-08, 0, 4.37113e-08, -1, 2.98023e-08, -6.11308, 0.158227, 11.69 )
-mesh = SubResource( 23 )
-material = SubResource( 25 )
+mesh = SubResource( 26 )
+material = SubResource( 28 )
 
 [node name="CSGMesh26" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( 1.77636e-15, 2.98023e-08, 1, -1, -4.37114e-08, 0, 4.37113e-08, -1, 2.98023e-08, -6.42239, 0.158227, -36.39 )
-mesh = SubResource( 23 )
-material = SubResource( 25 )
-
-[node name="CSGMesh27" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( -3.09086e-08, 0.707107, 0.707107, -1, -4.37114e-08, 0, 3.09086e-08, -0.707107, 0.707107, 15.6269, 0.158227, -37.8293 )
-mesh = SubResource( 23 )
-material = SubResource( 25 )
-
-[node name="CSGMesh28" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( -4.32594e-08, 0.989661, 0.143423, -1, -4.37114e-08, 0, 6.26924e-09, -0.143423, 0.989661, 45.9256, 0.193244, -57.8129 )
-mesh = SubResource( 27 )
-material = SubResource( 25 )
-
-[node name="CSGMesh4" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( 3.09086e-08, -0.707107, 0.707107, -1, -4.37114e-08, 0, 3.09086e-08, -0.707107, -0.707107, -26.2711, 0.158227, -36.401 )
-mesh = SubResource( 23 )
-material = SubResource( 25 )
-
-[node name="CSGMesh5" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( 3.09086e-08, -0.707107, 0.707107, -1, -4.37114e-08, 0, 3.09086e-08, -0.707107, -0.707107, 23.3888, 0.158227, -38.6356 )
 mesh = SubResource( 26 )
-material = SubResource( 25 )
+material = SubResource( 28 )
 
 [node name="CSGMesh13" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( 1.77636e-15, -5.96046e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -5.96046e-08, 21.5871, 0.158227, -21.2579 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
+mesh = SubResource( 29 )
+material = SubResource( 28 )
 
 [node name="CSGMesh14" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( 4.37114e-08, -1, -1.19209e-07, -1, -4.37114e-08, 0, -3.55271e-15, 1.19209e-07, -1, -1.0023, 0.158227, -47.7414 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh30" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( 1.02235e-08, -0.233886, -0.972264, -1, -4.37114e-08, 0, -4.2499e-08, 0.972264, -0.233886, -45.6623, 0.158227, -48.9983 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh15" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( 4.37114e-08, -1, -1.19209e-07, -1, -4.37114e-08, 0, -3.55271e-15, 1.19209e-07, -1, 25.8528, 0.158227, -60.9488 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh16" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( 4.37114e-08, -1, -1.19209e-07, -1, -4.37114e-08, 0, -3.55271e-15, 1.19209e-07, -1, 33.5571, 0.158227, -60.9488 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh17" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( -7.10543e-15, 1.19209e-07, -1, -1, -4.37114e-08, 0, -9.22189e-08, 2.10972, 3.27826e-07, 57.7606, 0.158227, -70.265 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh18" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( -7.10543e-15, 1.19209e-07, -1, -1, -4.37114e-08, 0, -9.22189e-08, 2.10972, 3.27826e-07, 61.7606, 0.158227, -70.265 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh6" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( 3.09086e-08, -0.707107, -0.707107, -1, -4.37114e-08, 0, -3.09086e-08, 0.707107, -0.707107, 30.4702, 0.158227, -38.7227 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh7" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( -3.09086e-08, 0.707107, -0.707107, -1, -4.37114e-08, 0, -3.09086e-08, 0.707107, 0.707107, 37.5388, 0.158227, -38.6219 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
+mesh = SubResource( 29 )
+material = SubResource( 28 )
 
 [node name="CSGMesh8" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( 4.37114e-08, -1, -2.08616e-07, -1, -4.37114e-08, 0, -1.77636e-15, 2.08616e-07, -1, -43.8262, 0.158227, -26.1767 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh12" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( 4.37114e-08, -1, -1.78814e-07, -1, -4.37114e-08, 0, -1.77636e-15, 1.78814e-07, -1, -33.2359, 0.158227, -48.6222 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh19" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( 4.36249e-08, -0.998022, -0.0628604, -1, -4.37114e-08, 0, -2.74771e-09, 0.0628604, -0.998022, 24.8615, 0.158227, -4.74627 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh21" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( 4.37114e-08, -1, -1.78814e-07, -1, -4.37114e-08, 0, -1.77636e-15, 1.78814e-07, -1, 5.3565, 0.158227, 0.256382 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh29" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( -3.81003e-08, 0.871633, -0.490158, -1, -4.37114e-08, 0, -2.14255e-08, 0.490158, 0.871633, 1.01526, 0.158227, -10.7477 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
-
-[node name="CSGMesh20" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( 3.09086e-08, -0.707107, 0.707107, -1, -4.37114e-08, 0, 3.09086e-08, -0.707107, -0.707107, 34.0683, 0.158227, -1.06125 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
+mesh = SubResource( 29 )
+material = SubResource( 28 )
 
 [node name="CSGMesh10" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( -3.55271e-15, 2.08616e-07, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, 2.08616e-07, -31.056, 0.0934234, -18.8713 )
-mesh = SubResource( 28 )
-material = SubResource( 25 )
+mesh = SubResource( 30 )
+material = SubResource( 28 )
 
 [node name="CSGMesh11" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( -3.55271e-15, 2.08616e-07, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, 2.08616e-07, -27.0374, 0.0934234, -18.8713 )
-mesh = SubResource( 28 )
-material = SubResource( 25 )
+mesh = SubResource( 30 )
+material = SubResource( 28 )
 
 [node name="CSGMesh24" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( -3.55271e-15, 2.08616e-07, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, 2.08616e-07, -34.4403, 0.0934234, -18.8713 )
-mesh = SubResource( 28 )
-material = SubResource( 25 )
+mesh = SubResource( 30 )
+material = SubResource( 28 )
 
 [node name="CSGMesh9" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( 0, -1.19209e-07, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -1.19209e-07, -38.7327, 0.158227, -21.341 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
+mesh = SubResource( 29 )
+material = SubResource( 28 )
 
 [node name="CSGMesh22" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( 0, -1.19209e-07, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -1.19209e-07, -54.7924, 0.158227, -11.4368 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
+mesh = SubResource( 29 )
+material = SubResource( 28 )
 
 [node name="CSGMesh23" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( 0, -1.19209e-07, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -1.19209e-07, -27.181, 0.158227, 0.268025 )
-mesh = SubResource( 26 )
-material = SubResource( 25 )
+mesh = SubResource( 29 )
+material = SubResource( 28 )
 
 [node name="SpawnPoint" type="Position3D" parent="Level/Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1712, 5.97364, -50.4448 )
@@ -785,7 +698,7 @@ margin_left = 43.4509
 margin_top = 146.0
 margin_right = 138.451
 margin_bottom = 179.0
-custom_fonts/font = SubResource( 29 )
+custom_fonts/font = SubResource( 31 )
 text = "fps"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -796,7 +709,7 @@ margin_left = 43.4509
 margin_top = 106.657
 margin_right = 138.451
 margin_bottom = 139.657
-custom_fonts/font = SubResource( 29 )
+custom_fonts/font = SubResource( 31 )
 text = "BSEMC 1A"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -809,7 +722,7 @@ margin_left = -93.0
 margin_top = 13.4848
 margin_right = 93.0
 margin_bottom = 101.485
-custom_fonts/font = SubResource( 30 )
+custom_fonts/font = SubResource( 32 )
 text = "00"
 align = 1
 __meta__ = {
@@ -821,7 +734,7 @@ margin_left = 43.4509
 margin_top = 13.4848
 margin_right = 229.451
 margin_bottom = 101.485
-custom_fonts/font = SubResource( 30 )
+custom_fonts/font = SubResource( 32 )
 text = "Core"
 __meta__ = {
 "_edit_use_anchors_": false
