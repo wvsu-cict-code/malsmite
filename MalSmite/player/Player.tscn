@@ -331,3 +331,8 @@ transform = Transform( 11, 0, 0, 0, 11, 0, 0, 0, 11, 2.81991, 3.9367, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 14 )
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

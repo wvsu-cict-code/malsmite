@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://audio/Cyber-Sin-City.mp3" type="AudioStream" id=2]
@@ -7,11 +7,9 @@
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=5]
 [ext_resource path="res://gui/AbilityButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://level/hangar_largeA.tscn" type="PackedScene" id=8]
 [ext_resource path="res://level/cict-core.tscn" type="PackedScene" id=9]
 [ext_resource path="res://level/hangar_largeB.tscn" type="PackedScene" id=10]
 [ext_resource path="res://level/hangar_smallB.tscn" type="PackedScene" id=11]
-[ext_resource path="res://level/hangar_smallA.tscn" type="PackedScene" id=12]
 [ext_resource path="res://gui/vortex.png" type="Texture" id=13]
 [ext_resource path="res://gui/rocket-pressed.png" type="Texture" id=14]
 [ext_resource path="res://gui/shield1_pressed.png" type="Texture" id=15]
@@ -69,37 +67,12 @@ uv1_offset = Vector3( -0.135, 0.004, 0 )
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 100, 1, 100 )
 
-[sub_resource type="BoxShape" id=7]
-extents = Vector3( 6.13322, 13.5866, 1 )
-
-[sub_resource type="BoxShape" id=8]
-extents = Vector3( 29.5131, 13.5866, 2.70738 )
-
 [sub_resource type="BoxShape" id=9]
-extents = Vector3( 52.9609, 13.5866, 1 )
+extents = Vector3( 121.48, 13.5866, 1 )
 
 [sub_resource type="CylinderShape" id=10]
 radius = 8.25651
 height = 32.1634
-
-[sub_resource type="CylinderShape" id=11]
-radius = 18.9774
-height = 32.1634
-
-[sub_resource type="BoxShape" id=12]
-extents = Vector3( 23.0165, 13.5866, 1 )
-
-[sub_resource type="BoxShape" id=13]
-extents = Vector3( 31.745, 13.5866, 1 )
-
-[sub_resource type="BoxShape" id=14]
-extents = Vector3( 6.34002, 13.5866, 7.59095 )
-
-[sub_resource type="BoxShape" id=15]
-extents = Vector3( 16.6235, 13.5866, 1 )
-
-[sub_resource type="BoxShape" id=16]
-extents = Vector3( 17.173, 13.5866, 1 )
 
 [sub_resource type="SpatialMaterial" id=17]
 flags_unshaded = true
@@ -262,57 +235,25 @@ material = SubResource( 5 )
 [node name="CollisionShape" type="CollisionShape" parent="Level/Map/StaticBody"]
 shape = SubResource( 6 )
 
-[node name="CollisionShape2" type="CollisionShape" parent="Level/Map/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9385, 12.1876, 4.15724 )
-shape = SubResource( 7 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="Level/Map/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1702, 12.1876, 6.41545 )
-shape = SubResource( 8 )
-
 [node name="CollisionShape12" type="CollisionShape" parent="Level/Map/StaticBody"]
 transform = Transform( 0.998003, 0, 0.0631562, 0, 1, 0, -0.0631562, 0, 0.998003, -8.03945, 12.1876, -62.7365 )
 shape = SubResource( 9 )
 
 [node name="CollisionShape14" type="CollisionShape" parent="Level/Map/StaticBody"]
-transform = Transform( 0.0673538, 0, -0.997729, 0, 1, 0, 0.997729, 0, 0.0673538, 43.6082, 12.1876, -78.6384 )
+transform = Transform( 0.998003, 0, 0.0631562, 0, 1, 0, -0.0631562, 0, 0.998003, 33.7428, 12.1876, 15.3576 )
 shape = SubResource( 9 )
 
-[node name="CollisionShape17" type="CollisionShape" parent="Level/Map/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0593, 12.1876, 8.02709 )
-shape = SubResource( 10 )
+[node name="CollisionShape13" type="CollisionShape" parent="Level/Map/StaticBody"]
+transform = Transform( -0.0631562, 0, 0.998003, 0, 1, 0, -0.998003, 0, -0.0631562, -58.9336, 12.1876, -6.11292 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape16" type="CollisionShape" parent="Level/Map/StaticBody"]
+transform = Transform( -0.0631562, 0, 0.998003, 0, 1, 0, -0.998003, 0, -0.0631562, 73.0088, 12.1876, -22.8934 )
+shape = SubResource( 9 )
 
 [node name="CollisionShape18" type="CollisionShape" parent="Level/Map/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7045, 12.1876, -31.1694 )
 shape = SubResource( 10 )
-
-[node name="CollisionShape19" type="CollisionShape" parent="Level/Map/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.5564, 12.1876, 13.3663 )
-shape = SubResource( 11 )
-
-[node name="CollisionShape20" type="CollisionShape" parent="Level/Map/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -82.8764, 12.1876, -14.967 )
-shape = SubResource( 11 )
-
-[node name="CollisionShape9" type="CollisionShape" parent="Level/Map/StaticBody"]
-transform = Transform( -0.736191, 0, 0.676772, 0, 1, 0, -0.676772, 0, -0.736191, -51.5644, 12.1876, -10.3477 )
-shape = SubResource( 12 )
-
-[node name="CollisionShape15" type="CollisionShape" parent="Level/Map/StaticBody"]
-transform = Transform( 0.229387, 0, -0.973333, 0, 1, 0, 0.973333, 0, 0.229387, 50.4082, 12.1876, -4.5894 )
-shape = SubResource( 13 )
-
-[node name="CollisionShape11" type="CollisionShape" parent="Level/Map/StaticBody"]
-transform = Transform( 2.08616e-07, 0, -0.999998, 0, 1, 0, 0.999998, 0, 2.08616e-07, 68.6092, 12.1876, -16.7381 )
-shape = SubResource( 14 )
-
-[node name="CollisionShape8" type="CollisionShape" parent="Level/Map/StaticBody"]
-transform = Transform( -0.0722288, 0, 0.997387, 0, 1, 0, -0.997387, 0, -0.0722288, -61.9734, 12.1876, -16.2859 )
-shape = SubResource( 15 )
-
-[node name="CollisionShape7" type="CollisionShape" parent="Level/Map/StaticBody"]
-transform = Transform( 0.203864, 0, 0.978999, 0, 1, 0, -0.978999, 0, 0.203864, -59.5778, 12.1876, -49.4818 )
-shape = SubResource( 16 )
 
 [node name="core" parent="Level/Map" instance=ExtResource( 9 )]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, -9.34874, 5.22378, -16.0128 )
@@ -365,27 +306,6 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -6.05978, 0, -16.3523 )
 
 [node name="Hangars" type="Spatial" parent="Level/Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26473, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="hangar_largeA" parent="Level/Map/Hangars" instance=ExtResource( 8 )]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -69.0493, -3.18841, -58.0124 )
-
-[node name="hangar_largeA2" parent="Level/Map/Hangars" instance=ExtResource( 8 )]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 85.9957, -3.18841, -46.8557 )
-
-[node name="hangar_largeA3" parent="Level/Map/Hangars" instance=ExtResource( 8 )]
-transform = Transform( 5, 0, 1.19209e-07, 0, 5, 0, -1.19209e-07, 0, 5, 85.9957, -3.18841, -30.8557 )
-
-[node name="hangar_largeA4" parent="Level/Map/Hangars" instance=ExtResource( 8 )]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 85.9957, -3.18841, -14.8557 )
-
-[node name="hangar_largeB" parent="Level/Map/Hangars" instance=ExtResource( 10 )]
-transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 68.6854, -3.4257, -16.7332 )
-
-[node name="hangar_largeB2" parent="Level/Map/Hangars" instance=ExtResource( 10 )]
-transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -20.1695, -3.4257, -78.0555 )
 
 [node name="hangar_largeB3" parent="Level/Map/Hangars" instance=ExtResource( 10 )]
 transform = Transform( 0, 0, -5, 0, 5, 0, 5, 0, 0, -51.877, -3.4257, -71.297 )
@@ -393,29 +313,11 @@ transform = Transform( 0, 0, -5, 0, 5, 0, 5, 0, 0, -51.877, -3.4257, -71.297 )
 [node name="hangar_roundA" parent="Level/Map/Hangars" instance=ExtResource( 19 )]
 transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -6.02103, -3.95351, -76.9475 )
 
-[node name="hangar_roundA10" parent="Level/Map/Hangars" instance=ExtResource( 19 )]
-transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -33.92, -3.95351, -76.9475 )
-
-[node name="hangar_roundA3" parent="Level/Map/Hangars" instance=ExtResource( 19 )]
-transform = Transform( -4.76837e-07, 0, -14.5466, 0, 5, 0, 14.5466, 0, -4.76837e-07, 40.3485, -3.95351, -91.4039 )
-
 [node name="hangar_roundA11" parent="Level/Map/Hangars" instance=ExtResource( 19 )]
 transform = Transform( -6.35853e-07, 0, -14.5466, 0, 11.3246, 0, 14.5466, 0, -6.35853e-07, 86.4689, -3.95351, -93.469 )
 
-[node name="hangar_roundA12" parent="Level/Map/Hangars" instance=ExtResource( 19 )]
-transform = Transform( -12.1761, 0, -7.95902, 0, 11.3246, 0, 7.95902, 0, -12.1761, -82.7158, -3.95351, -14.8926 )
-
-[node name="hangar_roundA4" parent="Level/Map/Hangars" instance=ExtResource( 19 )]
-transform = Transform( -6.35853e-07, 0, -14.5466, 0, 5, 0, 14.5466, 0, -6.35853e-07, 52.7672, -3.95351, 13.0639 )
-
 [node name="hangar_roundA2" parent="Level/Map/Hangars" instance=ExtResource( 19 )]
 transform = Transform( -9.93329e-08, 0, -2.27247, 0, 5, 0, 2.27247, 0, -9.93329e-08, -5.01725, -3.95351, 6.79033 )
-
-[node name="hangar_roundA5" parent="Level/Map/Hangars" instance=ExtResource( 19 )]
-transform = Transform( -2.38419e-07, 0, -2.27247, 0, 5, 0, 2.27247, 0, -2.38419e-07, 2.94096, -3.95351, 6.63988 )
-
-[node name="hangar_roundA6" parent="Level/Map/Hangars" instance=ExtResource( 19 )]
-transform = Transform( -2.38419e-07, 0, -2.27247, 0, 5, 0, 2.27247, 0, -2.38419e-07, 10.7179, -3.95351, 6.75077 )
 
 [node name="hangar_roundA7" parent="Level/Map/Hangars" instance=ExtResource( 19 )]
 transform = Transform( -9.93329e-08, 0, -2.27247, 0, 5, 0, 2.27247, 0, -9.93329e-08, 21.4991, -3.95351, -28.1214 )
@@ -429,47 +331,20 @@ transform = Transform( -4.9074e-08, 0, -1.12268, 0, 5, 0, 1.12268, 0, -4.9074e-0
 [node name="hangar_roundB" parent="Level/Map/Hangars" instance=ExtResource( 21 )]
 transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 47.1585, -3.36405, -31.153 )
 
-[node name="hangar_roundB3" parent="Level/Map/Hangars" instance=ExtResource( 21 )]
-transform = Transform( -2.38419e-07, 0, -5, 0, 5, 0, 5, 0, -2.38419e-07, -17.4706, -3.36405, 7.8652 )
-
 [node name="hangar_roundB2" parent="Level/Map/Hangars" instance=ExtResource( 21 )]
 transform = Transform( -1.03125e-07, 0, -2.35923, 0, 2.35923, 0, 2.35923, 0, -1.03125e-07, -47.0826, -3.41422, -26.0083 )
-
-[node name="hangar_smallA" parent="Level/Map/Hangars" instance=ExtResource( 12 )]
-transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -29.6818, -3.36405, 8.3499 )
-
-[node name="hangar_smallA2" parent="Level/Map/Hangars" instance=ExtResource( 12 )]
-transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 86.4897, -3.36405, -63.932 )
-
-[node name="hangar_smallB" parent="Level/Map/Hangars" instance=ExtResource( 11 )]
-transform = Transform( 5, 0, -1.42109e-14, 0, 5, 0, 1.42109e-14, 0, 5, 13.9848, -3.36405, -74.3498 )
 
 [node name="hangar_smallB3" parent="Level/Map/Hangars" instance=ExtResource( 11 )]
 transform = Transform( -2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -67.2841, -3.36405, -38.5975 )
 
-[node name="hangar_smallB2" parent="Level/Map/Hangars" instance=ExtResource( 11 )]
-transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -51.997, -3.36405, -4.9221 )
-
-[node name="machine_generator" parent="Level/Map/Hangars" instance=ExtResource( 23 )]
-transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -34.3739, -3.13089, -21.5232 )
-
 [node name="machine_generator2" parent="Level/Map/Hangars" instance=ExtResource( 23 )]
 transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -31.0493, -3.13089, -21.5232 )
-
-[node name="machine_generator3" parent="Level/Map/Hangars" instance=ExtResource( 23 )]
-transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -27.0493, -3.13089, -21.5232 )
 
 [node name="machine_generator4" parent="Level/Map/Hangars" instance=ExtResource( 23 )]
 transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 57.7558, -3.13089, -58.8288 )
 
-[node name="machine_generator5" parent="Level/Map/Hangars" instance=ExtResource( 23 )]
-transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 61.2261, -3.13089, -58.8288 )
-
 [node name="machine_wireless" parent="Level/Map/Hangars" instance=ExtResource( 24 )]
 transform = Transform( -2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 4.3763, -3.13089, -47.3289 )
-
-[node name="machine_wireless3" parent="Level/Map/Hangars" instance=ExtResource( 24 )]
-transform = Transform( -2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 7.3763, -3.13089, -47.3289 )
 
 [node name="machine_wireless2" parent="Level/Map/Hangars" instance=ExtResource( 24 )]
 transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -26.9044, -3.13089, -5.12478 )
@@ -483,17 +358,11 @@ transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 19.7757
 [node name="machine_barrel3" parent="Level/Map/Hangars" instance=ExtResource( 22 )]
 transform = Transform( -5, 0, 4.37114e-07, 0, 5, 0, -4.37114e-07, 0, -5, -0.71468, -3.42235, 0.395481 )
 
-[node name="machine_barrel5" parent="Level/Map/Hangars" instance=ExtResource( 22 )]
-transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 66.7391, -3.13089, -5.89442 )
-
 [node name="machine_barrel4" parent="Level/Map/Hangars" instance=ExtResource( 22 )]
 transform = Transform( 5, 0, 2.38419e-07, 0, 5, 0, -2.38419e-07, 0, 5, -54.4773, -3.13089, -15.7662 )
 
 [node name="machine_barrel6" parent="Level/Map/Hangars" instance=ExtResource( 22 )]
 transform = Transform( 1.2941, 0, -4.82963, 0, 5, 0, 4.82963, 0, 1.2941, -84.4936, -3.13089, -49.41 )
-
-[node name="machine_barrel7" parent="Level/Map/Hangars" instance=ExtResource( 22 )]
-transform = Transform( 1.2941, 0, -4.82963, 0, 5, 0, 4.82963, 0, 1.2941, 49.453, -3.13089, -16.5413 )
 
 [node name="machine_barrelLarge" parent="Level/Map/Hangars" instance=ExtResource( 30 )]
 transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 5.22916, -3.50994, -8.32881 )
@@ -617,16 +486,6 @@ transform = Transform( -3.55271e-15, 2.08616e-07, -1, -1, -4.37114e-08, 0, -4.37
 mesh = SubResource( 30 )
 material = SubResource( 28 )
 
-[node name="CSGMesh11" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( -3.55271e-15, 2.08616e-07, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, 2.08616e-07, -27.0374, 0.0934234, -18.8713 )
-mesh = SubResource( 30 )
-material = SubResource( 28 )
-
-[node name="CSGMesh24" type="CSGMesh" parent="Level/Map/Lines"]
-transform = Transform( -3.55271e-15, 2.08616e-07, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, 2.08616e-07, -34.4403, 0.0934234, -18.8713 )
-mesh = SubResource( 30 )
-material = SubResource( 28 )
-
 [node name="CSGMesh9" type="CSGMesh" parent="Level/Map/Lines"]
 transform = Transform( 0, -1.19209e-07, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -1.19209e-07, -38.7327, 0.158227, -21.341 )
 mesh = SubResource( 29 )
@@ -688,13 +547,6 @@ margin_top = -40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="FireButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer"]
-position = Vector2( -181.069, -168.587 )
-scale = Vector2( 0.8, 0.8 )
-normal = ExtResource( 3 )
-pressed = ExtResource( 17 )
-passby_press = true
 
 [node name="LabelFPS" type="Label" parent="CanvasLayer"]
 margin_left = 43.4509
@@ -827,10 +679,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ShootButton" type="TextureButton" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -253.498
+margin_top = -253.497
+margin_right = -44.4976
+margin_bottom = -44.4974
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 autoplay = true
 
 [connection signal="timeout" from="Level/Map/SpawnPoint/Timer" to="Level/Map/SpawnPoint" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Level/Map/SpawnPointStart/Timer" to="Level/Map/SpawnPointStart" method="_on_Timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/FireButton" to="Level/Player" method="_on_FireButton_pressed"]
+[connection signal="gui_input" from="CanvasLayer/ShootButton" to="Level/Player" method="_on_ShootButton_gui_input"]
