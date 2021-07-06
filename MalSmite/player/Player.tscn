@@ -1,15 +1,14 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://gui/joystick/Joystick.tscn" type="PackedScene" id=2]
-[ext_resource path="res://player/Model.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/mascot-rigged-low-poly.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/health.png" type="Texture" id=4]
 [ext_resource path="res://player/booster.tres" type="Material" id=5]
 [ext_resource path="res://player/Particles1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://vfx/motion_trail/MotionTrail.tscn" type="PackedScene" id=7]
 [ext_resource path="res://weapons/shoot1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://player/Model-Rigged.tscn" type="PackedScene" id=9]
-[ext_resource path="res://player/TheSphere.tscn" type="PackedScene" id=10]
+[ext_resource path="res://player/the-sphere-low-poly.tscn" type="PackedScene" id=9]
 [ext_resource path="res://player/weapon1.dae" type="PackedScene" id=11]
 [ext_resource path="res://audio/thrusterFire.ogg" type="AudioStream" id=12]
 [ext_resource path="res://level/hex_shader.tres" type="Material" id=13]
@@ -25,6 +24,10 @@ _data = [ Vector2( 0, 0.646591 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.164773 ), 0.0, 0
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0.519318 ), 0.0, 0.0, 0, 0, Vector2( 0.574932, 0 ), 0.0, 0.0, 0, 0 ]
 
+[sub_resource type="SphereMesh" id=6]
+radial_segments = 8
+rings = 4
+
 [sub_resource type="QuadMesh" id=4]
 material = ExtResource( 5 )
 size = Vector2( 0.5, 0.5 )
@@ -32,12 +35,10 @@ size = Vector2( 0.5, 0.5 )
 [sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0.897727 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="SphereMesh" id=6]
-
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 1.56389, 3.48339, 1 )
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=8]
 resource_name = "Hit"
 length = 0.4
 tracks/0/type = "value"
@@ -53,7 +54,7 @@ tracks/0/keys = {
 "values": [ false, true, false ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -69,7 +70,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.272, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("MainController/Root:rotation_degrees")
@@ -93,10 +94,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 90, 0 ), Vector3( -26.988, 90, -1.27543e-06 ) ]
+"values": [ Vector3( 1.238, 90, 1.23803 ), Vector3( -28.762, 90, 1.23803 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("MainController/Root:rotation_degrees")
@@ -120,10 +121,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( -26.988, 90, -1.27543e-06 ), Vector3( 0, 90, 0 ) ]
+"values": [ Vector3( -28.762, 90, 1.23803 ), Vector3( 1.238, 90, 1.23803 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 20.0
 loop = true
 tracks/0/type = "value"
@@ -139,24 +140,20 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( -360, 0, 0 ), Vector3( -360, 0, 0 ), Vector3( -360, 0, 0 ) ]
 }
 
-[sub_resource type="ViewportTexture" id=12]
+[sub_resource type="ViewportTexture" id=13]
 viewport_path = NodePath("Health/Viewport")
 
-[sub_resource type="SphereShape" id=15]
+[sub_resource type="SphereShape" id=14]
 radius = 0.209291
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 
 [node name="MainController" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 1.74846e-07, 0, -1.74846e-07, 1, 1.36322, 2.41485, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36322, 2.41485, 0 )
 
 [node name="Root" type="Spatial" parent="MainController"]
 transform = Transform( 0.876626, 0.481172, 0, -0.481172, 0.876626, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="Model" parent="MainController/Root" instance=ExtResource( 3 )]
-transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 0, 2.17182, 0 )
-visible = false
 
 [node name="BoosterFast" parent="MainController/Root" instance=ExtResource( 6 )]
 transform = Transform( 0.0129334, -0.644309, -0.882069, 0.0432077, 0.811333, -0.58325, 0.999323, -0.0338733, 0.0276224, -1.75059, 2.72439, 0.604274 )
@@ -226,20 +223,26 @@ fromWidth = 0.1
 lifespan = 0.2
 startColor = Color( 1, 0.94902, 0.54902, 1 )
 
-[node name="mascot-rigged" parent="MainController/Root" instance=ExtResource( 9 )]
-transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.418601, 2.94795, 0 )
+[node name="Shield" type="CSGMesh" parent="MainController/Root"]
+transform = Transform( 1.99235, 3.60473, 7.54323e-07, -3.69833, 1.94192, -2.74219e-08, -3.81058e-07, -6.33208e-07, 4.21011, 0.263536, 2.2893, 0.0410637 )
+visible = false
+mesh = SubResource( 6 )
+material = ExtResource( 13 )
 
-[node name="the-sphere" parent="MainController/Root" instance=ExtResource( 10 )]
-transform = Transform( -3.36095e-08, -0.453804, 0.891102, -1.98364e-08, 0.891102, 0.453804, -1, -2.42414e-09, -3.89513e-08, 0.668763, 1.59096, 0 )
+[node name="mascot-rigged2" parent="MainController/Root" instance=ExtResource( 3 )]
+transform = Transform( 9.97643e-05, 0.00461666, 0.199947, 0.00432003, 0.1999, -0.00461775, -0.199953, 0.00432118, -6.44471e-09, -0.438754, 2.95191, 4.89365e-07 )
+
+[node name="the-sphere" parent="MainController/Root" instance=ExtResource( 9 )]
+transform = Transform( -0.0103962, -0.48106, 0.876626, 0.0189404, 0.876421, 0.481172, -0.999766, 0.021606, 6.61834e-08, 0.652868, 1.57599, 1.86633e-07 )
 
 [node name="Weapon1" parent="MainController/Root/the-sphere" instance=ExtResource( 8 )]
-transform = Transform( 6.36987e-10, -6.88238e-08, -1, -0.99895, 0.0458162, -3.21951e-08, 0.0458163, 0.99895, -3.75859e-08, 1.56649, 0.123575, 9.37202 )
+transform = Transform( -0.0216037, 0.000321288, -0.999767, -0.999657, 0.0148662, 0.021606, 0.0148695, 0.99989, 4.85643e-08, 1.56264, -0.194952, 9.39249 )
 
 [node name="Weapon2" parent="MainController/Root/the-sphere" instance=ExtResource( 8 )]
-transform = Transform( 6.36987e-10, -6.88238e-08, -1, -0.99895, 0.0458162, -3.21951e-08, 0.0458163, 0.99895, -3.75859e-08, -1.56679, 0.123575, 9.37202 )
+transform = Transform( -0.0216037, 0.000321288, -0.999767, -0.999657, 0.0148662, 0.021606, 0.0148695, 0.99989, 4.85643e-08, -1.56991, -0.127254, 9.39249 )
 
 [node name="Booster2" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
-transform = Transform( -0.458771, -0.696927, 0.551308, -0.84174, 0.131624, -0.536356, 0.285806, -0.755984, -0.726203, 0.492084, -0.789096, -0.811541 )
+transform = Transform( -0.477033, -0.693416, 0.540082, -0.840074, 0.169986, -0.52541, 0.259611, -0.751547, -0.742459, 0.475589, -0.768579, -0.814445 )
 amount = 4
 lifetime = 0.2
 mesh = SubResource( 4 )
@@ -247,34 +250,28 @@ scale_amount_curve = SubResource( 5 )
 hue_variation = 1.0
 
 [node name="Booster3" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
-transform = Transform( -0.23021, -0.885296, -0.56419, -0.591626, 0.523833, -0.614804, 0.773087, 0.128035, -0.650149, -0.484166, -0.776004, -0.785357 )
+transform = Transform( -0.24345, -0.873863, -0.576901, -0.610158, 0.538625, -0.582054, 0.754402, 0.14419, -0.66887, -0.500168, -0.735214, -0.787869 )
 amount = 4
 lifetime = 0.2
 mesh = SubResource( 4 )
 scale_amount_curve = SubResource( 5 )
 
 [node name="Booster4" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
-transform = Transform( -0.458771, -0.696927, 0.551308, 0.509575, -0.762656, -0.547454, 0.728384, 0.0848077, 0.717873, 0.492084, -0.81528, 0.71518 )
+transform = Transform( -0.448147, -0.713291, 0.538877, 0.496581, -0.74968, -0.581194, 0.74381, 0.0611573, 0.700581, 0.474003, -0.841996, 0.710734 )
 amount = 4
 lifetime = 0.2
 mesh = SubResource( 4 )
 scale_amount_curve = SubResource( 5 )
 
 [node name="Booster5" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
-transform = Transform( -0.23021, -0.885296, -0.56419, 0.828248, 0.0751416, -0.585577, 0.511557, -0.533992, 0.676593, -0.484166, -0.802188, 0.669358 )
+transform = Transform( -0.212612, -0.88311, -0.577157, 0.8168, 0.110743, -0.593911, 0.536952, -0.53141, 0.658141, -0.501706, -0.806402, 0.665339 )
 amount = 4
 lifetime = 0.2
 mesh = SubResource( 4 )
 scale_amount_curve = SubResource( 5 )
 
 [node name="weapon1" parent="MainController/Root/the-sphere" instance=ExtResource( 11 )]
-transform = Transform( 0.999521, -0.0309572, 0, 0.0309572, 0.999521, 9.44232e-17, -8.30624e-12, -1.0519e-08, 1, -0.0002661, 0.38478, 0.272017 )
-
-[node name="Shield" type="CSGMesh" parent="MainController/Root"]
-transform = Transform( 1.99235, 3.60473, 7.54323e-07, -3.69833, 1.94192, -2.74219e-08, -3.81058e-07, -6.33208e-07, 4.21011, 0.263536, 2.2893, 0.0410637 )
-visible = false
-mesh = SubResource( 6 )
-material = ExtResource( 13 )
+transform = Transform( 0.999956, -0.00936464, -0.000668778, 0.00933947, 0.999478, -0.0309499, 0.000958266, 0.0309425, 0.999521, 0.00798004, 0.381563, 0.304934 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1.55737, 0, 0, 0, 1.55737, 2.31761, 1.58048, 0 )
@@ -282,15 +279,15 @@ shape = SubResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "hover"
-anims/Hit = SubResource( 14 )
-anims/hover = SubResource( 8 )
+anims/Hit = SubResource( 8 )
+anims/hover = SubResource( 9 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/Moving = SubResource( 9 )
-anims/NotMoving = SubResource( 10 )
+anims/Moving = SubResource( 10 )
+anims/NotMoving = SubResource( 11 )
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
-"anims/Full Rotate" = SubResource( 11 )
+"anims/Full Rotate" = SubResource( 12 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 12 )
@@ -302,7 +299,7 @@ autoplay = true
 transform = Transform( 5.25361, 0, 0, 0, 5.25361, 0, 0, 0, 5.25361, 2.49347, -0.424691, -0.742232 )
 offset = Vector2( 455, -350 )
 billboard = 1
-texture = SubResource( 12 )
+texture = SubResource( 13 )
 
 [node name="Viewport" type="Viewport" parent="Health"]
 size = Vector2( 1000, 1000 )
@@ -333,4 +330,4 @@ clamp_zone = 0.5
 transform = Transform( 11, 0, 0, 0, 11, 0, 0, 0, 11, 2.81991, 3.9367, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-shape = SubResource( 15 )
+shape = SubResource( 14 )

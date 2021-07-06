@@ -61,7 +61,7 @@ size = Vector2( 300, 300 )
 
 [sub_resource type="SpatialMaterial" id=5]
 flags_unshaded = true
-albedo_color = Color( 0.0705882, 0.0627451, 0.0509804, 1 )
+albedo_color = Color( 0.364706, 0.364706, 0.364706, 1 )
 albedo_texture = ExtResource( 26 )
 uv1_scale = Vector3( 4, 4, 4 )
 uv1_offset = Vector3( -0.135, 0.004, 0 )
@@ -110,6 +110,9 @@ material = SubResource( 17 )
 size = Vector3( 0.2, 0.2, 0.2 )
 
 [sub_resource type="SphereMesh" id=19]
+radius = 1.1
+radial_segments = 6
+rings = 4
 
 [sub_resource type="ShaderMaterial" id=20]
 shader = ExtResource( 20 )
@@ -339,7 +342,7 @@ omni_range = 8.2
 omni_attenuation = 1.93187
 
 [node name="Barrier" type="CSGMesh" parent="Level/Map/core"]
-transform = Transform( 0.0571916, 0, 0, 0, 0.0548574, 0, 0, 0, 0.0571916, 0.0339864, 0.0319094, -0.0040886 )
+transform = Transform( 0.0571913, 0.000133045, -0.000105981, -0.000138635, 0.0548572, 3.82468e-05, 0.000106072, -3.64389e-05, 0.0571915, 0.0339864, 0.0319094, -0.0040886 )
 mesh = SubResource( 19 )
 material = SubResource( 20 )
 
