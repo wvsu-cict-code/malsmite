@@ -15,6 +15,8 @@ export var health_max := 200
 
 onready var current_health := health_max
 
+var firing:bool = false
+
 
 export (NodePath) var controllerPath
 onready var playerController : MovementController = $Joystick
@@ -62,17 +64,22 @@ func collided(body):
 		if current_health == 0:
 			$"/root/Global".goto_scene("res://GameOver.tscn")
 
+func Shoot():
+	$ShootTimer.start()
+	$ShootTimeLimit.start()
+	
+
+func _on_ShootButton_gui_input(event):
+	if event is InputEventScreenTouch and firing == false:
+		Shoot()
+		firing = true
+
 
 func _on_ShootTimer_timeout():
 	get_node("MainController/Root/the-sphere/Weapon1").fire_weapon()
 	get_node("MainController/Root/the-sphere/Weapon2").fire_weapon()
 
-func Shoot():
-	get_node("ShootTimer").start()
-	print("sssss")
 
-func _on_ShootButton_gui_input(event):
-	if event is InputEventScreenTouch:
-		Shoot()
-	else:
-		$ShootTimer.stop()
+func _on_ShootTimeLimit_timeout():
+	firing = false
+	$ShootTimer.stop()

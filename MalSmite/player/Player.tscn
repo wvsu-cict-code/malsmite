@@ -24,15 +24,15 @@ _data = [ Vector2( 0, 0.646591 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.164773 ), 0.0, 0
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0.519318 ), 0.0, 0.0, 0, 0, Vector2( 0.574932, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="SphereMesh" id=6]
+[sub_resource type="SphereMesh" id=4]
 radial_segments = 8
 rings = 4
 
-[sub_resource type="QuadMesh" id=4]
+[sub_resource type="QuadMesh" id=5]
 material = ExtResource( 5 )
 size = Vector2( 0.5, 0.5 )
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=6]
 _data = [ Vector2( 0, 0.897727 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="BoxShape" id=7]
@@ -226,7 +226,7 @@ startColor = Color( 1, 0.94902, 0.54902, 1 )
 [node name="Shield" type="CSGMesh" parent="MainController/Root"]
 transform = Transform( 1.99235, 3.60473, 7.54323e-07, -3.69833, 1.94192, -2.74219e-08, -3.81058e-07, -6.33208e-07, 4.21011, 0.263536, 2.2893, 0.0410637 )
 visible = false
-mesh = SubResource( 6 )
+mesh = SubResource( 4 )
 material = ExtResource( 13 )
 
 [node name="mascot-rigged2" parent="MainController/Root" instance=ExtResource( 3 )]
@@ -245,30 +245,30 @@ transform = Transform( -0.0216037, 0.000321288, -0.999767, -0.999657, 0.0148662,
 transform = Transform( -0.477033, -0.693416, 0.540082, -0.840074, 0.169986, -0.52541, 0.259611, -0.751547, -0.742459, 0.475589, -0.768579, -0.814445 )
 amount = 4
 lifetime = 0.2
-mesh = SubResource( 4 )
-scale_amount_curve = SubResource( 5 )
+mesh = SubResource( 5 )
+scale_amount_curve = SubResource( 6 )
 hue_variation = 1.0
 
 [node name="Booster3" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
 transform = Transform( -0.24345, -0.873863, -0.576901, -0.610158, 0.538625, -0.582054, 0.754402, 0.14419, -0.66887, -0.500168, -0.735214, -0.787869 )
 amount = 4
 lifetime = 0.2
-mesh = SubResource( 4 )
-scale_amount_curve = SubResource( 5 )
+mesh = SubResource( 5 )
+scale_amount_curve = SubResource( 6 )
 
 [node name="Booster4" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
 transform = Transform( -0.448147, -0.713291, 0.538877, 0.496581, -0.74968, -0.581194, 0.74381, 0.0611573, 0.700581, 0.474003, -0.841996, 0.710734 )
 amount = 4
 lifetime = 0.2
-mesh = SubResource( 4 )
-scale_amount_curve = SubResource( 5 )
+mesh = SubResource( 5 )
+scale_amount_curve = SubResource( 6 )
 
 [node name="Booster5" parent="MainController/Root/the-sphere" instance=ExtResource( 6 )]
 transform = Transform( -0.212612, -0.88311, -0.577157, 0.8168, 0.110743, -0.593911, 0.536952, -0.53141, 0.658141, -0.501706, -0.806402, 0.665339 )
 amount = 4
 lifetime = 0.2
-mesh = SubResource( 4 )
-scale_amount_curve = SubResource( 5 )
+mesh = SubResource( 5 )
+scale_amount_curve = SubResource( 6 )
 
 [node name="weapon1" parent="MainController/Root/the-sphere" instance=ExtResource( 11 )]
 transform = Transform( 0.999956, -0.00936464, -0.000668778, 0.00933947, 0.999478, -0.0309499, 0.000958266, 0.0309425, 0.999521, 0.00798004, 0.381563, 0.304934 )
@@ -333,6 +333,11 @@ transform = Transform( 11, 0, 0, 0, 11, 0, 0, 0, 11, 2.81991, 3.9367, 0 )
 shape = SubResource( 14 )
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.05
+
+[node name="ShootTimeLimit" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+[connection signal="timeout" from="ShootTimeLimit" to="." method="_on_ShootTimeLimit_timeout"]
