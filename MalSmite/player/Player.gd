@@ -7,6 +7,7 @@ const JUMP_SPEED = 5
 const ACCELERATION = 3
 const DECELERATION = 4
 var velocity: Vector3
+var energy = 20
 onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
 onready var start_position = translation
 var isMoving:bool = false
@@ -28,6 +29,7 @@ func _ready():
 func _physics_process(_delta):
 	velocity.y += _delta * gravity
 	get_node("Health/Viewport/TextureProgress").value = current_health
+	get_node("Health/Viewport/Energy").value = energy
 	if playerController and playerController.is_working:
 		if isMoving:
 			get_node("AnimationPlayer2").play("Moving")
@@ -67,19 +69,21 @@ func collided(body):
 func Shoot():
 	$ShootTimer.start()
 	$ShootTimeLimit.start()
-	
-
-func _on_ShootButton_gui_input(event):
-	if event is InputEventScreenTouch and firing == false:
-		Shoot()
-		firing = true
 
 
 func _on_ShootTimer_timeout():
 	get_node("MainController/Root/the-sphere/Weapon1").fire_weapon()
 	get_node("MainController/Root/the-sphere/Weapon2").fire_weapon()
+	energy -= 1
 
 
 func _on_ShootTimeLimit_timeout():
 	firing = false
 	$ShootTimer.stop()
+	energy = 20
+
+
+func _on_AutoShoot_gui_input(event):
+	if event is InputEventScreenTouch and firing == false:
+		Shoot()
+		firing = true

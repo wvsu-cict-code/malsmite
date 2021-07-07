@@ -609,6 +609,20 @@ cooldown = 5.0
 icon_texture_normal = ExtResource( 4 )
 icon_texture_disabled = ExtResource( 14 )
 
+[node name="AutoShoot" parent="CanvasLayer" instance=ExtResource( 6 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -236.38
+margin_top = -243.871
+margin_right = -106.38
+margin_bottom = -113.871
+rect_scale = Vector2( 1.4696, 1.4696 )
+cooldown = 2.0
+icon_texture_normal = ExtResource( 3 )
+icon_texture_disabled = ExtResource( 17 )
+
 [node name="AbilityButton2" parent="CanvasLayer" instance=ExtResource( 6 )]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -679,25 +693,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShootButton" type="TextureButton" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -253.498
-margin_top = -253.497
-margin_right = -44.4976
-margin_bottom = -44.4974
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 17 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 autoplay = true
 
 [connection signal="timeout" from="Level/Map/SpawnPoint/Timer" to="Level/Map/SpawnPoint" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Level/Map/SpawnPointStart/Timer" to="Level/Map/SpawnPointStart" method="_on_Timer_timeout"]
-[connection signal="gui_input" from="CanvasLayer/ShootButton" to="Level/Player" method="_on_ShootButton_gui_input"]
+[connection signal="gui_input" from="CanvasLayer/AutoShoot" to="Level/Player" method="_on_AutoShoot_gui_input"]
