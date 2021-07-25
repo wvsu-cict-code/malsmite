@@ -14,12 +14,8 @@ material = SubResource( 1 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 1, 0.937255, 0, 1 )
-emission_enabled = true
-emission = Color( 1, 0.796078, 0.0745098, 1 )
-emission_energy = 7.87
-emission_operator = 0
-emission_on_uv2 = false
+flags_unshaded = true
+albedo_color = Color( 0.803922, 0, 1, 1 )
 
 [sub_resource type="SpatialMaterial" id=4]
 emission_enabled = true
