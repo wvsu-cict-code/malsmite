@@ -248,7 +248,7 @@ window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/jigglebones/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [global]
 

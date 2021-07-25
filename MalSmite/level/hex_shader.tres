@@ -95,5 +95,5 @@ void fragment( )
 [resource]
 shader = SubResource( 1 )
 shader_param/hex_size = Vector2( 0.08, 0.12 )
-shader_param/scan_color = Color( 0, 0.811765, 1, 1 )
+shader_param/scan_color = Color( 1, 0.74902, 0.27451, 1 )
 shader_param/scan_line_size = 0.002

@@ -11,8 +11,12 @@ var energy = 20
 onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
 onready var start_position = translation
 var isMoving:bool = false
+onready var camera = $CameraRig/Camera
+onready var camera_rig = $CameraRig
 
 export var health_max := 200
+
+
 
 onready var current_health := health_max
 
@@ -23,10 +27,15 @@ export (NodePath) var controllerPath
 onready var playerController : MovementController = $Joystick
 
 func _ready():
+	camera_rig.set_as_toplevel(true)
 	$Area.connect("body_entered", self, "collided")
 
-
+func camera_follows_player():
+	var player_pos = global_transform.origin
+	camera_rig.global_transform.origin = player_pos
+	
 func _physics_process(_delta):
+	camera_follows_player()
 	velocity.y += _delta * gravity
 	get_node("Health/Viewport/TextureProgress").value = current_health
 	get_node("Health/Viewport/Energy").value = energy

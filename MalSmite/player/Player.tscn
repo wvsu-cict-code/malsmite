@@ -353,5 +353,15 @@ wait_time = 0.1
 wait_time = 2.0
 one_shot = true
 
+[node name="Target" type="Spatial" parent="."]
+transform = Transform( 0.582719, 0.812674, 0, -0.812674, 0.582719, 0, 0, 0, 1, 2.16083, 5.71677, 0 )
+
+[node name="CameraRig" type="Position3D" parent="."]
+
+[node name="Camera" type="Camera" parent="CameraRig"]
+transform = Transform( 0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -22.052, 42.925, 25.667 )
+fov = 45.0
+far = 200.0
+
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
 [connection signal="timeout" from="ShootTimeLimit" to="." method="_on_ShootTimeLimit_timeout"]
