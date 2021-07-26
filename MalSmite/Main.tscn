@@ -166,10 +166,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3, 6.1, 7.3, 9, 9.9, 12 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 3, 6.1, 7.3, 8.9, 9, 9.9, 12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -38.4639, 5.97364, -49.8629 ), Vector3( 24.463, 5.97364, -55.6819 ), Vector3( 34.3761, 5.97364, -8.21738 ), Vector3( 5.24547, 5.97364, 0.412327 ), Vector3( -35.3552, 5.97364, -5.6457 ), Vector3( -31.347, 5.97364, -16.9741 ), Vector3( -45.9874, 5.97364, -32.5198 ) ]
+"values": [ Vector3( -38.4456, 5.97364, -47.0216 ), Vector3( 26.9157, 5.97364, -47.5652 ), Vector3( 34.3761, 5.97364, -8.21738 ), Vector3( 31.2176, 5.97364, 31.9911 ), Vector3( -40.5489, 5.97364, 35.0354 ), Vector3( -35.3552, 5.97364, -5.6457 ), Vector3( -43.5001, 5.97364, -25.1263 ), Vector3( -45.9874, 5.97364, -32.5198 ) ]
 }
 
 [sub_resource type="CylinderMesh" id=18]
@@ -463,7 +463,7 @@ one_shot = true
 autostart = true
 
 [node name="SpawnPoint" type="Position3D" parent="Level/Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.823, 5.97364, -34.4352 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9808, 5.97364, 33.9508 )
 script = ExtResource( 28 )
 spawn_scene = ExtResource( 31 )
 

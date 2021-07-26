@@ -98,7 +98,7 @@ tracks/0/keys = {
 "values": [ null, ExtResource( 11 ), null ]
 }
 
-[sub_resource type="ArrayMesh" id=13]
+[sub_resource type="ArrayMesh" id=8]
 resource_name = "Cube.001"
 surfaces/0 = {
 "aabb": AABB( -0.795741, -0.794817, -0.839506, 1.59652, 1.5965, 1.52623 ),
@@ -140,22 +140,22 @@ surfaces/2 = {
 "vertex_count": 170
 }
 
-[sub_resource type="QuadMesh" id=8]
+[sub_resource type="QuadMesh" id=9]
 material = ExtResource( 9 )
 size = Vector2( 0.5, 0.5 )
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=10]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.318182 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=10]
+[sub_resource type="Gradient" id=11]
 colors = PoolColorArray( 0, 1, 0.976562, 1, 1, 1, 1, 0 )
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=12]
 flags_unshaded = true
 albedo_color = Color( 0.501961, 0.470588, 1, 1 )
 
-[sub_resource type="CubeMesh" id=12]
-material = SubResource( 11 )
+[sub_resource type="CubeMesh" id=13]
+material = SubResource( 12 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [node name="Seeker" type="KinematicBody"]
@@ -215,7 +215,7 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3.29
 
 [node name="Cube" type="MeshInstance" parent="seeker"]
 material_override = ExtResource( 5 )
-mesh = SubResource( 13 )
+mesh = SubResource( 8 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -226,9 +226,9 @@ material/2 = null
 transform = Transform( -1.5, 0, 1.31134e-07, 0, 1.5, 0, -1.31134e-07, 0, -1.5, 0.0155985, -0.0225468, -0.740108 )
 amount = 4
 lifetime = 0.2
-mesh = SubResource( 8 )
-scale_amount_curve = SubResource( 9 )
-color_ramp = SubResource( 10 )
+mesh = SubResource( 9 )
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 11 )
 hue_variation = 1.0
 
 [node name="MotionTrail" parent="seeker" instance=ExtResource( 10 )]
@@ -243,7 +243,7 @@ emitting = false
 lifetime = 0.3
 one_shot = true
 explosiveness = 1.0
-mesh = SubResource( 12 )
+mesh = SubResource( 13 )
 emission_shape = 1
 emission_sphere_radius = 1.0
 gravity = Vector3( 0, 1, 0 )

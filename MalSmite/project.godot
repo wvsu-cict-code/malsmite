@@ -279,5 +279,6 @@ quality/depth_prepass/enable=false
 gles2/compatibility/disable_half_float=true
 quality/lightmapping/use_bicubic_sampling.mobile=true
 environment/default_clear_color=Color( 0.129412, 0.133333, 0.192157, 1 )
+quality/depth/hdr.mobile=true
 environment/default_environment="res://level/default_env.tres"
 quality/dynamic_fonts/use_oversampling=false
