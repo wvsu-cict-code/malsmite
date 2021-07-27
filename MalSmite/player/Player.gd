@@ -69,6 +69,7 @@ func _physics_process(_delta):
 	
 func collided(body):
 	if body.has_method("damage"):
+		$Hit.play()
 		body.damage(100)
 		current_health -= 20
 		get_node("AnimationPlayer").play("Hit")

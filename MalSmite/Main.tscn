@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://audio/Cyber-Sin-City.mp3" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://level/cict-core.tscn" type="PackedScene" id=9]
 [ext_resource path="res://level/virus/Blockz.gd" type="Script" id=10]
 [ext_resource path="res://audio/ready.wav" type="AudioStream" id=11]
+[ext_resource path="res://audio/forceField_000.wav" type="AudioStream" id=12]
 [ext_resource path="res://gui/vortex.png" type="Texture" id=13]
 [ext_resource path="res://gui/rocket-pressed.png" type="Texture" id=14]
 [ext_resource path="res://gui/shield1_pressed.png" type="Texture" id=15]
@@ -283,10 +284,6 @@ shape = SubResource( 5 )
 transform = Transform( -0.00111693, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.00111693, 44.3347, 12.1876, -12.9752 )
 shape = SubResource( 5 )
 
-[node name="CollisionShape18" type="CollisionShape" parent="Level/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2206, 12.1876, -9.98407 )
-shape = SubResource( 6 )
-
 [node name="CollisionShape19" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7766, 12.1876, -55.6968 )
 shape = SubResource( 6 )
@@ -343,6 +340,9 @@ autoplay = "CoreLoop"
 anims/CoreLoop = SubResource( 14 )
 anims/Hit = SubResource( 15 )
 
+[node name="CoreHit" type="AudioStreamPlayer" parent="Level/core"]
+stream = ExtResource( 12 )
+
 [node name="rocket_baseA" parent="Level" instance=ExtResource( 25 )]
 transform = Transform( 2.7782, 0, -1.13207, 0, 3, 0, 1.13207, 0, 2.7782, -6.35719, -3.26473, -19.1975 )
 
@@ -355,9 +355,6 @@ transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -6.0210
 [node name="hangar_roundA7" parent="Level/Hangars" instance=ExtResource( 19 )]
 transform = Transform( -2.38419e-07, 0, -2.27247, 0, 5, 0, 2.27247, 0, -2.38419e-07, -27.0195, -3.95351, 3.92977 )
 
-[node name="hangar_roundB" parent="Level/Hangars" instance=ExtResource( 21 )]
-transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 47.1585, -3.36405, -31.153 )
-
 [node name="hangar_roundB2" parent="Level/Hangars" instance=ExtResource( 21 )]
 transform = Transform( 0, 0, -2.35923, 0, 2.35923, 0, 2.35923, 0, 0, -38.1722, -3.41422, -26.2594 )
 
@@ -366,9 +363,6 @@ transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -31.049
 
 [node name="machine_generator4" parent="Level/Hangars" instance=ExtResource( 23 )]
 transform = Transform( 1.19209e-07, 0, -5, 0, 5, 0, 5, 0, 1.19209e-07, 47.2039, -3.13089, -58.9985 )
-
-[node name="machine_wireless" parent="Level/Hangars" instance=ExtResource( 24 )]
-transform = Transform( -2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 4.3763, -3.13089, -47.3289 )
 
 [node name="machine_wireless2" parent="Level/Hangars" instance=ExtResource( 24 )]
 transform = Transform( -2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -26.9044, -3.13089, -5.12478 )
@@ -382,14 +376,8 @@ transform = Transform( -1.19209e-07, 0, -5, 0, 5, 0, 5, 0, -1.19209e-07, 15.8974
 [node name="machine_barrel4" parent="Level/Hangars" instance=ExtResource( 22 )]
 transform = Transform( 5, 0, 3.57628e-07, 0, 5, 0, -3.57628e-07, 0, 5, -37.704, -3.13089, -14.477 )
 
-[node name="machine_barrelLarge" parent="Level/Hangars" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -0.425276, -3.50994, -15.4083 )
-
 [node name="machine_barrelLarge16" parent="Level/Hangars" instance=ExtResource( 30 )]
 transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 32.6808, -3.50994, -47.2163 )
-
-[node name="machine_barrelLarge4" parent="Level/Hangars" instance=ExtResource( 30 )]
-transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -7.67811, -3.50994, -43.1576 )
 
 [node name="machine_barrelLarge17" parent="Level/Hangars" instance=ExtResource( 30 )]
 transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, -37.9749, -3.50994, -46.7818 )

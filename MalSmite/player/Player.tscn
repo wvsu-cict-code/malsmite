@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://gui/joystick/Joystick.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://audio/thrusterFire.ogg" type="AudioStream" id=12]
 [ext_resource path="res://level/hex_shader.tres" type="Material" id=13]
 [ext_resource path="res://gui/health-bg.png" type="Texture" id=14]
+[ext_resource path="res://audio/forceField_001.wav" type="AudioStream" id=15]
 
 [sub_resource type="QuadMesh" id=1]
 material = ExtResource( 5 )
@@ -365,6 +366,9 @@ transform = Transform( 0.582719, 0.812674, 0, -0.812674, 0.582719, 0, 0, 0, 1, 2
 transform = Transform( 0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -30.093, 54.143, 33.57 )
 fov = 55.0
 far = 300.0
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
 [connection signal="timeout" from="ShootTimeLimit" to="." method="_on_ShootTimeLimit_timeout"]

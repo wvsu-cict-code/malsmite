@@ -16,5 +16,6 @@ func collided(body):
 		current_health -= 10
 		$"/root/Global".core_health = current_health
 		$CoreAnimation.play("Hit")
+		$CoreHit.play()
 		if current_health == 0:
 			$"/root/Global".goto_scene("res://GameOver.tscn")
