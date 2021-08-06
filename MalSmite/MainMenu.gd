@@ -1,4 +1,4 @@
-extends TextureRect
+extends Control
 
 
 # Declare member variables here. Examples:
@@ -10,8 +10,11 @@ extends TextureRect
 func _ready():
 	pass # Replace with function body.
 
-	 
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
 
 
-func _on_Timer_timeout():
-	Global.goto_scene("res://MainMenu.tscn")
+func _on_ButtonNewGame_pressed():
+	Global.goto_scene("res://Main.tscn")

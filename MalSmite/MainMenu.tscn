@@ -1,8 +1,233 @@
-[gd_scene format=2]
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://gui/Character.png" type="Texture" id=1]
+[ext_resource path="res://gui/Jet.png" type="Texture" id=2]
+[ext_resource path="res://gui/full-logo.png" type="Texture" id=3]
+[ext_resource path="res://MainMenu.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Loop"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 255.74, 391.142 ), Vector2( 255.74, 360.87 ), Vector2( 255.74, 391.142 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Loop2"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/TextureRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.572549 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/TextureRect4:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.458824 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/TextureRect3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.647059 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Loop2"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/TextureRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.572549 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/TextureRect4:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.458824 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/TextureRect3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.647059 ) ]
+}
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Control" type="Control" parent="."]
+margin_left = 280.967
+margin_top = 423.096
+margin_right = 320.967
+margin_bottom = 463.096
+rect_scale = Vector2( 1.28655, 1.28655 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -20.0
+margin_right = 313.0
+margin_bottom = 735.0
+rect_rotation = 3.94867
+rect_scale = Vector2( 0.19278, 0.19278 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="Control"]
+modulate = Color( 1, 1, 1, 0.458824 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 33.8542
+margin_top = 4.05432
+margin_right = 346.854
+margin_bottom = 759.054
+rect_rotation = -45.9479
+rect_scale = Vector2( 0.19278, 0.19278 )
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Control"]
+modulate = Color( 1, 1, 1, 0.717647 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -90.4124
+margin_top = -209.359
+margin_right = 222.588
+margin_bottom = 545.641
+rect_rotation = 26.3947
+rect_scale = Vector2( 0.101938, 0.101938 )
+texture = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -169.464
+margin_top = -288.981
+margin_right = 989.536
+margin_bottom = 625.019
+rect_scale = Vector2( 0.491409, 0.491409 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Loop"
+anims/Loop = SubResource( 1 )
+anims/Loop2 = SubResource( 2 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/Loop2 = SubResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -638.191
+margin_top = 79.9716
+margin_right = 447.809
+margin_bottom = 541.972
+rect_scale = Vector2( 0.412049, 0.412049 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonNewGame" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -552.439
+margin_top = 314.4
+margin_right = -470.439
+margin_bottom = 334.4
+rect_scale = Vector2( 3.33761, 3.33761 )
+text = "New Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonCredits" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -552.439
+margin_top = 536.15
+margin_right = -470.439
+margin_bottom = 556.15
+rect_scale = Vector2( 3.33761, 3.33761 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonRankings" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -552.439
+margin_top = 423.777
+margin_right = -470.439
+margin_bottom = 443.777
+rect_scale = Vector2( 3.33761, 3.33761 )
+text = "Rankings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ButtonNewGame" to="." method="_on_ButtonNewGame_pressed"]
