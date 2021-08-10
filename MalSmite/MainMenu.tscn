@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://menu_sequence/0023.png" type="Texture" id=1]
 [ext_resource path="res://gui/menu-background.png" type="Texture" id=2]
@@ -30,6 +30,10 @@
 [ext_resource path="res://menu_sequence/0025.png" type="Texture" id=28]
 [ext_resource path="res://gui/start.png" type="Texture" id=29]
 [ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=30]
+[ext_resource path="res://gui/bot-2.png" type="Texture" id=31]
+[ext_resource path="res://gui/bot-1.png" type="Texture" id=32]
+[ext_resource path="res://gui/bot-3.png" type="Texture" id=33]
+[ext_resource path="res://gui/hex-bg.png" type="Texture" id=34]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -39,7 +43,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Shader" id=9]
+[sub_resource type="Shader" id=10]
 code = "/*
 Shader from Godot Shaders - the free shader library.
 godotshaders.com/shader/VHS-and-CRT-monitor-effect
@@ -271,7 +275,7 @@ void fragment()
 }"
 
 [sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 9 )
+shader = SubResource( 10 )
 shader_param/overlay = true
 shader_param/scanlines_opacity = 0.4
 shader_param/scanlines_width = 0.25
@@ -334,9 +338,97 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=8]
-size = 46
-outline_color = Color( 0.968627, 1, 0.329412, 1 )
+size = 84
 font_data = ExtResource( 30 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "BotLoop"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("bot-1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1039.46, 189.303 ), Vector2( 1067.46, 167.303 ), Vector2( 1039.46, 189.303 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bot-2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3.6, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 987.462, 415.303 ), Vector2( 933.462, 419.303 ), Vector2( 955.462, 485.303 ), Vector2( 987.462, 415.303 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bot-3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.1, 3.6, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1142.26, 348.303 ), Vector2( 1194.26, 360.303 ), Vector2( 1202.26, 396.303 ), Vector2( 1142.26, 348.303 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("bot-6:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.3, 4.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1249.89, 196.257 ), Vector2( 1234.18, 169.318 ), Vector2( 1251.47, 229.432 ), Vector2( 1249.89, 196.257 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("bot-4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6, 3.1, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1447.85, 280.259 ), Vector2( 1398.46, 311.688 ), Vector2( 1431.01, 340.974 ), Vector2( 1447.85, 280.259 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("bot-5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.8, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1342.73, 481.321 ), Vector2( 1340.49, 546.424 ), Vector2( 1342.73, 481.321 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("bot-7:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.7, 3.2, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1177.87, 520.877 ), Vector2( 1153.18, 570.265 ), Vector2( 1180.12, 617.408 ), Vector2( 1177.87, 520.877 ) ]
+}
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -357,10 +449,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="TextureRect2"]
+modulate = Color( 1, 1, 1, 0.901961 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 34 )
+expand = true
+stretch_mode = 6
+
+[node name="bot-1" type="Sprite" parent="."]
+position = Vector2( 1046.25, 183.966 )
+scale = Vector2( 0.221527, 0.221527 )
+texture = ExtResource( 32 )
+
+[node name="bot-4" type="Sprite" parent="."]
+position = Vector2( 1398.54, 311.763 )
+rotation = -0.951409
+scale = Vector2( 0.221527, 0.221527 )
+texture = ExtResource( 32 )
+
+[node name="bot-2" type="Sprite" parent="."]
+position = Vector2( 965.63, 416.92 )
+scale = Vector2( 0.221527, 0.221527 )
+texture = ExtResource( 31 )
+
+[node name="bot-6" type="Sprite" parent="."]
+position = Vector2( 1245.75, 189.154 )
+rotation = -0.591521
+scale = Vector2( 0.13809, 0.13809 )
+texture = ExtResource( 31 )
+
+[node name="bot-3" type="Sprite" parent="."]
+position = Vector2( 1157.28, 351.768 )
+scale = Vector2( 0.163589, 0.163589 )
+texture = ExtResource( 33 )
+
+[node name="bot-5" type="Sprite" parent="."]
+position = Vector2( 1342.24, 495.422 )
+rotation = 1.37385
+scale = Vector2( 0.163589, 0.163589 )
+texture = ExtResource( 33 )
+
+[node name="bot-7" type="Sprite" parent="."]
+position = Vector2( 1169.06, 538.495 )
+rotation = -0.172704
+scale = Vector2( 0.104714, 0.104714 )
+texture = ExtResource( 33 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 458.011, 388.145 )
+position = Vector2( 411.819, 350 )
 frames = SubResource( 1 )
-frame = 24
+frame = 22
 speed_scale = 2.0
 playing = true
 
@@ -395,12 +534,12 @@ anims/Loop2 = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0.914951 )
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -872.45
-margin_top = 114.633
-margin_right = -171.45
-margin_bottom = 385.633
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -350.5
+margin_top = 113.871
+margin_right = 350.5
+margin_bottom = 384.871
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -450,15 +589,18 @@ autoplay = "LogoLoop"
 anims/LogoLoop = SubResource( 7 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -633.36
-margin_top = 41.2787
-margin_right = -433.36
-margin_bottom = 241.279
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -101.0
+margin_top = -328.858
+margin_right = 319.0
+margin_bottom = 68.142
+rect_scale = Vector2( 0.5, 0.5 )
 texture_normal = ExtResource( 29 )
+expand = true
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -468,12 +610,35 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -146.0
-margin_top = 82.0
-margin_right = -48.0
-margin_bottom = 140.0
+margin_left = -295.858
+margin_top = 198.5
+margin_right = -114.858
+margin_bottom = 304.5
 custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 1, 0.741176, 1 )
 text = "START"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="."]
+autoplay = "BotLoop"
+anims/BotLoop = SubResource( 9 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -532.0
+margin_top = -79.0
+margin_right = -230.0
+margin_bottom = -65.0
+rect_scale = Vector2( 1.5, 1.5 )
+text = "BG Concept: Krystal Ann Dacles Sayco (EMC 1A)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="ButtonNewGame" to="." method="_on_ButtonNewGame_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
