@@ -500,7 +500,7 @@ texture = ExtResource( 33 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 411.819, 350 )
 frames = SubResource( 1 )
-frame = 7
+frame = 20
 speed_scale = 2.0
 playing = true
 
@@ -623,6 +623,74 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureButton2" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -341.496
+margin_top = -301.108
+margin_right = 78.5037
+margin_bottom = 95.8915
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 35 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureButton2"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -294.076
+margin_top = 198.5
+margin_right = -113.076
+margin_bottom = 304.5
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 1, 0.741176, 1 )
+text = "Lore"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 141.178
+margin_top = -305.313
+margin_right = 561.178
+margin_bottom = 91.6871
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 35 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureButton3"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -326.149
+margin_top = 198.5
+margin_right = -84.1485
+margin_bottom = 304.5
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 1, 0.741176, 1 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer4" type="AnimationPlayer" parent="."]
 autoplay = "BotLoop"
 anims/BotLoop = SubResource( 9 )
@@ -644,3 +712,5 @@ __meta__ = {
 
 [connection signal="pressed" from="ButtonNewGame" to="." method="_on_ButtonNewGame_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureButton3" to="." method="_on_TextureButton_pressed"]
