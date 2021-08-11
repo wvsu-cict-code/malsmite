@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://menu_sequence/0023.png" type="Texture" id=1]
 [ext_resource path="res://gui/menu-background.png" type="Texture" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://gui/bot-1.png" type="Texture" id=32]
 [ext_resource path="res://gui/bot-3.png" type="Texture" id=33]
 [ext_resource path="res://gui/hex-bg.png" type="Texture" id=34]
+[ext_resource path="res://gui/start-pressed.png" type="Texture" id=35]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -43,7 +44,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Shader" id=10]
+[sub_resource type="Shader" id=2]
 code = "/*
 Shader from Godot Shaders - the free shader library.
 godotshaders.com/shader/VHS-and-CRT-monitor-effect
@@ -275,7 +276,7 @@ void fragment()
 }"
 
 [sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 10 )
+shader = SubResource( 2 )
 shader_param/overlay = true
 shader_param/scanlines_opacity = 0.4
 shader_param/scanlines_width = 0.25
@@ -499,7 +500,7 @@ texture = ExtResource( 33 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 411.819, 350 )
 frames = SubResource( 1 )
-frame = 22
+frame = 7
 speed_scale = 2.0
 playing = true
 
@@ -599,6 +600,7 @@ margin_right = 319.0
 margin_bottom = 68.142
 rect_scale = Vector2( 0.5, 0.5 )
 texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 35 )
 expand = true
 stretch_mode = 4
 __meta__ = {

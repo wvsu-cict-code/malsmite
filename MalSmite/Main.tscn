@@ -36,13 +36,13 @@
 [ext_resource path="res://gui/health-bg.png" type="Texture" id=34]
 [ext_resource path="res://gui/shieldcomb.png" type="Texture" id=35]
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.0126839, 0.223239, 0.324707, 1, 0.9375, 0.98407, 1, 0 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Environment" id=6]
+[sub_resource type="Environment" id=3]
 background_energy = 2.43
 ambient_light_color = Color( 0.054902, 0.0627451, 0.0705882, 1 )
 ambient_light_energy = 1.83
@@ -54,42 +54,42 @@ glow_strength = 0.87
 glow_bloom = 0.65
 glow_blend_mode = 1
 adjustment_brightness = 1.1
-adjustment_color_correction = SubResource( 5 )
+adjustment_color_correction = SubResource( 2 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 54.3271, 1, 53.0529 )
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 121.48, 13.5866, 1 )
 
-[sub_resource type="CylinderShape" id=9]
+[sub_resource type="CylinderShape" id=6]
 radius = 8.25651
 height = 32.1634
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=7]
 flags_unshaded = true
 albedo_color = Color( 0.890196, 0.501961, 0.0901961, 1 )
 
-[sub_resource type="PrismMesh" id=11]
-material = SubResource( 10 )
+[sub_resource type="PrismMesh" id=8]
+material = SubResource( 7 )
 size = Vector3( 0.2, 0.2, 0.2 )
 
-[sub_resource type="SphereMesh" id=12]
+[sub_resource type="SphereMesh" id=9]
 radius = 1.1
 radial_segments = 6
 rings = 4
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 20 )
 shader_param/barrier_color = Color( 1, 0.74902, 0, 1 )
 shader_param/barrier_force = 1.0
 shader_param/barrier_interval = 5.0
 shader_param/barrier_speed = 5.0
 
-[sub_resource type="PlaneMesh" id=14]
+[sub_resource type="PlaneMesh" id=11]
 size = Vector2( 0.05, 0.05 )
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=12]
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -105,10 +105,10 @@ tracks/0/keys = {
 "values": [ Vector3( -0.038, 0, -0.139 ), Vector3( -0.038, 360, -0.139 ) ]
 }
 
-[sub_resource type="SphereShape" id=16]
+[sub_resource type="SphereShape" id=13]
 radius = 0.218784
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=14]
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -124,7 +124,7 @@ tracks/0/keys = {
 "values": [ Vector3( -0.038, 0, -0.139 ), Vector3( -0.038, 360, -0.139 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=15]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Barrier:visible")
@@ -139,7 +139,7 @@ tracks/0/keys = {
 "values": [ true, false, true ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=16]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -155,7 +155,7 @@ tracks/0/keys = {
 "values": [ Color( 0.0705882, 0.0627451, 0.0509804, 1 ), Color( 0.380392, 0.321569, 0.223529, 1 ), Color( 0.0705882, 0.0627451, 0.0509804, 1 ), Color( 0.156863, 0.141176, 0.113725, 1 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=17]
 length = 15.0
 loop = true
 tracks/0/type = "value"
@@ -171,14 +171,14 @@ tracks/0/keys = {
 "values": [ Vector3( -38.4456, 5.97364, -47.0216 ), Vector3( 26.9157, 5.97364, -47.5652 ), Vector3( 34.3761, 5.97364, -8.21738 ), Vector3( 31.2176, 5.97364, 31.9911 ), Vector3( -40.5489, 5.97364, 35.0354 ), Vector3( -35.3552, 5.97364, -5.6457 ), Vector3( -43.5001, 5.97364, -25.1263 ), Vector3( -45.9874, 5.97364, -32.5198 ) ]
 }
 
-[sub_resource type="CylinderMesh" id=21]
+[sub_resource type="CylinderMesh" id=18]
 top_radius = 0.1
 bottom_radius = 0.1
 height = 50.0
 radial_segments = 8
 rings = 2
 
-[sub_resource type="Shader" id=22]
+[sub_resource type="Shader" id=19]
 code = "/*
 	魔法防御シェーダー 2 by あるる（きのもと 結衣）
 	Magical Shield Shader 2 by Yui Kinomoto @arlez80
@@ -203,45 +203,45 @@ void fragment( )
 }
 "
 
-[sub_resource type="ShaderMaterial" id=23]
-shader = SubResource( 22 )
+[sub_resource type="ShaderMaterial" id=20]
+shader = SubResource( 19 )
 shader_param/barrier_color = Color( 1, 0.72549, 0, 1 )
 shader_param/barrier_force = 1.0
 shader_param/barrier_interval = 0.1
 shader_param/barrier_speed = 4.0
 
-[sub_resource type="CylinderMesh" id=24]
+[sub_resource type="CylinderMesh" id=21]
 top_radius = 0.1
 bottom_radius = 0.1
 height = 10.0
 radial_segments = 8
 rings = 2
 
-[sub_resource type="PlaneMesh" id=25]
+[sub_resource type="PlaneMesh" id=22]
 size = Vector2( 100, 100 )
 
-[sub_resource type="SpatialMaterial" id=26]
+[sub_resource type="SpatialMaterial" id=23]
 flags_unshaded = true
 albedo_color = Color( 0.764706, 0.764706, 0.764706, 1 )
 albedo_texture = ExtResource( 26 )
 uv1_scale = Vector3( 2, 2, 2 )
 uv1_offset = Vector3( -0.135, 0.004, 0 )
 
-[sub_resource type="CubeMesh" id=27]
+[sub_resource type="CubeMesh" id=24]
 size = Vector3( 100, 100, 100 )
 
-[sub_resource type="SpatialMaterial" id=28]
+[sub_resource type="SpatialMaterial" id=25]
 flags_vertex_lighting = true
 albedo_color = Color( 0.785156, 0.785156, 0.785156, 1 )
 albedo_texture = ExtResource( 26 )
 uv1_scale = Vector3( 2, 2, 2 )
 uv1_offset = Vector3( -0.135, 0.004, 0 )
 
-[sub_resource type="DynamicFont" id=29]
+[sub_resource type="DynamicFont" id=26]
 size = 26
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=30]
+[sub_resource type="DynamicFont" id=27]
 size = 70
 font_data = ExtResource( 1 )
 
@@ -253,7 +253,7 @@ font_data = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07397, -0.199887, -16.1576 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
-environment = SubResource( 6 )
+environment = SubResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Level"]
 transform = Transform( 0.474036, 0.642857, 0.601685, -0.826148, 0.0883473, 0.556485, 0.304583, -0.760874, 0.572974, 4.70974, 11.4236, 0 )
@@ -264,27 +264,27 @@ transform = Transform( 0.926068, 0, -0.377356, 0, 1, 0, 0.377356, 0, 0.926068, -
 
 [node name="CollisionShape" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( 0.999974, 0, 0.00712088, 0, 1, 0, -0.00712088, 0, 0.999974, -6.35328, 0, -15.5916 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape12" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( 0.999845, 0, 0.0175745, 0, 1, 0, -0.0175745, 0, 0.999845, -7.93082, 12.1876, -66.5396 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape14" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( 0.99997, 0, 0.00767937, 0, 1, 0, -0.00767937, 0, 0.99997, 33.2867, 12.1876, 34.7594 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape13" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( 0.000279218, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.000279218, -57.8231, 12.1876, -6.5176 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape16" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( -0.00111693, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.00111693, 44.3347, 12.1876, -12.9752 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape19" type="CollisionShape" parent="Level/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7766, 12.1876, -55.6968 )
-shape = SubResource( 9 )
+shape = SubResource( 6 )
 
 [node name="core" parent="Level" instance=ExtResource( 9 )]
 transform = Transform( 92.6068, 0, -37.7356, 0, 100, 0, 37.7356, 0, 92.6068, -9.5311, 1.95905, -20.1242 )
@@ -292,7 +292,7 @@ script = ExtResource( 32 )
 
 [node name="CPUParticles" type="CPUParticles" parent="Level/core"]
 transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0331845, 0.0320931, -0.00262831 )
-mesh = SubResource( 11 )
+mesh = SubResource( 8 )
 emission_shape = 1
 emission_sphere_radius = 4.12
 spread = 66.95
@@ -315,28 +315,28 @@ omni_attenuation = 1.93187
 
 [node name="Barrier" type="CSGMesh" parent="Level/core"]
 transform = Transform( 0.0571914, 0.000133084, 0, -0.000138747, 0.0548572, 3.79309e-05, 9.20205e-08, -3.63827e-05, 0.0571916, 0.0339864, 0.0319094, -0.0040886 )
-mesh = SubResource( 12 )
-material = SubResource( 13 )
+mesh = SubResource( 9 )
+material = SubResource( 10 )
 
 [node name="CSGMesh2" type="CSGMesh" parent="Level/core"]
 transform = Transform( 1.39703, 0, 5.96046e-08, 0, 1.39703, 0, -5.96046e-08, 0, 1.39703, 0.0329376, -0.0517972, -0.00300343 )
-mesh = SubResource( 14 )
+mesh = SubResource( 11 )
 material = ExtResource( 27 )
 
 [node name="CoreLoop" type="AnimationPlayer" parent="Level/core"]
 autoplay = "Loop"
-anims/Loop = SubResource( 15 )
+anims/Loop = SubResource( 12 )
 
 [node name="Area" type="Area" parent="Level/core"]
 transform = Transform( 0.3, 0, -7.45058e-09, 0, 0.3, 0, 7.45058e-09, 0, 0.3, 0.0323232, 0.0367907, -0.0016889 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Level/core/Area"]
-shape = SubResource( 16 )
+shape = SubResource( 13 )
 
 [node name="CoreAnimation" type="AnimationPlayer" parent="Level/core"]
 autoplay = "CoreLoop"
-anims/CoreLoop = SubResource( 17 )
-anims/Hit = SubResource( 18 )
+anims/CoreLoop = SubResource( 14 )
+anims/Hit = SubResource( 15 )
 
 [node name="CoreHit" type="AudioStreamPlayer" parent="Level/core"]
 stream = ExtResource( 12 )
@@ -386,57 +386,57 @@ transform = Transform( 1.85214, 0, 0.754712, 0, 2, 0, -0.754712, 0, 1.85214, 5.4
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level"]
 autoplay = "SpawnPointMove"
 playback_speed = 0.5
-anims/Loop = SubResource( 19 )
-anims/SpawnPointMove = SubResource( 20 )
+anims/Loop = SubResource( 16 )
+anims/SpawnPointMove = SubResource( 17 )
 
 [node name="Lines" type="Spatial" parent="Level"]
 transform = Transform( 0.926068, 0, -0.377356, 0, 1, 0, 0.377356, 0, 0.926068, -6.91606, -3.26473, -1.76745 )
 
 [node name="CSGMesh" type="CSGMesh" parent="Level/Lines"]
 transform = Transform( 4.37114e-08, -1, -2.08616e-07, -1, -4.37114e-08, 0, -1.77636e-14, 2.08616e-07, -1, -30.4083, 1.08745, -16.1895 )
-mesh = SubResource( 21 )
-material = SubResource( 23 )
+mesh = SubResource( 18 )
+material = SubResource( 20 )
 
 [node name="CSGMesh25" type="CSGMesh" parent="Level/Lines"]
 transform = Transform( -4.37114e-08, 1, 2.08616e-07, -1, -4.37114e-08, 0, 1.77636e-14, -2.08616e-07, 1, 17.915, 1.08745, -16.2679 )
-mesh = SubResource( 21 )
-material = SubResource( 23 )
+mesh = SubResource( 18 )
+material = SubResource( 20 )
 
 [node name="CSGMesh3" type="CSGMesh" parent="Level/Lines"]
 transform = Transform( 0, 2.98023e-08, 1, -1, -4.37114e-08, 0, 4.37113e-08, -1, 2.98023e-08, -6.12364, 0.158227, 7.875 )
-mesh = SubResource( 21 )
-material = SubResource( 23 )
+mesh = SubResource( 18 )
+material = SubResource( 20 )
 
 [node name="CSGMesh26" type="CSGMesh" parent="Level/Lines"]
 transform = Transform( 1.77636e-15, 2.98023e-08, 1, -1, -4.37114e-08, 0, 4.37113e-08, -1, 2.98023e-08, -6.42239, 0.158227, -36.39 )
-mesh = SubResource( 21 )
-material = SubResource( 23 )
+mesh = SubResource( 18 )
+material = SubResource( 20 )
 
 [node name="CSGMesh13" type="CSGMesh" parent="Level/Lines"]
 transform = Transform( 1.77636e-15, -5.96046e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -5.96046e-08, 21.5871, 0.158227, -21.2579 )
-mesh = SubResource( 24 )
-material = SubResource( 23 )
+mesh = SubResource( 21 )
+material = SubResource( 20 )
 
 [node name="CSGMesh14" type="CSGMesh" parent="Level/Lines"]
 transform = Transform( 4.37114e-08, -1, -1.19209e-07, -1, -4.37114e-08, 0, -3.55271e-15, 1.19209e-07, -1, -1.0023, 0.158227, -47.7414 )
-mesh = SubResource( 24 )
-material = SubResource( 23 )
+mesh = SubResource( 21 )
+material = SubResource( 20 )
 
 [node name="CSGMesh8" type="CSGMesh" parent="Level/Lines"]
 transform = Transform( 4.37114e-08, -1, -2.08616e-07, -1, -4.37114e-08, 0, -1.77636e-15, 2.08616e-07, -1, -43.8262, 0.158227, -26.1767 )
-mesh = SubResource( 24 )
-material = SubResource( 23 )
+mesh = SubResource( 21 )
+material = SubResource( 20 )
 
 [node name="CSGMesh9" type="CSGMesh" parent="Level/Lines"]
 transform = Transform( 0, -1.19209e-07, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -1.19209e-07, -38.7327, 0.158227, -21.341 )
-mesh = SubResource( 24 )
-material = SubResource( 23 )
+mesh = SubResource( 21 )
+material = SubResource( 20 )
 
 [node name="Map" type="CSGMesh" parent="Level"]
 transform = Transform( 0.926068, 0, -0.377356, 0, 1, 0, 0.377356, 0, 0.926068, -7.05431, -3.26473, -18.989 )
 use_in_baked_light = true
-mesh = SubResource( 25 )
-material = SubResource( 26 )
+mesh = SubResource( 22 )
+material = SubResource( 23 )
 
 [node name="SpawnPointStart" type="Position3D" parent="Level/Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1157, 5.97364, -33.8532 )
@@ -459,63 +459,63 @@ autostart = true
 
 [node name="CSGMesh" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106454, -50.3125, -0.0924473 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="CSGMesh2" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.2057, -104.45, -34.0339 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="CSGMesh3" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 0.317, 0, 7.45058e-08, 0, -1, 0, -7.45058e-08, 0, 0.317, 79.0535, -79.8207, 70.7228 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="CSGMesh9" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 0.317, 0, 8.9407e-08, 0, -1, 0, -8.9407e-08, 0, 0.317, 90.1334, -79.8207, -118.912 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="CSGMesh10" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 0.317, 0, 1.04308e-07, 0, -1, 0, -1.04308e-07, 0, 0.317, -74.3774, -79.8207, -128.81 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="CSGMesh11" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 0.317, 0, 1.19209e-07, 0, -1, 0, -1.19209e-07, 0, 0.317, 168.416, -79.8207, -0.550946 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="CSGMesh12" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 0.317, 0, 1.49012e-07, 0, -1, 0, -1.49012e-07, 0, 0.317, 16.5888, -79.8207, -191.722 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="CSGMesh4" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 0.891136, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 0.891136, 9.62131, -86.3541, -117.017 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="CSGMesh5" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.8132, -71.3706, -48.56 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="CSGMesh6" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 0.551283, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, 0.551283, -120.468, -55.1031, 26.5577 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="CSGMesh7" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -83.6981, -83.5576, 86.7302 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="CSGMesh8" type="CSGMesh" parent="Level/Map"]
 transform = Transform( 1.09195, 0, 1.19209e-07, 0, 1.09195, 0, -1.19209e-07, 0, 1.09195, 12.2258, -67.9573, 122.927 )
-mesh = SubResource( 27 )
-material = SubResource( 28 )
+mesh = SubResource( 24 )
+material = SubResource( 25 )
 
 [node name="Blockz" parent="Level/Map" instance=ExtResource( 8 )]
 transform = Transform( 5, 0, 4.76837e-07, 0, 5, 0, -4.76837e-07, 0, 5, -77.9584, -11.4256, -23.4247 )
@@ -558,7 +558,7 @@ margin_left = 43.4509
 margin_top = 146.0
 margin_right = 138.451
 margin_bottom = 179.0
-custom_fonts/font = SubResource( 29 )
+custom_fonts/font = SubResource( 26 )
 text = "fps"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -569,7 +569,7 @@ margin_left = 43.4509
 margin_top = 106.657
 margin_right = 138.451
 margin_bottom = 139.657
-custom_fonts/font = SubResource( 29 )
+custom_fonts/font = SubResource( 26 )
 text = "BSEMC 1A"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -582,7 +582,7 @@ margin_left = -93.0
 margin_top = 13.4848
 margin_right = 93.0
 margin_bottom = 101.485
-custom_fonts/font = SubResource( 30 )
+custom_fonts/font = SubResource( 27 )
 text = "00"
 align = 1
 __meta__ = {
@@ -594,7 +594,7 @@ margin_left = 43.4509
 margin_top = 13.4848
 margin_right = 229.451
 margin_bottom = 101.485
-custom_fonts/font = SubResource( 30 )
+custom_fonts/font = SubResource( 27 )
 text = "Core"
 __meta__ = {
 "_edit_use_anchors_": false
