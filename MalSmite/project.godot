@@ -253,6 +253,7 @@ enabled=PoolStringArray(  )
 [global]
 
 teture=false
+mouse=false
 
 [input_devices]
 

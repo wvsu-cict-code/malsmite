@@ -1,14 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://gui/full-logo.png" type="Texture" id=2]
-[ext_resource path="res://Splash.gd" type="Script" id=3]
-[ext_resource path="res://gui/menu-background.png" type="Texture" id=4]
-[ext_resource path="res://gui/splash-background.png" type="Texture" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-size = 32
-font_data = ExtResource( 1 )
+[ext_resource path="res://gui/menu-background.png" type="Texture" id=1]
+[ext_resource path="res://gui/splash-background.png" type="Texture" id=2]
+[ext_resource path="res://fonts/SourceCodePro-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="Shader" id=2]
 code = "/*
@@ -250,7 +245,7 @@ shader_param/grille_opacity = 0.3
 shader_param/resolution = Vector2( 640, 480 )
 shader_param/pixelate = true
 shader_param/roll = true
-shader_param/roll_speed = 8.0
+shader_param/roll_speed = 1.0
 shader_param/roll_size = 15.0
 shader_param/roll_variation = 1.8
 shader_param/distort_intensity = 0.05
@@ -265,44 +260,20 @@ shader_param/clip_warp = false
 shader_param/vignette_intensity = 0.4
 shader_param/vignette_opacity = 0.5
 
+[sub_resource type="DynamicFont" id=6]
+size = 60
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 3 )
+
 [sub_resource type="Animation" id=4]
 length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Label:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/Label2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 1.1, 1.2, 1.3, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false, true, false, true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CanvasLayer/TextureRect:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
 
 [node name="Node2D" type="Node2D"]
 
@@ -311,38 +282,8 @@ tracks/2/keys = {
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 5 )
+texture = ExtResource( 2 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -105.437
-margin_top = 109.613
-margin_right = 111.563
-margin_bottom = 150.613
-custom_fonts/font = SubResource( 1 )
-text = "BSEMC 1A Presents"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -247.776
-margin_top = 577.085
-margin_right = 274.224
-margin_bottom = 618.085
-custom_fonts/font = SubResource( 1 )
-text = "Objective: Protect the Core from Infection"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -352,25 +293,86 @@ modulate = Color( 0.909804, 0.694118, 1, 0.513726 )
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="CanvasLayer"]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -642.0
-margin_top = -170.0
-margin_right = 1191.0
-margin_bottom = 292.0
-rect_scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 2 )
-stretch_mode = 4
-script = ExtResource( 3 )
+margin_left = -608.0
+margin_top = 27.7795
+margin_right = 608.0
+margin_bottom = 102.78
+custom_fonts/font = SubResource( 6 )
+text = "Lore"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -608.0
+margin_top = 112.68
+margin_right = 608.0
+margin_bottom = 214.68
+custom_fonts/font = SubResource( 7 )
+text = "Authors: Aguirre, Jose Eduardo Bolivar, Allan Justin Cantara, Joseph Ray Diaz, Christ Mae Gellada, Pia Alyssa Hernandez, Leah Lyn                                                                                                                                                                                                                        "
+autowrap = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -608.0
+margin_top = 198.452
+margin_right = 608.0
+margin_bottom = 698.452
+custom_fonts/normal_font = SubResource( 5 )
+text = "The world is full of terror, and darkness prevails. Humanity used to betray the trust of the world. All the time, they disregard the warnings of nature concerning their evilness. Thereupon, when the world no longer endures the pain, it starts collecting the charges of their wrongdoings.
+
+Humanity discredited the happenings. As a result, they formed a training ground to assemble humanity that will combat the unseen viruses that threaten the lives of humankind by bordering the passageways of villages and killing thousands of beings.
+
+The training ground was named CICT. Inside, there are teachers and students. They enhance their knowledge by forming computer-generated games for simulations, scientific research that will determine the variants of the viruses, and hands-on programs that can generate solutions to their problem.
+
+One day, CICT got into trouble. The environment became immune to the virus, causing it to break the barrier that protects humanity. It invades the CICT without letting others know that it was already inside.
+
+One time the CICT found out that one of their teachers was missing. They searched the whole campus; they contacted her relatives but were dismayed knowing she wasn’t there. The events are repeating every day. Many teachers and students went missing.
+
+Caleb, an extraordinary student, was bothered in his sleep because he saw strange things in his dream that are related to the recent happenings in the school. So, he went out for a night stroll to have peace of mind.
+
+Caleb passes the dormitories of his teachers to make sure that no one is awake. When he is about to step on the next stair, he heard his teachers were talking about the recent tragedy, and they were afraid that it might be the end of the school. Suddenly, he heard the school alarm, indicating the school at risk. All students and teachers woke up, and they began to panic.
+
+Caleb was too afraid. When he realized that the room forbidden for students besides the teacher’s dormitory was left open, he went inside to hide. There he saw one of the computers was left open. Caleb is afraid that something wrong is happening to him. The viruses suddenly became visible in his eyes, and he saw his teachers that were gone. He then knows that they were in a virtual world.
+
+The unseen viruses in the real world are called malware inside the computer. There, he needs to defeat the malware to destroy the unseen viruses existing in reality.
+
+As he saves his teachers, he will face different levels that are increasing depending on his progress. If he rescues his teacher, they will now become his companion. Together they quest to unlock the mystery about the origin of the virus.
+
+Since Caleb was seven years old, he always has a strange dream that keeps bothering him up to the present. He can always see his father, a former programmer in a Technological University. He remembered his father creating a portal connecting two dimensions, the physical world, and the virtual world. Caleb also recognizes that his father Bran had designed the 1984 RPG shooting games. Considering his father a well-known game developer and programmer of all time, he always wanted his game to be exceptional, so at some point, he uses the portal to transport in the other dimension for a game trial. There in his game, his goal is to eliminate enemies virtually. Sadly, Bran cannot go back to the real world. From then on, Caleb became an orphan.
+
+Fifteen years later, a pandemic happened. There Caleb became one of the students in the CICT.
+
+The happenings of his past correlate to the present. Caleb unravels the truth that the pandemic, in reality, are similar in the virtual world. Yet, the origin of the virus remains a mystery. As he and his teachers are exploring the virtual dimension, Caleb saw a familiar face. He was shocked to saw his father is still alive.
+
+His father told him that the portal he created fifteen years ago became the passageway for the virus to arrive in the virtual world and transformed as malware. Not to his knowledge, the day he opens the portal to the virtual world, the day the physical world is experiencing the first wave pandemic.
+
+At the moment, the pandemic we are experiencing is already a second wave, wherein new variants of viruses continue to emerge.
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -127.72
+margin_top = 27.7795
+margin_right = -85.7197
+margin_bottom = 47.7795
+text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -383,5 +385,3 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "New Anim"
 "anims/New Anim" = SubResource( 4 )
-
-[connection signal="timeout" from="Timer" to="CanvasLayer/TextureRect" method="_on_Timer_timeout"]

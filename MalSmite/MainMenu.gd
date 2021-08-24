@@ -16,9 +16,11 @@ func _ready():
 #	pass
 
 
-func _on_ButtonNewGame_pressed():
+
+
+func _on_PlayButton_pressed():
 	Global.goto_scene("res://Main.tscn")
 
 
-func _on_TextureButton_pressed():
-	Global.goto_scene("res://Main.tscn")
+func _on_LoreButton_pressed():
+	Global.goto_scene("res://Lore.tscn")
