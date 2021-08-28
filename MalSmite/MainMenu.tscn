@@ -504,7 +504,7 @@ texture = ExtResource( 33 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 411.819, 350 )
 frames = SubResource( 1 )
-frame = 1
+frame = 15
 speed_scale = 2.0
 playing = true
 
