@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Far-Away-Technology_Looping.mp3-a12a117c2cc346638ee785c605da394d.mp3str"
+
+[deps]
+
+source_file="res://audio/Far-Away-Technology_Looping.mp3"
+dest_files=[ "res://.import/Far-Away-Technology_Looping.mp3-a12a117c2cc346638ee785c605da394d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

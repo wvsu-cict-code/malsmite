@@ -1,10 +1,7 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var location = "res://Main.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,8 +16,18 @@ func _ready():
 
 
 func _on_PlayButton_pressed():
-	Global.goto_scene("res://Main.tscn")
+	location = "res://Main.tscn";
+	$Click.play()	
 
 
 func _on_LoreButton_pressed():
-	Global.goto_scene("res://Lore.tscn")
+	location = "res://Lore.tscn";
+	$Click.play()
+
+
+func _on_AboutButton_pressed():
+	$Click.play()
+
+
+func _on_Click_finished():
+	Global.goto_scene(location)

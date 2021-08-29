@@ -155,7 +155,7 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36322, 2.41485, 0 )
 
 [node name="Root" type="Spatial" parent="MainController"]
-transform = Transform( 0.876626, 0.481172, 0, -0.481172, 0.876626, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="BoosterFast" parent="MainController/Root" instance=ExtResource( 6 )]
 transform = Transform( 0.0129334, -0.644309, -0.882069, 0.0432077, 0.811333, -0.58325, 0.999323, -0.0338733, 0.0276224, -1.75059, 2.72439, 0.604274 )
@@ -235,7 +235,7 @@ material = ExtResource( 13 )
 transform = Transform( 9.97643e-05, 0.00461666, 0.199947, 0.00432003, 0.1999, -0.00461775, -0.199953, 0.00432118, -6.44471e-09, -0.438754, 2.95191, 4.89365e-07 )
 
 [node name="the-sphere" parent="MainController/Root" instance=ExtResource( 9 )]
-transform = Transform( -0.0103962, -0.48106, 0.876626, 0.0189404, 0.876421, 0.481172, -0.999766, 0.021606, 6.61834e-08, 0.652868, 1.57599, 1.86633e-07 )
+transform = Transform( 0.000466765, 0.0216004, 0.999766, 0.021601, 0.999533, -0.0216055, -0.999766, 0.021606, -4.37012e-08, 0.652868, 1.57599, 1.86633e-07 )
 
 [node name="Weapon1" parent="MainController/Root/the-sphere" instance=ExtResource( 8 )]
 transform = Transform( -0.0216037, 0.000321288, -0.999767, -0.999657, 0.0148662, 0.021606, 0.0148695, 0.99989, 4.85643e-08, 1.56264, -0.194952, 11.0831 )
@@ -337,13 +337,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Joystick" parent="." instance=ExtResource( 2 )]
-margin_left = 58.2704
-margin_top = -356.152
-margin_right = 358.27
-margin_bottom = -56.1516
-clamp_zone = 0.5
-
 [node name="Area" type="Area" parent="."]
 transform = Transform( 11, 0, 0, 0, 11, 0, 0, 0, 11, 2.81991, 3.9367, 0 )
 
@@ -369,6 +362,15 @@ far = 300.0
 
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Joystick" parent="CanvasLayer" instance=ExtResource( 2 )]
+margin_left = 58.2704
+margin_top = -356.152
+margin_right = 358.27
+margin_bottom = -56.1516
+clamp_zone = 0.5
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
 [connection signal="timeout" from="ShootTimeLimit" to="." method="_on_ShootTimeLimit_timeout"]

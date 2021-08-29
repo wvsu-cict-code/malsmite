@@ -36,6 +36,14 @@
 [ext_resource path="res://gui/health-bg.png" type="Texture" id=34]
 [ext_resource path="res://gui/shieldcomb.png" type="Texture" id=35]
 
+[sub_resource type="DynamicFont" id=26]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=27]
+size = 70
+font_data = ExtResource( 1 )
+
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.0126839, 0.223239, 0.324707, 1, 0.9375, 0.98407, 1, 0 )
 
@@ -237,15 +245,172 @@ albedo_texture = ExtResource( 26 )
 uv1_scale = Vector3( 2, 2, 2 )
 uv1_offset = Vector3( -0.135, 0.004, 0 )
 
-[sub_resource type="DynamicFont" id=26]
-size = 26
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=27]
-size = 70
-font_data = ExtResource( 1 )
-
 [node name="Root" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 5 )
+
+[node name="DefaultWeaponButton" type="TextureButton" parent="CanvasLayer"]
+margin_bottom = 150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelFPS" type="Label" parent="CanvasLayer"]
+margin_left = 43.4509
+margin_top = 146.0
+margin_right = 138.451
+margin_bottom = 179.0
+custom_fonts/font = SubResource( 26 )
+text = "fps"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label1" type="Label" parent="CanvasLayer"]
+margin_left = 43.4509
+margin_top = 106.657
+margin_right = 138.451
+margin_bottom = 139.657
+custom_fonts/font = SubResource( 26 )
+text = "BSEMC 1A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelScore" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -93.0
+margin_top = 13.4848
+margin_right = 93.0
+margin_bottom = 101.485
+custom_fonts/font = SubResource( 27 )
+text = "00"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelScore2" type="Label" parent="CanvasLayer"]
+margin_left = 43.4509
+margin_top = 13.4848
+margin_right = 229.451
+margin_bottom = 101.485
+custom_fonts/font = SubResource( 27 )
+text = "Core"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbilityButton" parent="CanvasLayer" instance=ExtResource( 6 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -196.742
+margin_top = -384.805
+margin_right = -66.7421
+margin_bottom = -254.805
+rect_scale = Vector2( 0.72, 0.72 )
+cooldown = 5.0
+icon_texture_normal = ExtResource( 4 )
+icon_texture_disabled = ExtResource( 14 )
+
+[node name="AutoShoot" parent="CanvasLayer" instance=ExtResource( 6 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -236.38
+margin_top = -243.871
+margin_right = -106.38
+margin_bottom = -113.871
+rect_scale = Vector2( 1.4696, 1.4696 )
+cooldown = 2.0
+icon_texture_normal = ExtResource( 3 )
+icon_texture_disabled = ExtResource( 17 )
+
+[node name="AbilityButton2" parent="CanvasLayer" instance=ExtResource( 6 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -339.375
+margin_top = -310.872
+margin_right = -209.375
+margin_bottom = -180.872
+rect_scale = Vector2( 0.76, 0.76 )
+cooldown = 8.0
+icon_texture_normal = ExtResource( 13 )
+icon_texture_disabled = ExtResource( 16 )
+
+[node name="AbilityButton3" parent="CanvasLayer" instance=ExtResource( 6 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -406.611
+margin_top = -166.177
+margin_right = -276.611
+margin_bottom = -36.1769
+rect_scale = Vector2( 0.76, 0.76 )
+cooldown = 3.0
+icon_texture_normal = ExtResource( 18 )
+icon_texture_disabled = ExtResource( 15 )
+
+[node name="PauseTextureButton" type="TextureButton" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -101.78
+margin_top = 17.6389
+margin_right = -3.77979
+margin_bottom = 114.639
+rect_scale = Vector2( 0.799998, 0.799998 )
+texture_normal = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoreTextureProgress" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 181.854
+margin_top = 29.4414
+margin_right = 632.854
+margin_bottom = 96.4414
+rect_scale = Vector2( 0.603516, 0.760275 )
+value = 100.0
+texture_under = ExtResource( 34 )
+texture_progress = ExtResource( 33 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 1, 0.701961, 0.329412, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -34.8461
+margin_top = -118.831
+margin_right = 477.154
+margin_bottom = 393.17
+rect_scale = Vector2( 0.144152, 0.144152 )
+texture = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Level" type="Spatial" parent="."]
 
@@ -533,171 +698,6 @@ script = ExtResource( 10 )
 transform = Transform( 5, 0, 4.76837e-07, 0, 5, 0, -4.76837e-07, 0, 5, 7.78764, -3.15997, 82.2787 )
 script = ExtResource( 10 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource( 5 )
-
-[node name="DefaultWeaponButton" type="TextureButton" parent="CanvasLayer"]
-margin_bottom = 150.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -40.0
-margin_top = -40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LabelFPS" type="Label" parent="CanvasLayer"]
-margin_left = 43.4509
-margin_top = 146.0
-margin_right = 138.451
-margin_bottom = 179.0
-custom_fonts/font = SubResource( 26 )
-text = "fps"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label1" type="Label" parent="CanvasLayer"]
-margin_left = 43.4509
-margin_top = 106.657
-margin_right = 138.451
-margin_bottom = 139.657
-custom_fonts/font = SubResource( 26 )
-text = "BSEMC 1A"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LabelScore" type="Label" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -93.0
-margin_top = 13.4848
-margin_right = 93.0
-margin_bottom = 101.485
-custom_fonts/font = SubResource( 27 )
-text = "00"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LabelScore2" type="Label" parent="CanvasLayer"]
-margin_left = 43.4509
-margin_top = 13.4848
-margin_right = 229.451
-margin_bottom = 101.485
-custom_fonts/font = SubResource( 27 )
-text = "Core"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AbilityButton" parent="CanvasLayer" instance=ExtResource( 6 )]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -196.742
-margin_top = -384.805
-margin_right = -66.7421
-margin_bottom = -254.805
-rect_scale = Vector2( 0.72, 0.72 )
-cooldown = 5.0
-icon_texture_normal = ExtResource( 4 )
-icon_texture_disabled = ExtResource( 14 )
-
-[node name="AutoShoot" parent="CanvasLayer" instance=ExtResource( 6 )]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -236.38
-margin_top = -243.871
-margin_right = -106.38
-margin_bottom = -113.871
-rect_scale = Vector2( 1.4696, 1.4696 )
-cooldown = 2.0
-icon_texture_normal = ExtResource( 3 )
-icon_texture_disabled = ExtResource( 17 )
-
-[node name="AbilityButton2" parent="CanvasLayer" instance=ExtResource( 6 )]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -339.375
-margin_top = -310.872
-margin_right = -209.375
-margin_bottom = -180.872
-rect_scale = Vector2( 0.76, 0.76 )
-cooldown = 8.0
-icon_texture_normal = ExtResource( 13 )
-icon_texture_disabled = ExtResource( 16 )
-
-[node name="AbilityButton3" parent="CanvasLayer" instance=ExtResource( 6 )]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -406.611
-margin_top = -166.177
-margin_right = -276.611
-margin_bottom = -36.1769
-rect_scale = Vector2( 0.76, 0.76 )
-cooldown = 3.0
-icon_texture_normal = ExtResource( 18 )
-icon_texture_disabled = ExtResource( 15 )
-
-[node name="PauseTextureButton" type="TextureButton" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -101.78
-margin_top = 17.6389
-margin_right = -3.77979
-margin_bottom = 114.639
-rect_scale = Vector2( 0.799998, 0.799998 )
-texture_normal = ExtResource( 29 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CoreTextureProgress" type="TextureProgress" parent="CanvasLayer"]
-margin_left = 181.854
-margin_top = 29.4414
-margin_right = 632.854
-margin_bottom = 96.4414
-rect_scale = Vector2( 0.603516, 0.760275 )
-value = 100.0
-texture_under = ExtResource( 34 )
-texture_progress = ExtResource( 33 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-modulate = Color( 1, 0.701961, 0.329412, 1 )
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -34.8461
-margin_top = -118.831
-margin_right = 477.154
-margin_bottom = 393.17
-rect_scale = Vector2( 0.144152, 0.144152 )
-texture = ExtResource( 35 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 autoplay = true
@@ -706,6 +706,6 @@ autoplay = true
 stream = ExtResource( 11 )
 autoplay = true
 
+[connection signal="gui_input" from="CanvasLayer/AutoShoot" to="Level/Player" method="_on_AutoShoot_gui_input"]
 [connection signal="timeout" from="Level/Map/SpawnPointStart/Timer" to="Level/Map/SpawnPointStart" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Level/Map/SpawnPoint/Timer" to="Level/Map/SpawnPoint" method="_on_Timer_timeout"]
-[connection signal="gui_input" from="CanvasLayer/AutoShoot" to="Level/Player" method="_on_AutoShoot_gui_input"]

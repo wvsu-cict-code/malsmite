@@ -24,7 +24,7 @@ var firing:bool = false
 
 
 export (NodePath) var controllerPath
-onready var playerController : MovementController = $Joystick
+onready var playerController : MovementController = $CanvasLayer/Joystick
 
 func _ready():
 	camera_rig.set_as_toplevel(true)

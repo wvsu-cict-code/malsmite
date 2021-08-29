@@ -17,4 +17,8 @@ func _ready():
 
 
 func _on_OKButton_pressed():
+	$Click.play()
+
+
+func _on_Click_finished():
 	Global.goto_scene("res://MainMenu.tscn")
