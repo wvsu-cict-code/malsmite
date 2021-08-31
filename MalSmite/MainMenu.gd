@@ -26,6 +26,7 @@ func _on_LoreButton_pressed():
 
 
 func _on_AboutButton_pressed():
+	location = "res://Credits.tscn";
 	$Click.play()
 
 

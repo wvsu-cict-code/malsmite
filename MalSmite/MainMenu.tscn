@@ -39,7 +39,7 @@
 [ext_resource path="res://gui/lore-pressed.png" type="Texture" id=37]
 [ext_resource path="res://gui/about.png" type="Texture" id=38]
 [ext_resource path="res://gui/about-pressed.png" type="Texture" id=39]
-[ext_resource path="res://audio/click_004.wav" type="AudioStream" id=40]
+[ext_resource path="res://audio/Button 1.wav" type="AudioStream" id=40]
 [ext_resource path="res://audio/World-of-Automatons_Looping_v001.mp3" type="AudioStream" id=41]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -50,7 +50,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Shader" id=10]
+[sub_resource type="Shader" id=2]
 code = "/*
 Shader from Godot Shaders - the free shader library.
 godotshaders.com/shader/VHS-and-CRT-monitor-effect
@@ -282,7 +282,7 @@ void fragment()
 }"
 
 [sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 10 )
+shader = SubResource( 2 )
 shader_param/overlay = true
 shader_param/scanlines_opacity = 0.4
 shader_param/scanlines_width = 0.25
@@ -509,7 +509,7 @@ texture = ExtResource( 33 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 411.819, 350 )
 frames = SubResource( 1 )
-frame = 6
+frame = 5
 speed_scale = 2.0
 playing = true
 
@@ -719,16 +719,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Click2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 41 )
-autoplay = true
-
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 40 )
+
+[node name="BackgroundSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 41 )
+autoplay = true
 
 [connection signal="pressed" from="ButtonNewGame" to="." method="_on_ButtonNewGame_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="LoreButton" to="." method="_on_LoreButton_pressed"]
 [connection signal="pressed" from="AboutButton" to="." method="_on_AboutButton_pressed"]
-[connection signal="finished" from="Click2" to="." method="_on_Click_finished"]
 [connection signal="finished" from="Click" to="." method="_on_Click_finished"]
+[connection signal="finished" from="BackgroundSound" to="." method="_on_Click_finished"]

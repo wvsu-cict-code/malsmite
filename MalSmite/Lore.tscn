@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://gui/menu-background.png" type="Texture" id=1]
 [ext_resource path="res://gui/splash-background.png" type="Texture" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://gui/button-empty.png" type="Texture" id=5]
 [ext_resource path="res://gui/button-empty-pressed.png" type="Texture" id=6]
 [ext_resource path="res://Lore.gd" type="Script" id=7]
-[ext_resource path="res://audio/click_004.wav" type="AudioStream" id=8]
+[ext_resource path="res://audio/Button 1.wav" type="AudioStream" id=8]
 [ext_resource path="res://audio/Far-Away-Technology_Looping.mp3" type="AudioStream" id=9]
 [ext_resource path="res://gui/emblem.png" type="Texture" id=10]
 
@@ -270,15 +270,11 @@ shader_param/vignette_opacity = 0.5
 size = 60
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 25
-font_data = ExtResource( 3 )
-
 [sub_resource type="DynamicFont" id=5]
 size = 30
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=9]
 size = 90
 font_data = ExtResource( 4 )
 
@@ -346,28 +342,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label4" type="Label" parent="CanvasLayer"]
-self_modulate = Color( 1, 1, 1, 0.698039 )
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -608.0
-margin_top = 113.0
-margin_right = 432.0
-margin_bottom = 212.0
-custom_fonts/font = SubResource( 4 )
-text = "Authors: Aguirre, Jose Eduardo; Bolivar, Allan Justin; Cantara, Joseph Ray; Diaz, Christ Mae; Gellada, Pia Alyssa; Hernandez, Leah Lyn                                                                                                                                                                                                                        "
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -608.0
-margin_top = 198.452
+margin_top = 103.0
 margin_right = 608.0
-margin_bottom = 698.452
+margin_bottom = 563.0
 custom_fonts/normal_font = SubResource( 5 )
 text = "The world is full of terror, and darkness prevails. Humanity used to betray the trust of the world. All the time, they disregard the warnings of nature concerning their evilness. Thereupon, when the world no longer endures the pain, it starts collecting the charges of their wrongdoings.
 
@@ -405,11 +386,13 @@ __meta__ = {
 
 [node name="OKButton" type="TextureButton" parent="CanvasLayer"]
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-margin_left = -208.457
-margin_top = 27.7795
-margin_right = 247.543
-margin_bottom = 446.78
+anchor_bottom = 1.0
+margin_left = -176.0
+margin_top = -157.0
+margin_right = 280.0
+margin_bottom = 262.0
 rect_scale = Vector2( 0.35, 0.35 )
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
@@ -426,7 +409,7 @@ margin_top = 65.0
 margin_right = -167.0
 margin_bottom = 260.0
 rect_scale = Vector2( 1.46248, 1.46248 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 1, 0.741176, 1 )
 text = "OK"
 align = 1
