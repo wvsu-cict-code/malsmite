@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Lore.gd" type="Script" id=2]
@@ -10,6 +10,33 @@
 [ext_resource path="res://gui/button-empty.png" type="Texture" id=8]
 [ext_resource path="res://gui/button-empty-pressed.png" type="Texture" id=9]
 [ext_resource path="res://gui/emblem.png" type="Texture" id=10]
+[ext_resource path="res://gui/weapons-design/tusing.jpg" type="Texture" id=11]
+[ext_resource path="res://gui/divider.png" type="Texture" id=12]
+[ext_resource path="res://gui/profiles/bunda.png" type="Texture" id=13]
+[ext_resource path="res://gui/profiles/cantara.png" type="Texture" id=14]
+[ext_resource path="res://gui/profiles/hernandez.png" type="Texture" id=15]
+[ext_resource path="res://gui/profiles/gellada.png" type="Texture" id=16]
+[ext_resource path="res://gui/profiles/tusing.png" type="Texture" id=17]
+[ext_resource path="res://gui/profiles/diaz.png" type="Texture" id=18]
+[ext_resource path="res://gui/profiles/bolivar.png" type="Texture" id=19]
+[ext_resource path="res://gui/profiles/aguirre.png" type="Texture" id=20]
+[ext_resource path="res://gui/weapons-design/bunda.jpg" type="Texture" id=21]
+[ext_resource path="res://gui/profiles/suelo.png" type="Texture" id=22]
+[ext_resource path="res://gui/profiles/camile.png" type="Texture" id=23]
+[ext_resource path="res://gui/profiles/panaguiton.png" type="Texture" id=24]
+[ext_resource path="res://gui/enemies-design/panaguiton.jpg" type="Texture" id=25]
+[ext_resource path="res://gui/enemies-design/fernandez.jpg" type="Texture" id=26]
+[ext_resource path="res://gui/enemies-design/obas.jpg" type="Texture" id=27]
+[ext_resource path="res://gui/profiles/fernandez.png" type="Texture" id=28]
+[ext_resource path="res://gui/profiles/unkown.png" type="Texture" id=29]
+[ext_resource path="res://gui/profiles/galila.png" type="Texture" id=30]
+[ext_resource path="res://gui/profiles/villafuerte.png" type="Texture" id=31]
+[ext_resource path="res://gui/profiles/maunes.png" type="Texture" id=32]
+[ext_resource path="res://gui/profiles/delgado.png" type="Texture" id=33]
+[ext_resource path="res://gui/profiles/lumahan.png" type="Texture" id=34]
+[ext_resource path="res://gui/profiles/aujero.png" type="Texture" id=35]
+[ext_resource path="res://gui/profiles/brebano.png" type="Texture" id=36]
+[ext_resource path="res://gui/profiles/sayco.png" type="Texture" id=37]
 
 [sub_resource type="Shader" id=1]
 code = "/*
@@ -266,28 +293,28 @@ shader_param/clip_warp = false
 shader_param/vignette_intensity = 0.4
 shader_param/vignette_opacity = 0.5
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=3]
 size = 90
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=9]
+[sub_resource type="Theme" id=4]
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 size = 60
+extra_spacing_top = 10
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=7]
 size = 30
 font_data = ExtResource( 5 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 2.0
 
-[sub_resource type="Animation" id=8]
-resource_name = "EmblemLoop"
+[sub_resource type="Animation" id=9]
 length = 10.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/emblem:rotation_degrees")
@@ -345,13 +372,11 @@ __meta__ = {
 
 [node name="OKButton" type="TextureButton" parent="CanvasLayer"]
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -176.0
-margin_top = -157.0
-margin_right = 280.0
-margin_bottom = 262.0
+margin_left = -200.0
+margin_top = 32.0
+margin_right = 256.0
+margin_bottom = 451.0
 rect_scale = Vector2( 0.35, 0.35 )
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 9 )
@@ -368,7 +393,7 @@ margin_top = 65.0
 margin_right = -167.0
 margin_bottom = 260.0
 rect_scale = Vector2( 1.46248, 1.46248 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 1, 0.741176, 1 )
 text = "OK"
 align = 1
@@ -377,65 +402,1160 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="CanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 50.0
 margin_top = 50.0
-margin_right = -100.0
-margin_bottom = -150.0
+margin_right = -200.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="CanvasLayer/MarginContainer"]
+margin_right = 1030.0
+margin_bottom = 650.0
+size_flags_horizontal = 3
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/ScrollContainer2"]
-margin_right = 1130.0
-margin_bottom = 233.0
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2"]
+margin_right = 1018.0
+margin_bottom = 5445.0
 mouse_filter = 1
 size_flags_horizontal = 3
-theme = SubResource( 9 )
-custom_styles/panel = SubResource( 10 )
+theme = SubResource( 4 )
+custom_styles/panel = SubResource( 5 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ScrollContainer2/PanelContainer"]
-margin_right = 1130.0
-margin_bottom = 233.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer"]
+margin_right = 1018.0
+margin_bottom = 5445.0
+size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/ScrollContainer2/PanelContainer/VBoxContainer"]
-margin_right = 1130.0
-margin_bottom = 75.0
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_right = 1018.0
+margin_bottom = 85.0
 mouse_filter = 1
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "About"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="CanvasLayer/ScrollContainer2/PanelContainer/VBoxContainer"]
-margin_top = 79.0
-margin_right = 1130.0
-margin_bottom = 154.0
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_top = 89.0
+margin_right = 1018.0
+margin_bottom = 164.0
 mouse_filter = 1
+size_flags_horizontal = 3
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 7 )
 text = "MalSmite, short for Malware Smite is a short mobile RPG shooter game that features our college mascot developed by the EMC students batch 2021."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="CanvasLayer/ScrollContainer2/PanelContainer/VBoxContainer"]
-margin_top = 158.0
-margin_right = 1130.0
-margin_bottom = 233.0
+[node name="Divider2" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_top = 168.0
+margin_right = 1018.0
+margin_bottom = 168.0
+size_flags_horizontal = 3
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 4
+
+[node name="LoreAuthors" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_top = 172.0
+margin_right = 1018.0
+margin_bottom = 513.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors"]
+margin_right = 1018.0
+margin_bottom = 341.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer"]
+margin_right = 1018.0
+margin_bottom = 85.0
 mouse_filter = 1
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 3 )
-text = "Credits"
+custom_fonts/font = SubResource( 6 )
+text = "Lore Authors"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer"]
+margin_top = 89.0
+margin_right = 1018.0
+margin_bottom = 337.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer"]
+margin_right = 507.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 20 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 503.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Aguirre, Jose Eduardo"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_left = 507.0
+margin_right = 507.0
+margin_bottom = 80.0
+mouse_filter = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer"]
+margin_left = 511.0
+margin_right = 1018.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer2"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 19 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 507.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Bolivar, Allan Justin"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer"]
+margin_top = 84.0
+margin_right = 507.0
+margin_bottom = 164.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer3"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer3/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 14 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer3/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 507.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Cantara, Joseph Ray"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer"]
+margin_left = 511.0
+margin_top = 84.0
+margin_right = 1018.0
+margin_bottom = 164.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer4"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer4/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 18 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer4/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 507.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Diaz, Christ Mae"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer"]
+margin_top = 168.0
+margin_right = 507.0
+margin_bottom = 248.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer5"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer5/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 16 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer5/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 507.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Gellada, Pia Alyssa"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer6" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer"]
+margin_left = 511.0
+margin_top = 168.0
+margin_right = 1018.0
+margin_bottom = 248.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer6"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer6/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 15 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer/GridContainer/MarginContainer6/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 507.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Hernandez, Leah Lyn"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Divider" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/LoreAuthors/VBoxContainer"]
+margin_top = 341.0
+margin_right = 1018.0
+margin_bottom = 341.0
+size_flags_horizontal = 3
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 4
+
+[node name="Programmers" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_top = 517.0
+margin_right = 1018.0
+margin_bottom = 690.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers"]
+margin_right = 1018.0
+margin_bottom = 173.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer"]
+margin_right = 1018.0
+margin_bottom = 85.0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 6 )
+text = "Programmers"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer"]
+margin_top = 89.0
+margin_right = 1018.0
+margin_bottom = 169.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer/GridContainer"]
+margin_right = 507.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer/GridContainer/MarginContainer"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 22 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 503.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Suelo, April Princess "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_left = 507.0
+margin_right = 507.0
+margin_bottom = 80.0
+mouse_filter = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer/GridContainer"]
+margin_left = 511.0
+margin_right = 1018.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer/GridContainer/MarginContainer2"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 23 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 507.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Vapor, Camille "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Divider" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/Programmers/VBoxContainer"]
+margin_top = 173.0
+margin_right = 1018.0
+margin_bottom = 173.0
+size_flags_horizontal = 3
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 4
+
+[node name="GraphicDesigners" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_top = 694.0
+margin_right = 1018.0
+margin_bottom = 867.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners"]
+margin_right = 1018.0
+margin_bottom = 173.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer"]
+margin_right = 1018.0
+margin_bottom = 85.0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 6 )
+text = "Graphic Designers"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer"]
+margin_top = 89.0
+margin_right = 1018.0
+margin_bottom = 169.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer/GridContainer"]
+margin_right = 507.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer/GridContainer/MarginContainer"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 36 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 503.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Brebaño, Gaeala Marie "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_left = 507.0
+margin_right = 507.0
+margin_bottom = 80.0
+mouse_filter = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer/GridContainer"]
+margin_left = 511.0
+margin_right = 1018.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer/GridContainer/MarginContainer2"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 37 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 507.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Sayco, Kystal Ann "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Divider" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/GraphicDesigners/VBoxContainer"]
+margin_top = 173.0
+margin_right = 1018.0
+margin_bottom = 173.0
+size_flags_horizontal = 3
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 4
+
+[node name="WeaponDesigners" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_top = 871.0
+margin_right = 1018.0
+margin_bottom = 2502.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners"]
+margin_right = 1018.0
+margin_bottom = 1631.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer"]
+margin_right = 1018.0
+margin_bottom = 85.0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 6 )
+text = "Weapon Designers"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer2" type="GridContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer"]
+margin_top = 89.0
+margin_right = 1018.0
+margin_bottom = 169.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer/GridContainer2"]
+margin_right = 509.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer/GridContainer2/MarginContainer"]
+margin_right = 509.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer/GridContainer2/MarginContainer/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 17 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer/GridContainer2/MarginContainer/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 505.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Tusing, Zephaniah Lex "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer/GridContainer2/MarginContainer/HBoxContainer"]
+margin_left = 509.0
+margin_right = 509.0
+margin_bottom = 80.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer"]
+margin_top = 173.0
+margin_right = 1018.0
+margin_bottom = 739.0
+texture = ExtResource( 11 )
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer"]
+margin_top = 743.0
+margin_right = 1018.0
+margin_bottom = 823.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer/GridContainer"]
+margin_right = 509.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer/GridContainer/MarginContainer2"]
+margin_right = 509.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 13 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 509.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Bunda, Nick Al Francis "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer"]
+margin_top = 827.0
+margin_right = 1018.0
+margin_bottom = 1627.0
+texture = ExtResource( 21 )
+
+[node name="Divider" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/WeaponDesigners/VBoxContainer"]
+margin_top = 1631.0
+margin_right = 1018.0
+margin_bottom = 1631.0
+size_flags_horizontal = 3
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 4
+
+[node name="CharacterDesigners" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_top = 2506.0
+margin_right = 1018.0
+margin_bottom = 4734.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners"]
+margin_right = 1018.0
+margin_bottom = 2228.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer"]
+margin_right = 1018.0
+margin_bottom = 85.0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 6 )
+text = "Character Designers"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer2" type="GridContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer"]
+margin_top = 89.0
+margin_right = 1018.0
+margin_bottom = 169.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer2"]
+margin_right = 509.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer2/MarginContainer"]
+margin_right = 509.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer2/MarginContainer/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 24 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer2/MarginContainer/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 505.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Panaguiton, Ben Joaquin "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer2/MarginContainer/HBoxContainer"]
+margin_left = 509.0
+margin_right = 509.0
+margin_bottom = 80.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer"]
+margin_top = 173.0
+margin_right = 1018.0
+margin_bottom = 623.0
+texture = ExtResource( 25 )
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer"]
+margin_top = 627.0
+margin_right = 1018.0
+margin_bottom = 780.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 7 )
+text = "Enemy: Blockz
+Type: Rammer or Blocker
+Weakness: On the back
+Weapon: Red hot spikes up front and the sides"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer"]
+margin_top = 784.0
+margin_right = 1018.0
+margin_bottom = 864.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer"]
+margin_right = 509.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer/MarginContainer2"]
+margin_right = 509.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 28 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 509.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Fernandez, Erjohn"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer"]
+margin_top = 868.0
+margin_right = 1018.0
+margin_bottom = 1337.0
+texture = ExtResource( 26 )
+
+[node name="GridContainer3" type="GridContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer"]
+margin_top = 1341.0
+margin_right = 1018.0
+margin_bottom = 1421.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer3"]
+margin_right = 509.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer3/MarginContainer2"]
+margin_right = 509.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer3/MarginContainer2/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 29 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer/GridContainer3/MarginContainer2/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 509.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Obas, Ellyza Gelee "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer"]
+margin_top = 1425.0
+margin_right = 1018.0
+margin_bottom = 2067.0
+texture = ExtResource( 27 )
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer"]
+margin_top = 2071.0
+margin_right = 1018.0
+margin_bottom = 2224.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 7 )
+text = "Enemy: Freddie Coli 
+Type: exploding virus
+Ability: it explodes when you made contact with it and lowers your hp up to 11%"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Divider" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/CharacterDesigners/VBoxContainer"]
+margin_top = 2228.0
+margin_right = 1018.0
+margin_bottom = 2228.0
+size_flags_horizontal = 3
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 4
+
+[node name="SoundDesigners" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_top = 4738.0
+margin_right = 1018.0
+margin_bottom = 5140.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners"]
+margin_right = 1018.0
+margin_bottom = 402.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer"]
+margin_right = 1018.0
+margin_bottom = 85.0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 6 )
+text = "Sound Designers"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer"]
+margin_top = 89.0
+margin_right = 1018.0
+margin_bottom = 398.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer/GridContainer"]
+margin_right = 507.0
+margin_bottom = 309.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer/GridContainer/MarginContainer"]
+margin_right = 507.0
+margin_bottom = 309.0
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 309.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer/GridContainer/MarginContainer/HBoxContainer/CenterContainer"]
+margin_top = 114.0
+margin_right = 80.0
+margin_bottom = 194.0
+texture = ExtResource( 35 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_left = 84.0
+margin_top = 117.0
+margin_right = 503.0
+margin_bottom = 192.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Aujero, Gabriel Anthony - Voice Overs"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_left = 507.0
+margin_right = 507.0
+margin_bottom = 309.0
+mouse_filter = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer/GridContainer"]
+margin_left = 511.0
+margin_right = 1018.0
+margin_bottom = 309.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer/GridContainer/MarginContainer2"]
+margin_right = 507.0
+margin_bottom = 309.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 309.0
+texture = ExtResource( 34 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_left = 84.0
+margin_right = 507.0
+margin_bottom = 309.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Lumahan, Veronica - Background Music, SFX. (Attribution: Music and SoundFX by Eric Matyas - https://soundimage.org/sci-fi/ | ematyas@aol.com); (Additional music & sound effects from https://www.zapsplat.com)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Divider" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/SoundDesigners/VBoxContainer"]
+margin_top = 402.0
+margin_right = 1018.0
+margin_bottom = 402.0
+size_flags_horizontal = 3
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 4
+
+[node name="TestersEvagelist" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_top = 5144.0
+margin_right = 1018.0
+margin_bottom = 5401.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist"]
+margin_right = 1018.0
+margin_bottom = 257.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer"]
+margin_right = 1018.0
+margin_bottom = 85.0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 6 )
+text = "Testers / Evangelist"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer"]
+margin_top = 89.0
+margin_right = 1018.0
+margin_bottom = 253.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer"]
+margin_right = 507.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 31 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 503.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Villafuerte, Charvie "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer/HBoxContainer"]
+margin_left = 507.0
+margin_right = 507.0
+margin_bottom = 80.0
+mouse_filter = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer"]
+margin_left = 511.0
+margin_right = 1018.0
+margin_bottom = 80.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer2"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 30 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer2/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 507.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Galila, Jernil Niño Gabriel "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer"]
+margin_top = 84.0
+margin_right = 507.0
+margin_bottom = 164.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer4"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer4/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 32 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer4/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 507.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Maunes, Robert Joshua "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer"]
+margin_left = 511.0
+margin_top = 84.0
+margin_right = 1018.0
+margin_bottom = 164.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer5"]
+margin_right = 507.0
+margin_bottom = 80.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer5/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 33 )
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer/GridContainer/MarginContainer5/HBoxContainer"]
+margin_left = 84.0
+margin_top = 22.0
+margin_right = 507.0
+margin_bottom = 58.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Delgado, Jm "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Divider" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer/TestersEvagelist/VBoxContainer"]
+margin_top = 257.0
+margin_right = 1018.0
+margin_bottom = 257.0
+size_flags_horizontal = 3
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 4
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_top = 5405.0
+margin_right = 1018.0
+margin_bottom = 5441.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 7 )
+text = "Facilitator: Mark Joseph Solidarios, Part-time Instructor"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Divider3" type="TextureRect" parent="CanvasLayer/MarginContainer/ScrollContainer2/PanelContainer/VBoxContainer"]
+margin_top = 5445.0
+margin_right = 1018.0
+margin_bottom = 5445.0
+size_flags_horizontal = 3
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 4
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
@@ -444,7 +1564,7 @@ autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "New Anim"
-"anims/New Anim" = SubResource( 7 )
+"anims/New Anim" = SubResource( 8 )
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -456,7 +1576,7 @@ autoplay = true
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 autoplay = "EmblemLoop"
 playback_speed = 0.2
-anims/EmblemLoop = SubResource( 8 )
+anims/EmblemLoop = SubResource( 9 )
 
 [connection signal="pressed" from="CanvasLayer/OKButton" to="." method="_on_OKButton_pressed"]
 [connection signal="finished" from="Click" to="." method="_on_Click_finished"]

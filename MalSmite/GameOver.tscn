@@ -8,7 +8,7 @@
 [ext_resource path="res://audio/382310__myfox14__game-over-arcade.wav" type="AudioStream" id=6]
 [ext_resource path="res://gui/menu-background.png" type="Texture" id=7]
 
-[sub_resource type="Shader" id=10]
+[sub_resource type="Shader" id=1]
 code = "/*
 Shader from Godot Shaders - the free shader library.
 godotshaders.com/shader/VHS-and-CRT-monitor-effect
@@ -239,8 +239,8 @@ void fragment()
 	COLOR = text;
 }"
 
-[sub_resource type="ShaderMaterial" id=11]
-shader = SubResource( 10 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/overlay = true
 shader_param/scanlines_opacity = 0.4
 shader_param/scanlines_width = 0.25
@@ -263,11 +263,11 @@ shader_param/clip_warp = false
 shader_param/vignette_intensity = 0.4
 shader_param/vignette_opacity = 0.5
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 80
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 40
 font_data = ExtResource( 1 )
 
@@ -296,7 +296,7 @@ __meta__ = {
 
 [node name="TextureRectFX" type="TextureRect" parent="."]
 modulate = Color( 0.909804, 0.694118, 1, 0.513726 )
-material = SubResource( 11 )
+material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 7 )
@@ -341,7 +341,7 @@ margin_left = -152.0
 margin_top = -61.1865
 margin_right = 152.0
 margin_bottom = 38.8135
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Game Over"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -356,7 +356,7 @@ margin_left = -152.0
 margin_top = 38.8135
 margin_right = 152.0
 margin_bottom = 138.813
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "Score: 0000"
 align = 1
 __meta__ = {

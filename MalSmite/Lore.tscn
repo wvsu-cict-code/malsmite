@@ -270,18 +270,18 @@ shader_param/vignette_opacity = 0.5
 size = 60
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 30
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=5]
 size = 90
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 2.0
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "EmblemLoop"
 length = 10.0
 tracks/0/type = "value"
@@ -330,12 +330,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -608.0
-margin_top = 27.7795
-margin_right = 608.0
-margin_bottom = 102.78
+anchor_right = 1.0
+margin_left = 50.0
+margin_top = 30.0
+margin_bottom = 75.0
 custom_fonts/font = SubResource( 3 )
 text = "Lore"
 __meta__ = {
@@ -343,13 +341,13 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -608.0
-margin_top = 103.0
-margin_right = 608.0
-margin_bottom = 563.0
-custom_fonts/normal_font = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 120.0
+margin_right = -200.0
+margin_bottom = -20.0
+custom_fonts/normal_font = SubResource( 4 )
 text = "The world is full of terror, and darkness prevails. Humanity used to betray the trust of the world. All the time, they disregard the warnings of nature concerning their evilness. Thereupon, when the world no longer endures the pain, it starts collecting the charges of their wrongdoings.
 
 Humanity discredited the happenings. As a result, they formed a training ground to assemble humanity that will combat the unseen viruses that threaten the lives of humankind by bordering the passageways of villages and killing thousands of beings.
@@ -362,7 +360,7 @@ One time the CICT found out that one of their teachers was missing. They searche
 
 Caleb, an extraordinary student, was bothered in his sleep because he saw strange things in his dream that are related to the recent happenings in the school. So, he went out for a night stroll to have peace of mind.
 
-Caleb passes the dormitories of his teachers to make sure that no one is awake. When he is about to step on the next stair, he heard his teachers were talking about the recent tragedy, and they were afraid that it might be the end of the school. Suddenly, he heard the school alarm, indicating the school at risk. All students and teachers woke up, and they began to panic.
+Caleb passes the dormitories of his teachers to make sure that no one is awake. When he is about to step on the next stair, he heard his teachers were talking about the recent tragedy, and they were afraid that it might be the end of the school. Suddenly, he heard the school alarm, indicating the school was at risk. All students and teachers woke up, and they began to panic.
 
 Caleb was too afraid. When he realized that the room forbidden for students besides the teacher’s dormitory was left open, he went inside to hide. There he saw one of the computers was left open. Caleb is afraid that something wrong is happening to him. The viruses suddenly became visible in his eyes, and he saw his teachers that were gone. He then knows that they were in a virtual world.
 
@@ -370,7 +368,7 @@ The unseen viruses in the real world are called malware inside the computer. The
 
 As he saves his teachers, he will face different levels that are increasing depending on his progress. If he rescues his teacher, they will now become his companion. Together they quest to unlock the mystery about the origin of the virus.
 
-Since Caleb was seven years old, he always has a strange dream that keeps bothering him up to the present. He can always see his father, a former programmer in a Technological University. He remembered his father creating a portal connecting two dimensions, the physical world, and the virtual world. Caleb also recognizes that his father Bran had designed the 1984 RPG shooting games. Considering his father a well-known game developer and programmer of all time, he always wanted his game to be exceptional, so at some point, he uses the portal to transport in the other dimension for a game trial. There in his game, his goal is to eliminate enemies virtually. Sadly, Bran cannot go back to the real world. From then on, Caleb became an orphan.
+Since Caleb was seven years old, he always has a strange dream that keeps bothering him up to the present. He can always see his father, a former programmer in a Technological University. He remembered his father creating a portal connecting two dimensions, the physical world, and the virtual world. Caleb also recognizes that his father Bran had designed the 1984 RPG shooting games. Considering his father was a well-known game developer and programmer of all time, he always wanted his game to be exceptional, so at some point, he uses the portal to transport in the other dimension for a game trial. There in his game, his goal is to eliminate enemies virtually. Sadly, Bran cannot go back to the real world. From then on, Caleb became an orphan.
 
 Fifteen years later, a pandemic happened. There Caleb became one of the students in the CICT.
 
@@ -386,13 +384,11 @@ __meta__ = {
 
 [node name="OKButton" type="TextureButton" parent="CanvasLayer"]
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -176.0
-margin_top = -157.0
-margin_right = 280.0
-margin_bottom = 262.0
+margin_left = -199.421
+margin_top = 22.75
+margin_right = 256.579
+margin_bottom = 441.75
 rect_scale = Vector2( 0.35, 0.35 )
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
@@ -409,7 +405,7 @@ margin_top = 65.0
 margin_right = -167.0
 margin_bottom = 260.0
 rect_scale = Vector2( 1.46248, 1.46248 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 1, 0.741176, 1 )
 text = "OK"
 align = 1
@@ -425,7 +421,7 @@ autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "New Anim"
-"anims/New Anim" = SubResource( 7 )
+"anims/New Anim" = SubResource( 6 )
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
@@ -437,7 +433,7 @@ autoplay = true
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 autoplay = "EmblemLoop"
 playback_speed = 0.2
-anims/EmblemLoop = SubResource( 8 )
+anims/EmblemLoop = SubResource( 7 )
 
 [connection signal="pressed" from="CanvasLayer/OKButton" to="." method="_on_OKButton_pressed"]
 [connection signal="finished" from="Click" to="." method="_on_Click_finished"]

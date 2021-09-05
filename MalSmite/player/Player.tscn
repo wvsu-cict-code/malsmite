@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://gui/joystick/Joystick.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://level/hex_shader.tres" type="Material" id=13]
 [ext_resource path="res://gui/health-bg.png" type="Texture" id=14]
 [ext_resource path="res://audio/forceField_001.wav" type="AudioStream" id=15]
+[ext_resource path="res://fonts/Roboto-Bold.ttf" type="DynamicFontData" id=16]
 
 [sub_resource type="QuadMesh" id=1]
 material = ExtResource( 5 )
@@ -145,6 +146,10 @@ tracks/0/keys = {
 [sub_resource type="ViewportTexture" id=13]
 viewport_path = NodePath("Health/Viewport")
 
+[sub_resource type="DynamicFont" id=15]
+size = 14
+font_data = ExtResource( 16 )
+
 [sub_resource type="SphereShape" id=14]
 radius = 0.209291
 
@@ -155,7 +160,6 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36322, 2.41485, 0 )
 
 [node name="Root" type="Spatial" parent="MainController"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="BoosterFast" parent="MainController/Root" instance=ExtResource( 6 )]
 transform = Transform( 0.0129334, -0.644309, -0.882069, 0.0432077, 0.811333, -0.58325, 0.999323, -0.0338733, 0.0276224, -1.75059, 2.72439, 0.604274 )
@@ -313,8 +317,9 @@ usage = 0
 render_target_v_flip = true
 
 [node name="TextureProgress" type="TextureProgress" parent="Health/Viewport"]
+margin_top = 20.0
 margin_right = 451.0
-margin_bottom = 67.0
+margin_bottom = 87.0
 rect_scale = Vector2( 0.2, 0.2 )
 max_value = 200.0
 value = 200.0
@@ -325,9 +330,9 @@ __meta__ = {
 }
 
 [node name="Energy" type="TextureProgress" parent="Health/Viewport"]
-margin_top = 15.0
+margin_top = 30.0
 margin_right = 451.0
-margin_bottom = 82.0
+margin_bottom = 97.0
 rect_scale = Vector2( 0.18, 0.1 )
 max_value = 20.0
 value = 20.0
@@ -336,6 +341,13 @@ texture_progress = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="Health/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 15 )
+text = "Caleb"
 
 [node name="Area" type="Area" parent="."]
 transform = Transform( 11, 0, 0, 0, 11, 0, 0, 0, 11, 2.81991, 3.9367, 0 )
@@ -364,6 +376,7 @@ far = 300.0
 stream = ExtResource( 15 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="Joystick" parent="CanvasLayer" instance=ExtResource( 2 )]
 margin_left = 58.2704
